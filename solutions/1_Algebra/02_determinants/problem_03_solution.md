@@ -1,112 +1,77 @@
+### Exercise 3. Swapping Two Rows
 
-# Problem 03 – Swapping Two Rows
+For
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 & 0 \\
+0 & 3 & 1 \\
+2 & 1 & 1 \\
+\end{pmatrix}
+$$
+
+compute $\det A$. Then form a matrix $B$ by swapping the first and second rows of $A$.
+
+First predict $\det B$ using a determinant property, and then verify your prediction by calculation.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing $\det A$
 
-\[
-A = \begin{pmatrix}
-1 & 2 & 0 \\
-0 & 3 & 1 \\
-2 & 1 & 1
-\end{pmatrix}
-\]
+To compute the determinant of $A$, we can expand along the first row or use Sarrus' rule. Using Sarrus' rule:
 
-### 1. Calculate the determinant of A
+$$
+\det A = 1 \cdot \det\begin{pmatrix} 3 & 1 \\ 1 & 1 \end{pmatrix} - 2 \cdot \det\begin{pmatrix} 0 & 1 \\ 2 & 1 \end{pmatrix} + 0 \cdot \det\begin{pmatrix} 0 & 3 \\ 2 & 1 \end{pmatrix}
+$$
 
-Using the determinant formula for a 3x3 matrix:
+Evaluating the $2 \times 2$ determinants:
 
-\[
-\det(A)=
-1(3\cdot1-1\cdot1)
--2(0\cdot1-1\cdot2)
-+0
-\]
+$$
+\det A = 1(3 \cdot 1 - 1 \cdot 1) - 2(0 \cdot 1 - 1 \cdot 2) + 0 = 1(2) - 2(-2) = 2 + 4 = 6
+$$
 
-Simplifying:
+Thus, $\det A = 6$.
 
-\[
-\det(A)=1(3-1)-2(0-2)
-\]
+### 2. Predicting $\det B$ Using Determinant Properties
 
-\[
-\det(A)=2+4
-\]
+By definition, the matrix $B$ is formed by swapping the first and second rows of $A$. 
 
-\[
-\boxed{\det(A)=6}
-\]
+A fundamental property of determinants states that **swapping any two rows of a matrix multiplies the determinant by $-1$**. Therefore, we predict that:
 
-### 2. Form matrix B by swapping the first and second rows
+$$
+\det B = -\det A = -6
+$$
 
-After swapping the first and second rows, we obtain:
+### 3. Verifying the Prediction by Direct Calculation
 
-\[
-B = \begin{pmatrix}
+First, we construct matrix $B$ by swapping rows $R_1$ and $R_2$ of $A$:
+
+$$
+B =
+\begin{pmatrix}
 0 & 3 & 1 \\
 1 & 2 & 0 \\
-2 & 1 & 1
+2 & 1 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-### 3. Predict the determinant of B
+Next, we compute $\det B$ by expanding along the first row:
 
-One important property of determinants states that swapping two rows changes the sign of the determinant.
+$$
+\det B = 0 \cdot \det\begin{pmatrix} 2 & 0 \\ 1 & 1 \end{pmatrix} - 3 \cdot \det\begin{pmatrix} 1 & 0 \\ 2 & 1 \end{pmatrix} + 1 \cdot \det\begin{pmatrix} 1 & 2 \\ 2 & 1 \end{pmatrix}
+$$
 
-Therefore:
+Evaluating each term:
 
-\[
-\det(B)=-\det(A)
-\]
+$$
+\det B = 0 - 3(1 \cdot 1 - 0 \cdot 2) + 1(1 \cdot 1 - 2 \cdot 2) = -3(1) + 1(-3) = -3 - 3 = -6
+$$
 
-Since:
+The direct calculation yields $\det B = -6$, which perfectly matches our theoretical prediction.
 
-\[
-\det(A)=6
-\]
+ 
 
-We predict:
-
-\[
-\boxed{\det(B)=-6}
-\]
-
-### 4. Verify the result by calculation
-
-Calculating the determinant of B:
-
-\[
-\det(B)=
-0(2\cdot1-0\cdot1)
--3(1\cdot1-0\cdot2)
-+1(1\cdot1-2\cdot2)
-\]
-
-Simplifying:
-
-\[
-\det(B)=0-3(1)+(1-4)
-\]
-
-\[
-\det(B)=-3-3
-\]
-
-\[
-\boxed{\det(B)=-6}
-\]
-
-The calculated result agrees with our prediction.
-
-### Final Answer
-
-\[
-\boxed{\det(A)=6}
-\]
-
-\[
-\boxed{\det(B)=-6}
-\]
-
-Swapping two rows of a matrix changes the sign of its determinant but does not change its absolute value.
+ 
