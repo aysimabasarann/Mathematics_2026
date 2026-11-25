@@ -1,92 +1,69 @@
+### Exercise 14. Rotation Matrices
 
-# Problem 14 – Rotation Matrices
+**Problem:**
+
+The matrix for a rotation through an angle $\theta$ is
+
+$$
+R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}.
+$$
+
+Compute $R(\alpha)R(\beta)$ and, using the angle-sum formulas for sine and cosine, show that
+
+$$
+R(\alpha)R(\beta) = R(\alpha+\beta).
+$$
+
+Explain the result geometrically.
+
+---
 
 ## Solution
 
-The rotation matrix is:
+### 1. Computing the Product $R(\alpha)R(\beta)$
 
-\[
-R(\theta) =
-\begin{pmatrix}
-\cos\theta & -\sin\theta \\
-\sin\theta & \cos\theta
-\end{pmatrix}
-\]
+We multiply the two rotation matrices corresponding to angles $\alpha$ and $\beta$:
 
-### 1. Calculate R(α)R(β)
+$$
+R(\alpha)R(\beta) = \begin{pmatrix} \cos\alpha & -\sin\alpha \\ \sin\alpha & \cos\alpha \end{pmatrix} \begin{pmatrix} \cos\beta & -\sin\beta \\ \sin\beta & \cos\beta \end{pmatrix}
+$$
 
-We write both matrices:
+Carrying out matrix multiplication:
 
-\[
-R(\alpha) =
-\begin{pmatrix}
-\cos\alpha & -\sin\alpha \\
-\sin\alpha & \cos\alpha
-\end{pmatrix}
-\]
+$$
+R(\alpha)R(\beta) = \begin{pmatrix} (\cos\alpha)(\cos\beta) + (-\sin\alpha)(\sin\beta) & (\cos\alpha)(-\sin\beta) + (-\sin\alpha)(\cos\beta) \\ (\sin\alpha)(\cos\beta) + (\cos\alpha)(\sin\beta) & (\sin\alpha)(-\sin\beta) + (\cos\alpha)(\cos\beta) \end{pmatrix}
+$$
 
-\[
-R(\beta) =
-\begin{pmatrix}
-\cos\beta & -\sin\beta \\
-\sin\beta & \cos\beta
-\end{pmatrix}
-\]
+Rewriting the entries neatly:
 
-Now multiply them:
+$$
+R(\alpha)R(\beta) = \begin{pmatrix} \cos\alpha\cos\beta - \sin\alpha\sin\beta & -(\sin\alpha\cos\beta + \cos\alpha\sin\beta) \\ \sin\alpha\cos\beta + \cos\alpha\sin\beta & \cos\alpha\cos\beta - \sin\alpha\sin\beta \end{pmatrix}
+$$
 
-\[
-R(\alpha)R(\beta) =
-\begin{pmatrix}
-\cos\alpha\cos\beta-\sin\alpha\sin\beta &
--\cos\alpha\sin\beta-\sin\alpha\cos\beta \\
-\sin\alpha\cos\beta+\cos\alpha\sin\beta &
--\sin\alpha\sin\beta+\cos\alpha\cos\beta
-\end{pmatrix}
-\]
+### 2. Applying Trigonometric Angle-Sum Formulas
 
-### 2. Apply the angle-sum formulas
+Using the standard angle-sum trigonometric identities:
+* $\cos(\alpha + \beta) = \cos\alpha\cos\beta - \sin\alpha\sin\beta$
+* $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$
 
-Using the trigonometric identities:
+Substituting these identities into each entry of our product matrix:
 
-\[
-\cos(\alpha+\beta)=
-\cos\alpha\cos\beta-\sin\alpha\sin\beta
-\]
+$$
+R(\alpha)R(\beta) = \begin{pmatrix} \cos(\alpha + \beta) & -\sin(\alpha + \beta) \\ \sin(\alpha + \beta) & \cos(\alpha + \beta) \end{pmatrix}
+$$
 
-\[
-\sin(\alpha+\beta)=
-\sin\alpha\cos\beta+\cos\alpha\sin\beta
-\]
+By definition of the rotation matrix, this final matrix is precisely $R(\alpha + \beta)$:
 
-We obtain:
+$$
+R(\alpha)R(\beta) = R(\alpha + \beta)
+$$
 
-\[
-R(\alpha)R(\beta) =
-\begin{pmatrix}
-\cos(\alpha+\beta) & -\sin(\alpha+\beta) \\
-\sin(\alpha+\beta) & \cos(\alpha+\beta)
-\end{pmatrix}
-\]
+### 3. Geometric Explanation
 
-Therefore,
+**Geometric Interpretation:**
+Matrix multiplication of rotation matrices represents the composition of linear geometric transformations. 
+* Multiplying by $R(\beta)$ first rotates a vector by an angle $\beta$ around the origin.
+* Subsequent multiplication by $R(\alpha)$ rotates that resulting vector by an additional angle $\alpha$.
 
-\[
-\boxed{R(\alpha)R(\beta)=R(\alpha+\beta)}
-\]
+Rotating a vector first by $\beta$ and then by $\alpha$ in the counterclockwise direction is geometrically equivalent to performing a single rotation by the combined angle $\alpha + \beta$. Thus, matrix multiplication accurately reflects the composition of rotational geometry.
 
-### 3. Geometrical explanation
-
-A rotation by an angle β followed by a rotation by an angle α is equivalent to a single rotation by the sum of these angles.
-
-Both rotations are performed around the same origin and in the same direction.
-
-Therefore, the total rotation angle is α + β.
-
-### Final Answer
-
-\[
-\boxed{R(\alpha)R(\beta)=R(\alpha+\beta)}
-\]
-
-The composition of two rotations is another rotation whose angle is the sum of the original angles.
