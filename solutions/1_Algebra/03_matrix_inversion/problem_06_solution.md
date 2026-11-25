@@ -60,7 +60,7 @@ x = \frac{1}{5}
 \end{pmatrix}
 $$
 
-Evaluating the matrix product:
+Multiplying the matrices inside:
 
 $$
 x = \frac{1}{5}
@@ -70,7 +70,7 @@ x = \frac{1}{5}
 \end{pmatrix}
 $$
 
-Simplifying the entries:
+Evaluating the arithmetic in each entry:
 
 $$
 x = \frac{1}{5}
@@ -78,12 +78,22 @@ x = \frac{1}{5}
 15 - 7 \\
 -5 + 14 \\
 \end{pmatrix}
-= \frac{1}{5}
+$$
+
+Simplifying to a single column vector:
+
+$$
+x = \frac{1}{5}
 \begin{pmatrix}
 8 \\
 9 \\
 \end{pmatrix}
-=
+$$
+
+Multiplying by the scalar $\frac{1}{5}$:
+
+$$
+x =
 \begin{pmatrix}
 \frac{8}{5} \\
 \frac{9}{5} \\
@@ -92,7 +102,7 @@ $$
 
 ### 3. Verification by Substitution
 
-To check the solution, we compute $Ax$ using separate display blocks:
+To check the solution, we compute $Ax$ step by step. First, substitute the vectors:
 
 $$
 Ax =
@@ -106,7 +116,7 @@ Ax =
 \end{pmatrix}
 $$
 
-Multiplying out the entries:
+Write out the matrix multiplication:
 
 $$
 Ax =
@@ -116,7 +126,7 @@ Ax =
 \end{pmatrix}
 $$
 
-Combining terms:
+Perform the multiplications:
 
 $$
 Ax =
@@ -124,12 +134,22 @@ Ax =
 \frac{16}{5} + \frac{9}{5} \\
 \frac{8}{5} + \frac{27}{5} \\
 \end{pmatrix}
-=
+$$
+
+Add the fractions:
+
+$$
+Ax =
 \begin{pmatrix}
 \frac{25}{5} \\
 \frac{35}{5} \\
 \end{pmatrix}
-=
+$$
+
+Simplify the result:
+
+$$
+Ax =
 \begin{pmatrix}
 5 \\
 7 \\
@@ -137,7 +157,10 @@ Ax =
 = b
 $$
 
-Since $Ax = b$ holds true, the solution $x = \begin{pmatrix} \frac{8}{5} \\ \frac{9}{5} \end{pmatrix}$ is verified.
+Since $Ax = b$ holds true, the solution is verified.
+ 
+
+
 
 
 
