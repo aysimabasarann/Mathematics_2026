@@ -1,102 +1,88 @@
+### Exercise 1. Definition of the Inverse
 
-# Exercise 1 – Definition of the Inverse
+For
+
+$$
+A=
+\begin{pmatrix}
+2 & 1 \\
+1 & 1 \\
+\end{pmatrix},\qquad B=
+\begin{pmatrix}
+1 & -1 \\
+-1 & 2 \\
+\end{pmatrix}
+$$
+
+check, without using a formula, whether $B=A^{-1}$. Compute $AB$ and $BA$ and relate the result to the definition of the inverse.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing the Products $AB$ and $BA$
 
-\[
-A=
+To check whether $B$ is the inverse of $A$ without using an explicit inverse formula, we compute the matrix products $AB$ and $BA$.
+
+First, we compute the product $AB$:
+
+$$
+AB =
 \begin{pmatrix}
-2&1\\
-1&1
-\end{pmatrix},
-\qquad
-B=
-\begin{pmatrix}
-1&-1\\
--1&2
-\end{pmatrix}
-\]
-
-We need to check whether \(B=A^{-1}\) without using an inverse formula.
-
-### Step 1. Calculate AB
-
-\[
-AB=
-\begin{pmatrix}
-2&1\\
-1&1
+2 & 1 \\
+1 & 1 \\
 \end{pmatrix}
 \begin{pmatrix}
-1&-1\\
--1&2
+1 & -1 \\
+-1 & 2 \\
 \end{pmatrix}
-\]
-
-\[
 =
 \begin{pmatrix}
-2-1&-2+2\\
-1-1&-1+2
+(2)(1) + (1)(-1) & (2)(-1) + (1)(2) \\
+(1)(1) + (1)(-1) & (1)(-1) + (1)(2) \\
 \end{pmatrix}
-\]
-
-\[
-AB=
-\begin{pmatrix}
-1&0\\
-0&1
-\end{pmatrix}
-=I
-\]
-
-### Step 2. Calculate BA
-
-\[
-BA=
-\begin{pmatrix}
-1&-1\\
--1&2
-\end{pmatrix}
-\begin{pmatrix}
-2&1\\
-1&1
-\end{pmatrix}
-\]
-
-\[
 =
 \begin{pmatrix}
-2-1&1-1\\
--2+2&-1+2
+1 & 0 \\
+0 & 1 \\
 \end{pmatrix}
-\]
+= I
+$$
 
-\[
-BA=
+Next, we compute the product $BA$:
+
+$$
+BA =
 \begin{pmatrix}
-1&0\\
-0&1
+1 & -1 \\
+-1 & 2 \\
 \end{pmatrix}
-=I
-\]
+\begin{pmatrix}
+2 & 1 \\
+1 & 1 \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+(1)(2) + (-1)(1) & (1)(1) + (-1)(1) \\
+(-1)(2) + (2)(1) & (-1)(1) + (2)(1) \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix}
+= I
+$$
 
-### Step 3. Relate the result to the definition of the inverse
+### 2. Relation to the Definition of the Inverse
 
-A matrix \(B\) is the inverse of \(A\) if:
+By definition, a square matrix $B$ is the inverse of a square matrix $A$ (denoted as $B = A^{-1}$) if and only if multiplying them in either order yields the identity matrix $I$:
 
-\[
-AB=BA=I
-\]
+$$
+AB = BA = I
+$$
 
-Since both products are equal to the identity matrix, \(B\) is the inverse of \(A\).
+Since both $AB = I$ and $BA = I$ hold true for the given matrices, we conclude without any formula that $B = A^{-1}$.
 
-### Final Answer
 
-\[
-\boxed{B=A^{-1}}
-\]
 
-The matrix \(B\) is the inverse of \(A\) because multiplying them in either order gives the identity matrix.
