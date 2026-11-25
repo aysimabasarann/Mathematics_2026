@@ -1,95 +1,71 @@
+### Exercise 13. Determinant by Elimination
 
-# Exercise 13 – Determinant by Elimination
+Compute the determinant
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 5 & 7 \\
+1 & 0 & 2 \\
+\end{pmatrix}
+$$
+
+using elimination. Record the effect of every row operation used on the value of the determinant.
+
+---
 
 ## Solution
 
-Given:
+### 1. Eliminating Entries Below the Main Diagonal
 
-\[
-A=
+We use elementary row operations to reduce matrix $A$ to upper-triangular form while tracking the effect of each operation on $\det A$.
+
+**Step 1:** Eliminate the entries below the pivot $1$ in the first column by applying:
+
+$$
+R_2 \leftarrow R_2 - 2R_1, \qquad R_3 \leftarrow R_3 - R_1
+$$
+
+* **Effect on determinant:** Adding a multiple of one row to another **does not change the value of the determinant**.
+
+$$
+A_1 =
 \begin{pmatrix}
-1&2&3\\
-2&5&7\\
-1&0&2
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & -2 & -1 \\
 \end{pmatrix}
-\]
+$$
 
-### Step 1. Eliminate the first column
+**Step 2:** Eliminate the entry below the pivot $1$ in the second column by applying:
 
-First, perform:
+$$
+R_3 \leftarrow R_3 + 2R_2
+$$
 
-\[
-R_2\leftarrow R_2-2R_1
-\]
+* **Effect on determinant:** Adding a multiple of one row to another **again leaves the determinant unchanged**.
 
-Then:
-
-\[
-R_3\leftarrow R_3-R_1
-\]
-
-The matrix becomes:
-
-\[
+$$
+A_2 =
 \begin{pmatrix}
-1&2&3\\
-0&1&1\\
-0&-2&-1
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & 0 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-These operations do not change the determinant.
+### 2. Computing the Determinant
 
-### Step 2. Eliminate the second column
+Since $A_2$ is upper-triangular, its determinant is the product of its main diagonal entries:
 
-Perform:
+$$
+\det A_2 = (1)(1)(1) = 1
+$$
 
-\[
-R_3\leftarrow R_3+2R_2
-\]
+Because none of the row operations altered the value of the determinant ($\det A = \det A_1 = \det A_2$), we conclude that:
 
-We obtain:
+$$
+\det A = 1
+$$
 
-\[
-\begin{pmatrix}
-1&2&3\\
-0&1&1\\
-0&0&1
-\end{pmatrix}
-\]
-
-This operation also does not change the determinant.
-
-### Step 3. Calculate the determinant
-
-The resulting matrix is upper triangular.
-
-Therefore, its determinant is the product of its diagonal entries:
-
-\[
-\det(A)=1\cdot1\cdot1
-\]
-
-\[
-\boxed{\det(A)=1}
-\]
-
-### Step 4. Explain the effect of row operations
-
-All operations used were of the form:
-
-\[
-R_i\leftarrow R_i+kR_j
-\]
-
-These operations do not change the determinant.
-
-No rows were exchanged and no row was multiplied by a scalar.
-
-### Final Answer
-
-\[
-\boxed{\det(A)=1}
-\]
-
-The determinant remains unchanged throughout the elimination process because adding a multiple of one row to another row does not affect the determinant.
