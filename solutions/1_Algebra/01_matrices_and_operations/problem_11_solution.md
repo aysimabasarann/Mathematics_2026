@@ -1,110 +1,145 @@
+### Exercise 11. When Do Matrices Commute?
 
-# Problem 11 – When Do Matrices Commute?
+**Problem:**
+
+Given
+
+$$
+A = \begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix},\qquad B = \begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}.
+$$
+
+Find the conditions on $a, b, c, d$ under which $AB = BA$. Describe the general form of all such matrices $B$.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing the Product $AB$
 
-\[
-A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix},
-\quad
-B = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
-\]
+First, we multiply $A$ on the left by $B$ on the right:
 
-### 1. Calculate AB
-
-\[
-AB =
-\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
-\begin{pmatrix} a & b \\ c & d \end{pmatrix}
-\]
-
-\[
-AB =
+$$
+AB = \begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
 \begin{pmatrix}
-a+c & b+d \\
+a & b \\
 c & d
 \end{pmatrix}
-\]
-
-### 2. Calculate BA
-
-\[
-BA =
-\begin{pmatrix} a & b \\ c & d \end{pmatrix}
-\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
-\]
-
-\[
-BA =
-\begin{pmatrix}
-a & a+b \\
-c & c+d
+= \begin{pmatrix}
+(1)(a) + (1)(c) & (1)(b) + (1)(d) \\
+(0)(a) + (1)(c) & (0)(b) + (1)(d)
 \end{pmatrix}
-\]
+= \begin{pmatrix}
+a + c & b + d \\
+c & d
+\end{pmatrix}
+$$
 
-### 3. Find the conditions for AB = BA
+### 2. Computing the Product $BA$
 
-For the matrices to be equal, their corresponding entries must be equal.
+Next, we multiply $B$ on the left by $A$ on the right:
 
-\[
-a+c=a
-\]
+$$
+BA = \begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+= \begin{pmatrix}
+(a)(1) + (b)(0) & (a)(1) + (b)(1) \\
+(c)(1) + (d)(0) & (c)(1) + (d)(1)
+\end{pmatrix}
+= \begin{pmatrix}
+a & a + b \\
+c & c + d
+\end{pmatrix}
+$$
 
-\[
-b+d=a+b
-\]
+### 3. Equating $AB$ and $BA$ to Find Conditions
 
-\[
-c=c
-\]
+For $AB = BA$ to hold, every corresponding entry of the two resulting matrices must be equal:
 
-\[
-d=c+d
-\]
+$$
+\begin{pmatrix}
+a + c & b + d \\
+c & d
+\end{pmatrix}
+=
+\begin{pmatrix}
+a & a + b \\
+c & c + d
+\end{pmatrix}
+$$
 
-Simplifying these equations:
+Comparing the entries one by one gives the following system of equations:
 
-\[
-c=0
-\]
+1. Top-left entry: $a + c = a \implies c = 0$
+2. Top-right entry: $b + d = a + b \implies d = a$
+3. Bottom-left entry: $c = c$ (always satisfied)
+4. Bottom-right entry: $d = c + d \implies c = 0$
 
-\[
-d=a
-\]
+Thus, the necessary and sufficient conditions for $AB = BA$ are:
 
-The third equation is automatically satisfied.
+$$
+c = 0, \qquad a = d
+$$
 
-Therefore, the conditions are:
+### 4. General Form and Verification
 
-\[
-c=0,\quad d=a
-\]
+Substituting $c = 0$ and $d = a$ into $B$, every matrix $B$ that commutes with $A$ has the general upper-triangular form:
 
-### 4. General form of matrix B
+$$
+B = \begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+$$
 
-Substituting these conditions into B:
+where $a$ and $b$ are arbitrary real numbers.
 
-\[
-B = \begin{pmatrix} a & b \\ 0 & a \end{pmatrix}
-\]
+**Verification:**
+Checking the products with this general form confirms commutativity:
 
-Here, a and b can be any real numbers.
+$$
+AB = \begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+= \begin{pmatrix}
+a & a + b \\
+0 & a
+\end{pmatrix}
+$$
 
-### Final Answer
+$$
+BA = \begin{pmatrix}
+a & b \\
+0 & a
+\end{pmatrix}
+\begin{pmatrix}
+1 & 1 \\
+0 & 1
+\end{pmatrix}
+= \begin{pmatrix}
+a & a + b \\
+0 & a
+\end{pmatrix}
+$$
 
-The matrices commute when:
+Since $AB = BA$ holds for all $a, b \in \mathbb{R}$, the result is verified.
 
-\[
-\boxed{c=0,\quad d=a}
-\]
-
-The general form of all such matrices is:
-
-\[
-\boxed{
-B = \begin{pmatrix} a & b \\ 0 & a \end{pmatrix}
-}
-\]
-
-Thus, AB = BA only when B has this form.
