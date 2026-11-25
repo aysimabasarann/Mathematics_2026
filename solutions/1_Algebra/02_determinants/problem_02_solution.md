@@ -1,116 +1,84 @@
+### Exercise 2. Determinant of a 3×3 Matrix
 
-# Problem 02 – Determinant of a 3x3 Matrix
+For
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 & -1 \\
+0 & 3 & 4 \\
+2 & 1 & 5 \\
+\end{pmatrix}
+$$
+
+compute $\det A$ using Sarrus' rule. Then perform one simple check using a chosen property of the determinant.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing $\det A$ Using Sarrus' Rule
 
-\[
-A = \begin{pmatrix}
+To apply Sarrus' rule, we repeat the first two columns of $A$ to the right of the matrix:
+
+$$
+\begin{pmatrix}
+1 & 2 & -1 & \mid & 1 & 2 \\
+0 & 3 & 4 & \mid & 0 & 3 \\
+2 & 1 & 5 & \mid & 2 & 1 \\
+\end{pmatrix}
+$$
+
+Next, we compute the sum of the products along the three main diagonals (top-left to bottom-right):
+
+$$
+D_1 = (1)(3)(5) + (2)(4)(2) + (-1)(0)(1) = 15 + 16 + 0 = 31
+$$
+
+Then, we compute the sum of the products along the three anti-diagonals (bottom-left to top-right):
+
+$$
+D_2 = (2)(3)(-1) + (1)(4)(1) + (5)(0)(2) = -6 + 4 + 0 = -2
+$$
+
+Subtracting $D_2$ from $D_1$ yields the determinant:
+
+$$
+\det A = D_1 - D_2 = 31 - (-2) = 33
+$$
+
+### 2. Verification Using a Determinant Property
+
+We use the property that adding a multiple of one row to another row does not change the determinant.
+
+Applying the row operation $R_3 \leftarrow R_3 - 2R_1$ to eliminate the bottom-left entry produces an equivalent matrix $B$ with $\det B = \det A$:
+
+$$
+B =
+\begin{pmatrix}
 1 & 2 & -1 \\
 0 & 3 & 4 \\
-2 & 1 & 5
+0 & -3 & 7 \\
 \end{pmatrix}
-\]
+$$
 
-### 1. Calculate the determinant using Sarrus' rule
+Next, applying $R_3 \leftarrow R_3 + R_2$ yields an upper-triangular matrix $U$ with $\det U = \det A$:
 
-For a 3x3 matrix, Sarrus' rule gives:
-
-\[
-\det(A) =
-aei+bfg+cdh-ceg-bdi-afh
-\]
-
-Substituting the matrix entries:
-
-\[
-\det(A) =
-(1\cdot3\cdot5)
-+(2\cdot4\cdot2)
-+(-1\cdot0\cdot1)
-\]
-
-\[
--(-1\cdot3\cdot2)
--(2\cdot0\cdot5)
--(1\cdot4\cdot1)
-\]
-
-Calculate the positive diagonals:
-
-\[
-15+16+0=31
-\]
-
-Calculate the negative diagonals:
-
-\[
--6+0+4=-2
-\]
-
-Therefore:
-
-\[
-\det(A)=31-(-2)
-\]
-
-\[
-\boxed{\det(A)=33}
-\]
-
-### 2. Check using a determinant property
-
-Adding a multiple of one row to another row does not change the determinant.
-
-Apply the operation:
-
-\[
-R_3 \leftarrow R_3-2R_1
-\]
-
-The new matrix becomes:
-
-\[
-A' = \begin{pmatrix}
+$$
+U =
+\begin{pmatrix}
 1 & 2 & -1 \\
 0 & 3 & 4 \\
-0 & -3 & 7
+0 & 0 & 11 \\
 \end{pmatrix}
-\]
+$$
 
-Expanding along the first column:
+The determinant of an upper-triangular matrix is the product of its main diagonal entries:
 
-\[
-\det(A') =
-1\begin{vmatrix}
-3 & 4 \\
--3 & 7
-\end{vmatrix}
-\]
+$$
+\det A = \det U = (1)(3)(11) = 33
+$$
 
-\[
-\det(A')=1(3\cdot7-4\cdot(-3))
-\]
+Both methods give $33$, confirming the result.
 
-\[
-\det(A')=21+12
-\]
-
-\[
-\det(A')=33
-\]
-
-Since the row operation does not change the determinant:
-
-\[
-\det(A)=\det(A')=33
-\]
-
-### Final Answer
-
-\[
-\boxed{\det(A)=33}
-\]
-
-Both calculations give the same result, so the determinant is verified.
+  
