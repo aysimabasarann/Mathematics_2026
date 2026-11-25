@@ -1,4 +1,4 @@
-### Exercise 1. Definition of the Inverse
+ ### Exercise 1. Definition of the Inverse
 
 For
 
@@ -27,7 +27,8 @@ To check whether $B$ is the inverse of $A$ without using an explicit inverse for
 First, we compute the product $AB$:
 
 $$
-AB =
+\begin{aligned}
+AB &=
 \begin{pmatrix}
 2 & 1 \\
 1 & 1 \\
@@ -35,24 +36,26 @@ AB =
 \begin{pmatrix}
 1 & -1 \\
 -1 & 2 \\
-\end{pmatrix}
-=
+\end{pmatrix} \\
+&=
 \begin{pmatrix}
 (2)(1) + (1)(-1) & (2)(-1) + (1)(2) \\
 (1)(1) + (1)(-1) & (1)(-1) + (1)(2) \\
-\end{pmatrix}
-=
+\end{pmatrix} \\
+&=
 \begin{pmatrix}
 1 & 0 \\
 0 & 1 \\
 \end{pmatrix}
 = I
+\end{aligned}
 $$
 
 Next, we compute the product $BA$:
 
 $$
-BA =
+\begin{aligned}
+BA &=
 \begin{pmatrix}
 1 & -1 \\
 -1 & 2 \\
@@ -60,18 +63,19 @@ BA =
 \begin{pmatrix}
 2 & 1 \\
 1 & 1 \\
-\end{pmatrix}
-=
+\end{pmatrix} \\
+&=
 \begin{pmatrix}
 (1)(2) + (-1)(1) & (1)(1) + (-1)(1) \\
 (-1)(2) + (2)(1) & (-1)(1) + (2)(1) \\
-\end{pmatrix}
-=
+\end{pmatrix} \\
+&=
 \begin{pmatrix}
 1 & 0 \\
 0 & 1 \\
 \end{pmatrix}
 = I
+\end{aligned}
 $$
 
 ### 2. Relation to the Definition of the Inverse
@@ -83,6 +87,7 @@ AB = BA = I
 $$
 
 Since both $AB = I$ and $BA = I$ hold true for the given matrices, we conclude without any formula that $B = A^{-1}$.
+
 
 
 
