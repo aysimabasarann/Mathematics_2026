@@ -126,7 +126,7 @@ B^{-1} = \frac{1}{6}
 \end{pmatrix}
 $$
 
-Simplifying $B^{-1}$:
+Multiplying by the scalar $\frac{1}{6}$:
 
 $$
 B^{-1} =
@@ -134,7 +134,12 @@ B^{-1} =
 \frac{3}{6} & 0 \\
 0 & \frac{2}{6} \\
 \end{pmatrix}
-=
+$$
+
+Simplifying the fractions:
+
+$$
+B^{-1} =
 \begin{pmatrix}
 \frac{1}{2} & 0 \\
 0 & \frac{1}{3} \\
