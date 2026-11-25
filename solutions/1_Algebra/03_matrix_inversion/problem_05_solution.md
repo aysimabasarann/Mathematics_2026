@@ -1,207 +1,133 @@
+### Exercise 5. A 3×3 Matrix
 
-# Exercise 5 – A 3×3 Matrix
+Use Gauss–Jordan elimination to find the inverse of
+
+$$
+A=
+\begin{pmatrix}
+1 & 1 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+\end{pmatrix}
+$$
+
+Check the result by multiplication.
+
+---
 
 ## Solution
 
-Given:
+### 1. Applying Gauss–Jordan Elimination
 
-\[
-A=
+We set up the augmented matrix $[A \mid I]$:
+
+$$
 \begin{pmatrix}
-1&1&0\\
-0&1&1\\
-1&0&1
+1 & 1 & 0 & \mid & 1 & 0 & 0 \\
+0 & 1 & 1 & \mid & 0 & 1 & 0 \\
+1 & 0 & 1 & \mid & 0 & 0 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-We use the Gauss–Jordan method.
+We apply elementary row operations to reduce the left side to the identity matrix $I$.
 
-### Step 1. Form the Augmented Matrix
+**Step 1:** Eliminate the entry below the pivot in the first column by applying $R_3 \leftarrow R_3 - R_1$:
 
-\[
-[A|I]=
-\left(
-\begin{array}{ccc|ccc}
-1&1&0&1&0&0\\
-0&1&1&0&1&0\\
-1&0&1&0&0&1
-\end{array}
-\right)
-\]
-
-### Step 2. Eliminate the First Entry in Row 3
-
-Apply:
-
-\[
-R_3\leftarrow R_3-R_1
-\]
-
-\[
-\left(
-\begin{array}{ccc|ccc}
-1&1&0&1&0&0\\
-0&1&1&0&1&0\\
-0&-1&1&-1&0&1
-\end{array}
-\right)
-\]
-
-### Step 3. Make the Second Entry in Row 3 Positive
-
-Apply:
-
-\[
-R_3\leftarrow -R_3
-\]
-
-\[
-\left(
-\begin{array}{ccc|ccc}
-1&1&0&1&0&0\\
-0&1&1&0&1&0\\
-0&1&-1&1&0&-1
-\end{array}
-\right)
-\]
-
-### Step 4. Eliminate the Second Entry in Row 3
-
-Apply:
-
-\[
-R_3\leftarrow R_3-R_2
-\]
-
-\[
-\left(
-\begin{array}{ccc|ccc}
-1&1&0&1&0&0\\
-0&1&1&0&1&0\\
-0&0&-2&1&-1&-1
-\end{array}
-\right)
-\]
-
-### Step 5. Make the Third Pivot Equal to 1
-
-Apply:
-
-\[
-R_3\leftarrow -\frac12 R_3
-\]
-
-\[
-\left(
-\begin{array}{ccc|ccc}
-1&1&0&1&0&0\\
-0&1&1&0&1&0\\
-0&0&1&-\frac12&\frac12&\frac12
-\end{array}
-\right)
-\]
-
-### Step 6. Eliminate the Third Entry in Row 2
-
-Apply:
-
-\[
-R_2\leftarrow R_2-R_3
-\]
-
-\[
-\left(
-\begin{array}{ccc|ccc}
-1&1&0&1&0&0\\
-0&1&0&\frac12&\frac12&-\frac12\\
-0&0&1&-\frac12&\frac12&\frac12
-\end{array}
-\right)
-\]
-
-### Step 7. Eliminate the Second Entry in Row 1
-
-Apply:
-
-\[
-R_1\leftarrow R_1-R_2
-\]
-
-\[
-\left(
-\begin{array}{ccc|ccc}
-1&0&0&\frac12&-\frac12&\frac12\\
-0&1&0&\frac12&\frac12&-\frac12\\
-0&0&1&-\frac12&\frac12&\frac12
-\end{array}
-\right)
-\]
-
-### Final Result
-
-The left side is now the identity matrix. Therefore, the right side is the inverse:
-
-\[
-\boxed{
-A^{-1}=
-\frac12
+$$
 \begin{pmatrix}
-1&-1&1\\
-1&1&-1\\
--1&1&1
+1 & 1 & 0 & \mid & 1 & 0 & 0 \\
+0 & 1 & 1 & \mid & 0 & 1 & 0 \\
+0 & -1 & 1 & \mid & -1 & 0 & 1 \\
 \end{pmatrix}
-}
-\]
+$$
 
-### Verification by Multiplication
+**Step 2:** Eliminate the entry below the pivot in the second column by applying $R_3 \leftarrow R_3 + R_2$:
 
-We check the result by computing \(AA^{-1}\):
-
-\[
-AA^{-1}=
+$$
 \begin{pmatrix}
-1&1&0\\
-0&1&1\\
-1&0&1
+1 & 1 & 0 & \mid & 1 & 0 & 0 \\
+0 & 1 & 1 & \mid & 0 & 1 & 0 \\
+0 & 0 & 2 & \mid & -1 & 1 & 1 \\
 \end{pmatrix}
-\frac12
-\begin{pmatrix}
-1&-1&1\\
-1&1&-1\\
--1&1&1
-\end{pmatrix}
-\]
+$$
 
-\[
-=
-\frac12
-\begin{pmatrix}
-2&0&0\\
-0&2&0\\
-0&0&2
-\end{pmatrix}
-\]
+**Step 3:** Scale the third row to obtain a leading $1$ by applying $R_3 \leftarrow \frac{1}{2}R_3$:
 
-\[
-=
+$$
 \begin{pmatrix}
-1&0&0\\
-0&1&0\\
-0&0&1
+1 & 1 & 0 & \mid & 1 & 0 & 0 \\
+0 & 1 & 1 & \mid & 0 & 1 & 0 \\
+0 & 0 & 1 & \mid & -\frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
 \end{pmatrix}
-=I
-\]
+$$
 
-Therefore, the inverse is correct.
+**Step 4:** Eliminate entries above the pivot in the third column using $R_2 \leftarrow R_2 - R_3$:
 
-\[
-\boxed{
-A^{-1}=
-\frac12
+$$
 \begin{pmatrix}
-1&-1&1\\
-1&1&-1\\
--1&1&1
+1 & 1 & 0 & \mid & 1 & 0 & 0 \\
+0 & 1 & 0 & \mid & \frac{1}{2} & \frac{1}{2} & -\frac{1}{2} \\
+0 & 0 & 1 & \mid & -\frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
 \end{pmatrix}
-}
-\]
+$$
+
+**Step 5:** Eliminate the entry above the pivot in the second column using $R_1 \leftarrow R_1 - R_2$:
+
+$$
+\begin{pmatrix}
+1 & 0 & 0 & \mid & \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+0 & 1 & 0 & \mid & \frac{1}{2} & \frac{1}{2} & -\frac{1}{2} \\
+0 & 0 & 1 & \mid & -\frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+\end{pmatrix}
+$$
+
+Thus, the inverse matrix is:
+
+$$
+A^{-1} =
+\begin{pmatrix}
+\frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+\frac{1}{2} & \frac{1}{2} & -\frac{1}{2} \\
+-\frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+\end{pmatrix}
+$$
+
+### 2. Verification by Multiplication
+
+We check the result by computing the product $AA^{-1}$:
+
+$$
+\begin{aligned}
+AA^{-1} &=
+\begin{pmatrix}
+1 & 1 & 0 \\
+0 & 1 & 1 \\
+1 & 0 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
+\frac{1}{2} & \frac{1}{2} & -\frac{1}{2} \\
+-\frac{1}{2} & \frac{1}{2} & \frac{1}{2} \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+\frac{1}{2} + \frac{1}{2} + 0 & -\frac{1}{2} + \frac{1}{2} + 0 & \frac{1}{2} - \frac{1}{2} + 0 \\
+0 + \frac{1}{2} - \frac{1}{2} & 0 + \frac{1}{2} + \frac{1}{2} & 0 - \frac{1}{2} + \frac{1}{2} \\
+\frac{1}{2} + 0 - \frac{1}{2} & -\frac{1}{2} + 0 + \frac{1}{2} & \frac{1}{2} + 0 + \frac{1}{2} \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+\end{pmatrix}
+= I
+\end{aligned}
+$$
+
+Since $AA^{-1} = I$, the computed inverse is correct.
+
+
+
+
+
