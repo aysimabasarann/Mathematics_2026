@@ -1,98 +1,88 @@
+### Exercise 12. A Parameter Revealed by a Row Operation
 
-# Exercise 12 – A Parameter Revealed by a Row Operation
+For
+
+$$
+A(t)=
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & t \\
+0 & 1 & 1 \\
+\end{pmatrix}
+$$
+
+find the values of $t$ for which the matrix is not invertible.
+
+Before computing the determinant, perform the operation
+
+$$
+R_2 \leftarrow R_2 - 2R_1
+$$
+
+and use the resulting structure. At the end, explain what special thing happens to the rows for the value of the parameter you found.
+
+---
 
 ## Solution
 
-Given:
+### 1. Applying the Specified Row Operation
 
-\[
-A(t)=
+We begin by performing the row operation $R_2 \leftarrow R_2 - 2R_1$ on matrix $A(t)$:
+
+$$
+A_1 =
 \begin{pmatrix}
-1&2&3\\
-2&4&t\\
-0&1&1
+1 & 2 & 3 \\
+2 - 2(1) & 4 - 2(2) & t - 2(3) \\
+0 & 1 & 1 \\
 \end{pmatrix}
-\]
-
-### Step 1. Perform the given row operation
-
-\[
-R_2\leftarrow R_2-2R_1
-\]
-
-We obtain:
-
-\[
+=
 \begin{pmatrix}
-1&2&3\\
-0&0&t-6\\
-0&1&1
+1 & 2 & 3 \\
+0 & 0 & t - 6 \\
+0 & 1 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-This row operation does not change the determinant.
+### 2. Computing the Determinant and Finding $t$
 
-### Step 2. Calculate the determinant
+Next, we can swap rows $R_2$ and $R_3$ to put the matrix into an upper-triangular form, noting that swapping two rows multiplies the determinant by $-1$:
 
-Expanding along the first column:
-
-\[
-\det A(t)=
-\begin{vmatrix}
-0&t-6\\
-1&1
-\end{vmatrix}
-\]
-
-\[
-=0\cdot1-(t-6)\cdot1
-\]
-
-\[
-\det A(t)=6-t
-\]
-
-### Step 3. Find the values for which the matrix is not invertible
-
-A matrix is not invertible when its determinant is zero.
-
-\[
-6-t=0
-\]
-
-Therefore:
-
-\[
-\boxed{t=6}
-\]
-
-### Step 4. Explain the special relationship between the rows
-
-When \(t=6\), the matrix becomes:
-
-\[
-A(6)=
+$$
+\det A(t) = - \det
 \begin{pmatrix}
-1&2&3\\
-2&4&6\\
-0&1&1
+1 & 2 & 3 \\
+0 & 1 & 1 \\
+0 & 0 & t - 6 \\
 \end{pmatrix}
-\]
+$$
 
-Notice that the second row is exactly twice the first row:
+Since the resulting matrix is upper-triangular, its determinant is the product of its diagonal entries:
 
-\[
-R_2=2R_1
-\]
+$$
+\det A(t) = - (1 \cdot 1 \cdot (t - 6)) = -(t - 6) = 6 - t
+$$
 
-After the row operation, the second row becomes a zero row.
+A matrix is not invertible if and only if its determinant is zero. Setting $\det A(t) = 0$:
 
-This means that the rows are linearly dependent, so the determinant is zero and the matrix is not invertible.
+$$
+6 - t = 0 \implies t = 6
+$$
 
-### Final Answer
+### 3. Explanation of the Row Structure for $t = 6$
 
-\[
-\boxed{t=6}
-\]
+When $t = 6$, the original matrix becomes:
 
-The matrix is not invertible when \(t=6\), because its second row becomes twice its first row, creating linear dependence.
+$$
+A(6) =
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6 \\
+0 & 1 & 1 \\
+\end{pmatrix}
+$$
+
+For this specific value of the parameter, the second row ($R_2 = \begin{pmatrix} 2 & 4 & 6 \end{pmatrix}$) becomes an exact scalar multiple of the first row ($R_1 = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}$), since $R_2 = 2R_1$. 
+
+This linear dependence between the rows means the rows do not span full 3-dimensional space, causing the determinant to collapse to zero and rendering the matrix non-invertible.
+
