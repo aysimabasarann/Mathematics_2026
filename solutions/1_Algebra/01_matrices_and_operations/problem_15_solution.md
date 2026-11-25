@@ -1,229 +1,78 @@
+### Exercise 15. Associativity of Multiplication and Different Calculation Paths
 
-# Problem 15 – Associativity of Multiplication and Different Calculation Paths
+**Problem:**
+
+Given
+
+$$
+A = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 1 \end{pmatrix},\quad B = \begin{pmatrix} 1 & 0 \\ 2 & 1 \\ -1 & 3 \end{pmatrix},\quad C = \begin{pmatrix} 2 & 1 \\ 0 & -1 \end{pmatrix}.
+$$
+
+Compute $(AB)C$ and $A(BC)$. Compare the results and the number of intermediate operations. Explain what associativity of matrix multiplication means in this example.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing $(AB)C$ (Path 1)
 
-\[
-A = \begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1
-\end{pmatrix}
-\]
+First, we compute the product $AB$:
+* Matrix $A$ is $2 \times 3$ and matrix $B$ is $3 \times 2$, so $AB$ is a $2 \times 2$ matrix.
 
-\[
-B = \begin{pmatrix}
-1 & 0 \\
-2 & 1 \\
--1 & 3
-\end{pmatrix},
-\quad
-C = \begin{pmatrix}
-2 & 1 \\
-0 & -1
-\end{pmatrix}
-\]
+$$
+AB = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 1 \end{pmatrix} \begin{pmatrix} 1 & 0 \\ 2 & 1 \\ -1 & 3 \end{pmatrix} = \begin{pmatrix} (1)(1) + (2)(2) + (0)(-1) & (1)(0) + (2)(1) + (0)(3) \\ (0)(1) + (1)(2) + (1)(-1) & (0)(0) + (1)(1) + (1)(3) \end{pmatrix} = \begin{pmatrix} 5 & 2 \\ 1 & 4 \end{pmatrix}
+$$
 
-### 1. Calculate (AB)C
+Next, we multiply the resulting matrix $AB$ by $C$:
+* $AB$ is $2 \times 2$ and $C$ is $2 \times 2$, so $(AB)C$ is a $2 \times 2$ matrix.
 
-First, calculate AB.
+$$
+(AB)C = \begin{pmatrix} 5 & 2 \\ 1 & 4 \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} (5)(2) + (2)(0) & (5)(1) + (2)(-1) \\ (1)(2) + (4)(0) & (1)(1) + (4)(-1) \end{pmatrix} = \begin{pmatrix} 10 & 3 \\ 2 & -3 \end{pmatrix}
+$$
 
-\[
-AB =
-\begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1
-\end{pmatrix}
-\begin{pmatrix}
-1 & 0 \\
-2 & 1 \\
--1 & 3
-\end{pmatrix}
-\]
+### 2. Computing $A(BC)$ (Path 2)
 
-\[
-AB =
-\begin{pmatrix}
-1+4+0 & 0+2+0 \\
-0+2-1 & 0+1+3
-\end{pmatrix}
-\]
+First, we compute the product $BC$:
+* Matrix $B$ is $3 \times 2$ and matrix $C$ is $2 \times 2$, so $BC$ is a $3 \times 2$ matrix.
 
-\[
-AB =
-\begin{pmatrix}
-5 & 2 \\
-1 & 4
-\end{pmatrix}
-\]
+$$
+BC = \begin{pmatrix} 1 & 0 \\ 2 & 1 \\ -1 & 3 \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 0 & -1 \end{pmatrix} = \begin{pmatrix} (1)(2) + (0)(0) & (1)(1) + (0)(-1) \\ (2)(2) + (1)(0) & (2)(1) + (1)(-1) \\ (-1)(2) + (3)(0) & (-1)(1) + (3)(-1) \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ 4 & 1 \\ -2 & -4 \end{pmatrix}
+$$
 
-Now, multiply AB by C.
+Next, we multiply matrix $A$ by the resulting matrix $BC$:
+* Matrix $A$ is $2 \times 3$ and $BC$ is $3 \times 2$, so $A(BC)$ is a $2 \times 2$ matrix.
 
-\[
-(AB)C =
-\begin{pmatrix}
-5 & 2 \\
-1 & 4
-\end{pmatrix}
-\begin{pmatrix}
-2 & 1 \\
-0 & -1
-\end{pmatrix}
-\]
+$$
+A(BC) = \begin{pmatrix} 1 & 2 & 0 \\ 0 & 1 & 1 \end{pmatrix} \begin{pmatrix} 2 & 1 \\ 4 & 1 \\ -2 & -4 \end{pmatrix} = \begin{pmatrix} (1)(2) + (2)(4) + (0)(-2) & (1)(1) + (2)(1) + (0)(-4) \\ (0)(2) + (1)(4) + (1)(-2) & (0)(1) + (1)(1) + (1)(-4) \end{pmatrix}
+$$
 
-\[
-(AB)C =
-\begin{pmatrix}
-10+0 & 5-2 \\
-2+0 & 1-4
-\end{pmatrix}
-\]
+Simplifying each entry:
 
-\[
-(AB)C =
-\begin{pmatrix}
-10 & 3 \\
-2 & -3
-\end{pmatrix}
-\]
+$$
+A(BC) = \begin{pmatrix} 2 + 8 + 0 & 1 + 2 + 0 \\ 0 + 4 - 2 & 0 + 1 - 4 \end{pmatrix} = \begin{pmatrix} 10 & 3 \\ 2 & -3 \end{pmatrix}
+$$
 
-### 2. Calculate A(BC)
+### 3. Comparison and Operation Count
 
-First, calculate BC.
+Comparing the results:
 
-\[
-BC =
-\begin{pmatrix}
-1 & 0 \\
-2 & 1 \\
--1 & 3
-\end{pmatrix}
-\begin{pmatrix}
-2 & 1 \\
-0 & -1
-\end{pmatrix}
-\]
+$$
+(AB)C = \begin{pmatrix} 10 & 3 \\ 2 & -3 \end{pmatrix} = A(BC)
+$$
 
-\[
-BC =
-\begin{pmatrix}
-2+0 & 1+0 \\
-4+0 & 2-1 \\
--2+0 & -1-3
-\end{pmatrix}
-\]
+**Operation Count Analysis:**
+* **Path 1 ($(AB)C$):** 
+  - $AB$ requires multiplying a $(2 \times 3)$ by a $(3 \times 2)$ matrix, which takes $2 \times 2 \times 3 = 12$ scalar multiplications.
+  - $(AB)C$ requires multiplying a $(2 \times 2)$ by a $(2 \times 2)$ matrix, which takes $2 \times 2 \times 2 = 8$ scalar multiplications.
+  - Total for Path 1: $12 + 8 = 20$ scalar multiplications.
+* **Path 2 ($A(BC)$):**
+  - $BC$ requires multiplying a $(3 \times 2)$ by a $(2 \times 2)$ matrix, which takes $3 \times 2 \times 2 = 12$ scalar multiplications.
+  - $A(BC)$ requires multiplying a $(2 \times 3)$ by a $(3 \times 2)$ matrix, which takes $2 \times 2 \times 3 = 12$ scalar multiplications.
+  - Total for Path 2: $12 + 12 = 24$ scalar multiplications.
 
-\[
-BC =
-\begin{pmatrix}
-2 & 1 \\
-4 & 1 \\
--2 & -4
-\end{pmatrix}
-\]
+### 4. Meaning of Associativity
 
-Now, multiply A by BC.
+**Explanation:**
+The property of associativity states that the grouping of matrices in a product does not change the final resulting matrix ($ \left(AB\right)C = A\left(BC\right) $). 
 
-\[
-A(BC) =
-\begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1
-\end{pmatrix}
-\begin{pmatrix}
-2 & 1 \\
-4 & 1 \\
--2 & -4
-\end{pmatrix}
-\]
-
-\[
-A(BC) =
-\begin{pmatrix}
-2+8+0 & 1+2+0 \\
-0+4-2 & 0+1-4
-\end{pmatrix}
-\]
-
-\[
-A(BC) =
-\begin{pmatrix}
-10 & 3 \\
-2 & -3
-\end{pmatrix}
-\]
-
-### 3. Compare the results
-
-We obtained:
-
-\[
-(AB)C =
-\begin{pmatrix}
-10 & 3 \\
-2 & -3
-\end{pmatrix}
-\]
-
-\[
-A(BC) =
-\begin{pmatrix}
-10 & 3 \\
-2 & -3
-\end{pmatrix}
-\]
-
-Therefore,
-
-\[
-\boxed{(AB)C = A(BC)}
-\]
-
-Both calculation paths give exactly the same result.
-
-### 4. Compare the number of operations
-
-In the first calculation path:
-
-- Calculate AB (2 × 3 multiplied by 3 × 2).
-- Multiply the result by C (2 × 2 multiplied by 2 × 2).
-
-In the second calculation path:
-
-- Calculate BC (3 × 2 multiplied by 2 × 2).
-- Multiply A by the result (2 × 3 multiplied by 3 × 2).
-
-Both paths require two matrix multiplications and one intermediate matrix.
-
-However, the first path requires 20 scalar multiplications, while the second path requires 24 scalar multiplications.
-
-Therefore, calculating (AB)C requires fewer scalar multiplications in this example.
-
-### 5. Explanation
-
-Associativity means that the grouping of matrix multiplication does not change the final result.
-
-Although the intermediate matrices are different, both calculation paths produce the same final matrix.
-
-This property is expressed as:
-
-\[
-(AB)C = A(BC)
-\]
-
-It is important to note that associativity does not mean that matrix multiplication is commutative.
-
-### Final Answer
-
-\[
-\boxed{
-(AB)C = A(BC) =
-\begin{pmatrix}
-10 & 3 \\
-2 & -3
-\end{pmatrix}
-}
-\]
-
-Matrix multiplication is associative because changing the grouping of the matrices does not change the final result.
+Although both calculation paths yield the exact same final matrix, the number of intermediate arithmetic operations can differ depending on the dimensions of the matrices involved. In practical applications (such as computer graphics and numerical linear algebra), choosing the more efficient grouping path minimizes computational cost.
