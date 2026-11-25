@@ -41,8 +41,17 @@ $$
 ### 3. Explanation
 
 **Relationship with the Determinant:**
-The inverse of a $2 \times 2$ matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$ involves dividing by its determinant ($\det A = ad - bc$). If the determinant is zero, division by zero is undefined, and the inverse matrix does not exist. 
+Consider a general $2 \times 2$ matrix
+
+$$
+A =
+\begin{pmatrix}
+a & b \\
+c & d \\
+\end{pmatrix}
+$$
+
+Computing the inverse $A^{-1}$ requires dividing by its determinant ($\det A = ad - bc$). When $\det A = 0$, division by zero is undefined, meaning the inverse matrix does not exist.
 
 Therefore, for $t = \sqrt{2}$ and $t = -\sqrt{2}$, the matrix $A(t)$ has a determinant of zero and is thus **not invertible**. For any other real value of $t$, the determinant is non-zero, making the matrix invertible.
-
  
