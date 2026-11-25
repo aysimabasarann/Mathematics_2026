@@ -1,111 +1,120 @@
+### Exercise 14. A Matrix That Is Its Own Inverse
 
-# Exercise 14 – A Matrix That Is Its Own Inverse
+Assume that a square matrix $A$ satisfies
 
-## Given
+$$
+A^2=I.
+$$
 
-Assume that a square matrix A satisfies:
+Show that
 
-\[
-A^2=I
-\]
+$$
+A^{-1}=A.
+$$
 
-We need to show that:
+Then give an example of a $2\times2$ matrix different from $I$ and $-I$ that satisfies this condition, and verify it by multiplication.
 
-\[
-A^{-1}=A
-\]
+---
 
-### 1. Proof
+## Solution
 
-By definition, the inverse of a matrix A is a matrix that satisfies:
+### 1. Proof That $A^{-1} = A$
 
-\[
-AA^{-1}=A^{-1}A=I
-\]
+By definition, a square matrix $B$ is the inverse of $A$ if and only if $AB = BA = I$.
 
-We are given:
+We are given that $A^2 = I$, which can be written as:
 
-\[
-A^2=I
-\]
+$$
+A \cdot A = I
+$$
 
-Since:
+Comparing this directly with the definition of the inverse matrix ($A \cdot A^{-1} = I$), we see that $A$ itself plays the role of $A^{-1}$.
 
-\[
-A^2=A\cdot A=I
-\]
+Alternatively, we can verify that $A$ is invertible by taking the determinant of both sides:
 
-the matrix A multiplied by itself gives the identity matrix.
+$$
+\det(A^2) = \det(I)
+$$
 
-Therefore, A satisfies the definition of its own inverse.
+Using the determinant property $\det(A^2) = (\det A)^2$ and $\det I = 1$:
 
-Hence:
+$$
+(\det A)^2 = 1 \implies \det A = \pm 1 \neq 0
+$$
 
-\[
-\boxed{A^{-1}=A}
-\]
+Since $\det A \neq 0$, the inverse matrix $A^{-1}$ exists. Multiplying both sides of $A^2 = I$ by $A^{-1}$ gives:
 
-### 2. Give an example of a 2 × 2 matrix
+$$
+A^{-1}(A^2) = A^{-1}I
+$$
 
-Choose a matrix different from I and -I:
+Using the associative property $(A^{-1}A)A = IA$:
 
-\[
-A=
+$$
+A = A^{-1}
+$$
+
+Thus, $A^{-1} = A$.
+
+### 2. Example of a Nontrivial $2 \times 2$ Matrix
+
+Consider the reflection matrix across the $x$-axis, which is different from both $I$ and $-I$:
+
+$$
+A =
 \begin{pmatrix}
-0&1\\
-1&0
+1 & 0 \\
+0 & -1 \\
 \end{pmatrix}
-\]
+$$
 
-### 3. Verify by multiplication
+### 3. Verification by Multiplication
 
-Calculate A²:
+We compute $A^2$ to verify that $A^2 = I$:
 
-\[
-A^2=
+$$
+A^2 =
 \begin{pmatrix}
-0&1\\
-1&0
+1 & 0 \\
+0 & -1 \\
 \end{pmatrix}
 \begin{pmatrix}
-0&1\\
-1&0
+1 & 0 \\
+0 & -1 \\
 \end{pmatrix}
-\]
+$$
 
-Multiplying the matrices:
+Writing out the multiplication of entries:
 
-\[
-A^2=
+$$
+A^2 =
 \begin{pmatrix}
-0\cdot0+1\cdot1&0\cdot1+1\cdot0\\
-1\cdot0+0\cdot1&1\cdot1+0\cdot0
+(1)(1) + (0)(0) & (1)(0) + (0)(-1) \\
+(0)(1) + (-1)(0) & (0)(0) + (-1)(-1) \\
 \end{pmatrix}
-\]
+$$
 
-\[
-A^2=
+Simplifying the entries:
+
+$$
+A^2 =
 \begin{pmatrix}
-1&0\\
-0&1
+1 + 0 & 0 + 0 \\
+0 + 0 & 0 + 1 \\
 \end{pmatrix}
-=I
-\]
+$$
 
-Therefore:
+Evaluating the sums:
 
-\[
-\boxed{A^{-1}=A}
-\]
+$$
+A^2 =
+\begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+\end{pmatrix}
+= I
+$$
 
-### 4. Conclusion
+Since $A^2 = I$, this matrix satisfies the condition and is its own inverse ($A^{-1} = A$).
 
-The matrix A is its own inverse because multiplying it by itself gives the identity matrix.
-
-This example satisfies the condition:
-
-\[
-A^2=I
-\]
-
-and is different from both I and -I.
+  
