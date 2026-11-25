@@ -1,75 +1,52 @@
+### Exercise 3. When Does the Inverse Not Exist?
 
-# Exercise 3 – When Does the Inverse Not Exist?
+For
+
+$$
+A=
+\begin{pmatrix}
+2 & 4 \\
+1 & 2 \\
+\end{pmatrix}
+$$
+
+explain in two ways why $A^{-1}$ does not exist: using the determinant and using dependence between the rows.
+
+---
 
 ## Solution
 
-Given:
+### 1. Explanation Using the Determinant
 
-\[
-A=
-\begin{pmatrix}
-2&4\\
-1&2
-\end{pmatrix}
-\]
+For a $2 \times 2$ matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the inverse formula requires dividing by its determinant:
 
-### Method 1. Using the Determinant
+$$
+\det A = ad - bc
+$$
 
-For a 2×2 matrix:
+For the given matrix $A$, we compute the determinant:
 
-\[
-\det(A)=ad-bc
-\]
+$$
+\det A = (2)(2) - (4)(1) = 4 - 4 = 0
+$$
 
-\[
-\det(A)=(2)(2)-(4)(1)
-\]
+Since the determinant is zero ($\det A = 0$), the formula for the inverse involves division by zero, which is undefined. Therefore, the inverse matrix $A^{-1}$ does not exist.
 
-\[
-=4-4=0
-\]
+### 2. Explanation Using Row Dependence
 
-Since the determinant is zero, the matrix is not invertible.
+Let $R_1$ and $R_2$ denote the rows of matrix $A$:
 
-Therefore:
+$$
+R_1 = (2, 4), \qquad R_2 = (1, 2)
+$$
 
-\[
-\boxed{A^{-1}\text{ does not exist.}}
-\]
+Observing the components, the first row is a scalar multiple of the second row:
 
-### Method 2. Using Dependence Between Rows
+$$
+R_1 = 2R_2
+$$
 
-The rows of the matrix are:
+This indicates that the rows of $A$ are linearly dependent. A fundamental property of square matrices states that a matrix is invertible if and only if its rows (and columns) are linearly independent. Because the rows are dependent, the matrix collapses dimensions and is thus noninvertible.
 
-\[
-R_1=(2,4)
-\]
 
-\[
-R_2=(1,2)
-\]
 
-Notice that:
-
-\[
-R_1=2R_2
-\]
-
-Therefore, the two rows are linearly dependent.
-
-A matrix with linearly dependent rows cannot be invertible.
-
-Thus:
-
-\[
-\boxed{A^{-1}\text{ does not exist.}}
-\]
-
-### Final Conclusion
-
-Both methods give the same result:
-
-- The determinant is zero.
-- The rows are linearly dependent.
-
-These two properties show that the matrix is not invertible.
