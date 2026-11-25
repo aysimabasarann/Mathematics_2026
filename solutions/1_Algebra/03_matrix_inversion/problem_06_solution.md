@@ -1,166 +1,126 @@
+### Exercise 6. Solving a System Using the Inverse
 
-# Exercise 6 – Solving a System Using the Inverse
+Solve
 
-## Solution
-
-Given:
-
-\[
-Ax=b
-\]
+$$
+Ax=b,
+$$
 
 where
 
-\[
+$$
 A=
 \begin{pmatrix}
-2&1\\
-1&3
+2 & 1 \\
+1 & 3 \\
+\end{pmatrix},\qquad b=
+\begin{pmatrix}
+5 \\
+7 \\
 \end{pmatrix},
-\qquad
-b=
+$$
+
+using $x=A^{-1}b$. Then substitute the resulting vector back into the equation and check the result.
+
+---
+
+## Solution
+
+### 1. Finding the Inverse Matrix $A^{-1}$
+
+First, we compute the determinant of the $2 \times 2$ coefficient matrix $A$:
+
+$$
+\det A = (2)(3) - (1)(1) = 6 - 1 = 5
+$$
+
+Since $\det A = 5 \neq 0$, the matrix $A$ is invertible. Applying the $2 \times 2$ inverse formula yields:
+
+$$
+A^{-1} = \frac{1}{5}
 \begin{pmatrix}
-5\\
-7
+3 & -1 \\
+-1 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-### Step 1. Find the Inverse of A
+### 2. Computing the Solution $x = A^{-1}b$
 
-For a 2×2 matrix:
+Next, we multiply $A^{-1}$ on the left of the right-hand side vector $b$:
 
-\[
-A^{-1}=\frac{1}{ad-bc}
+$$
+\begin{aligned}
+x &= A^{-1}b \\
+  &= \frac{1}{5}
 \begin{pmatrix}
-d&-b\\
--c&a
-\end{pmatrix}
-\]
-
-First, calculate the determinant:
-
-\[
-\det(A)=(2)(3)-(1)(1)
-\]
-
-\[
-=6-1=5
-\]
-
-Therefore:
-
-\[
-A^{-1}=
-\frac{1}{5}
-\begin{pmatrix}
-3&-1\\
--1&2
-\end{pmatrix}
-\]
-
-### Step 2. Calculate x Using x = A⁻¹b
-
-\[
-x=A^{-1}b
-\]
-
-Substitute the values:
-
-\[
-x=
-\frac{1}{5}
-\begin{pmatrix}
-3&-1\\
--1&2
+3 & -1 \\
+-1 & 2 \\
 \end{pmatrix}
 \begin{pmatrix}
-5\\
-7
-\end{pmatrix}
-\]
-
-Multiply the matrices:
-
-\[
-x=
-\frac{1}{5}
+5 \\
+7 \\
+\end{pmatrix} \\
+  &= \frac{1}{5}
 \begin{pmatrix}
-15-7\\
--5+14
-\end{pmatrix}
-\]
-
-\[
-x=
-\frac{1}{5}
+(3)(5) + (-1)(7) \\
+(-1)(5) + (2)(7) \\
+\end{pmatrix} \\
+  &= \frac{1}{5}
 \begin{pmatrix}
-8\\
-9
-\end{pmatrix}
-\]
-
-Therefore:
-
-\[
-\boxed{
-x=
+15 - 7 \\
+-5 + 14 \\
+\end{pmatrix} \\
+  &= \frac{1}{5}
 \begin{pmatrix}
-\frac85\\
-\frac95
-\end{pmatrix}
-}
-\]
-
-### Step 3. Verify the Result
-
-Substitute the solution back into the original equation:
-
-\[
-Ax=
-\begin{pmatrix}
-2&1\\
-1&3
-\end{pmatrix}
-\begin{pmatrix}
-\frac85\\
-\frac95
-\end{pmatrix}
-\]
-
-\[
-=
-\begin{pmatrix}
-\frac{16}{5}+\frac95\\
-\frac85+\frac{27}{5}
-\end{pmatrix}
-\]
-
-\[
-=
-\begin{pmatrix}
-\frac{25}{5}\\
-\frac{35}{5}
+8 \\
+9 \\
 \end{pmatrix}
 =
 \begin{pmatrix}
-5\\
-7
+\frac{8}{5} \\
+\frac{9}{5} \\
 \end{pmatrix}
-=b
-\]
+\end{aligned}
+$$
 
-The result matches the original vector b.
+### 3. Verification by Substitution
 
-### Final Answer
+To check the solution, we substitute $x = \begin{pmatrix} \frac{8}{5} \\ \frac{9}{5} \end{pmatrix}$ back into the original equation $Ax = b$:
 
-\[
-\boxed{
-x=
+$$
+\begin{aligned}
+Ax &=
 \begin{pmatrix}
-\frac85\\
-\frac95
+2 & 1 \\
+1 & 3 \\
 \end{pmatrix}
-}
-\]
+\begin{pmatrix}
+\frac{8}{5} \\
+\frac{9}{5} \\
+\end{pmatrix} \\
+   &=
+\begin{pmatrix}
+2\left(\frac{8}{5}\right) + 1\left(\frac{9}{5}\right) \\
+1\left(\frac{8}{5}\right) + 3\left(\frac{9}{5}\right) \\
+\end{pmatrix} \\
+   &=
+\begin{pmatrix}
+\frac{16 + 9}{5} \\
+\frac{8 + 27}{5} \\
+\end{pmatrix} \\
+   &=
+\begin{pmatrix}
+\frac{25}{5} \\
+\frac{35}{5} \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+5 \\
+7 \\
+\end{pmatrix}
+= b
+\end{aligned}
+$$
 
-The solution is correct because substituting x into Ax = b gives the original vector b.
+Since $Ax = b$ holds, the solution $x = \begin{pmatrix} \frac{8}{5} \\ \frac{9}{5} \end{pmatrix}$ is verified.
+
