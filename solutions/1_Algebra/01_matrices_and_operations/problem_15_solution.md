@@ -73,6 +73,12 @@ $$
 ### 4. Meaning of Associativity
 
 **Explanation:**
-The property of associativity states that the grouping of matrices in a product does not change the final resulting matrix ($ \left(AB\right)C = A\left(BC\right) $). 
+The property of associativity states that the grouping of matrices in a product does not change the final resulting matrix:
+
+$$
+(AB)C = A(BC)
+$$
 
 Although both calculation paths yield the exact same final matrix, the number of intermediate arithmetic operations can differ depending on the dimensions of the matrices involved. In practical applications (such as computer graphics and numerical linear algebra), choosing the more efficient grouping path minimizes computational cost.
+ 
+
