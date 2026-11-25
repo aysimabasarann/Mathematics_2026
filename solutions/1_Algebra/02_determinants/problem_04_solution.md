@@ -1,66 +1,51 @@
+### Exercise 4. Triangular Matrix
 
-# Problem 04 – Triangular Matrix
+Without expanding the determinant, compute
+
+$$
+\det
+\begin{pmatrix}
+2 & 4 & 1 \\
+0 & -3 & 5 \\
+0 & 0 & 7 \\
+\end{pmatrix}.
+$$
+
+State the rule for an arbitrary triangular matrix and explain it using this example.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing the Determinant
 
-\[
-A = \begin{pmatrix}
+Without performing a full expansion or using Sarrus' rule, we can recognize that the given matrix is an upper-triangular matrix, since all entries below the main diagonal are equal to zero. 
+
+The determinant of a triangular matrix is simply the product of its main diagonal entries:
+
+$$
+\det
+\begin{pmatrix}
 2 & 4 & 1 \\
 0 & -3 & 5 \\
-0 & 0 & 7
+0 & 0 & 7 \\
 \end{pmatrix}
-\]
+= (2)(-3)(7) = -42
+$$
 
-### 1. Calculate the determinant
+### 2. General Rule and Explanation
 
-The matrix is an upper triangular matrix because all elements below the main diagonal are zero.
+**General Rule:**
+For any square triangular matrix (whether upper-triangular, lower-triangular, or diagonal), the determinant is equal to the product of the entries along its main diagonal:
 
-For a triangular matrix, the determinant is equal to the product of its diagonal entries.
+$$
+\det A = a_{11}a_{22}\cdots a_{nn}
+$$
 
-Therefore:
+**Explanation Using This Example:**
+If we compute the determinant by expanding successively along the columns containing zeros (starting with the first column):
+1. Expanding along the first column leaves the top-left entry $(2)$ multiplied by the determinant of the remaining $2 \times 2$ lower-right submatrix.
+2. That $2 \times 2$ submatrix is also triangular, so its expansion leaves its top-left entry $(-3)$ multiplied by the bottom-right diagonal entry $(7)$.
 
-\[
-\det(A) = 2\cdot(-3)\cdot7
-\]
+Thus, all off-diagonal terms vanish during the expansion process, leaving only the product of the diagonal elements.
 
-\[
-\det(A) = -6\cdot7
-\]
-
-\[
-\boxed{\det(A)=-42}
-\]
-
-### 2. General rule for triangular matrices
-
-The determinant of any upper or lower triangular matrix is the product of its main diagonal entries.
-
-For an \(n\times n\) triangular matrix:
-
-\[
-\det(A)=a_{11}\cdot a_{22}\cdot\ldots\cdot a_{nn}
-\]
-
-### 3. Explanation
-
-In this example, all entries below the main diagonal are zero.
-
-Therefore, we do not need to expand the determinant or perform additional calculations.
-
-We simply multiply the diagonal entries:
-
-\[
-2\cdot(-3)\cdot7=-42
-\]
-
-The same rule applies to lower triangular matrices.
-
-### Final Answer
-
-\[
-\boxed{\det(A)=-42}
-\]
-
-The determinant of a triangular matrix is always the product of its main diagonal entries.
