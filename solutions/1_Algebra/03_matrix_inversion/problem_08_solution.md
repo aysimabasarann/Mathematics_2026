@@ -1,115 +1,127 @@
+### Exercise 8. Inverse of a Transformation
 
-# Exercise 8 – Inverse of a Transformation
+The matrix
+
+$$
+S=
+\begin{pmatrix}
+2 & 0 \\
+0 & \frac{1}{2} \\
+\end{pmatrix}
+$$
+
+describes a scaling of the plane. Find $S^{-1}$ and explain geometrically what the inverse transformation does. Check the action of the pair $S, S^{-1}$ on one simple vector.
+
+---
 
 ## Solution
 
-Given:
+### 1. Finding $S^{-1}$
 
-\[
-S=
+To find the inverse of the diagonal matrix $S$, we apply the $2 \times 2$ inverse formula. First, we compute the determinant of $S$:
+
+$$
+\det S = (2)\left(\frac{1}{2}\right) - (0)(0) = 1 - 0 = 1
+$$
+
+Since $\det S = 1 \neq 0$, the inverse exists. Applying the formula:
+
+$$
+S^{-1} = \frac{1}{1}
 \begin{pmatrix}
-2&0\\
-0&\frac12
+\frac{1}{2} & 0 \\
+0 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-### Step 1. Find the inverse matrix
+Simplifying the scalar multiplication:
 
-For a diagonal matrix, we take the reciprocal of each diagonal entry.
-
-Therefore:
-
-\[
-S^{-1}=
+$$
+S^{-1} =
 \begin{pmatrix}
-\frac12&0\\
-0&2
+\frac{1}{2} & 0 \\
+0 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-### Step 2. Geometrical Explanation
+### 2. Geometric Interpretation of the Inverse Transformation
 
-The matrix S describes a scaling transformation of the plane.
+The original matrix $S$ stretches the plane horizontally by a factor of $2$ and compresses it vertically by a factor of $\frac{1}{2}$. 
 
-- The x-coordinate is multiplied by 2.
-- The y-coordinate is multiplied by 1/2.
+The inverse transformation $S^{-1}$ does the exact opposite ("undoes" the scaling): it compresses the plane horizontally by a factor of $\frac{1}{2}$ and stretches it vertically by a factor of $2$.
 
-The inverse transformation reverses these changes:
+### 3. Checking the Action on a Simple Vector
 
-- The x-coordinate is multiplied by 1/2.
-- The y-coordinate is multiplied by 2.
+Let us test the pair $S$ and $S^{-1}$ on a simple vector $v = \begin{pmatrix} 4 \\ 3 \end{pmatrix}$.
 
-Thus, S⁻¹ undoes the original scaling transformation.
+First, apply $S$ to $v$:
 
-### Step 3. Check Using a Simple Vector
-
-Choose:
-
-\[
-v=
+$$
+Sv =
 \begin{pmatrix}
-1\\
-2
-\end{pmatrix}
-\]
-
-First, apply S:
-
-\[
-Sv=
-\begin{pmatrix}
-2&0\\
-0&\frac12
+2 & 0 \\
+0 & \frac{1}{2} \\
 \end{pmatrix}
 \begin{pmatrix}
-1\\
-2
+4 \\
+3 \\
 \end{pmatrix}
-=
+$$
+
+Writing out the multiplication:
+
+$$
+Sv =
 \begin{pmatrix}
-2\\
-1
+(2)(4) \\
+\left(\frac{1}{2}\right)(3) \\
 \end{pmatrix}
-\]
+$$
 
-Now apply S⁻¹:
+Evaluating the entries:
 
-\[
-S^{-1}
+$$
+Sv =
 \begin{pmatrix}
-2\\
-1
+8 \\
+\frac{3}{2} \\
 \end{pmatrix}
-=
+$$
+
+Next, apply $S^{-1}$ to the resulting vector:
+
+$$
+S^{-1}(Sv) =
 \begin{pmatrix}
-\frac12&0\\
-0&2
+\frac{1}{2} & 0 \\
+0 & 2 \\
 \end{pmatrix}
 \begin{pmatrix}
-2\\
-1
+8 \\
+\frac{3}{2} \\
 \end{pmatrix}
-=
+$$
+
+Writing out the multiplication:
+
+$$
+S^{-1}(Sv) =
 \begin{pmatrix}
-1\\
-2
+\left(\frac{1}{2}\right)(8) \\
+(2)\left(\frac{3}{2}\right) \\
 \end{pmatrix}
-\]
+$$
 
-We obtain the original vector.
+Evaluating the entries:
 
-Therefore:
+$$
+S^{-1}(Sv) =
+\begin{pmatrix}
+4 \\
+3 \\
+\end{pmatrix}
+= v
+$$
 
-\[
-\boxed{S^{-1}Sv=v}
-\]
+Applying $S$ followed by $S^{-1}$ successfully restores the original vector $v$.
 
-### Conclusion
-
-The inverse transformation reverses the scaling performed by S.
-
-Applying S and then S⁻¹ returns every vector to its original position.
-
-\[
-\boxed{SS^{-1}=S^{-1}S=I}
-\]
