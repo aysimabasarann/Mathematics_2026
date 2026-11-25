@@ -1,83 +1,109 @@
+### Exercise 5. Matrix Times Vector
 
-# Problem 05 – Matrix Times Vector
+**Problem:**
+
+Let
+
+$$
+A = \begin{pmatrix}
+2 & -1 \\
+1 & 3
+\end{pmatrix}
+$$
+
+and
+
+$$
+x = \begin{pmatrix}
+4 \\
+2
+\end{pmatrix}
+$$
+
+Compute $Ax$. Then express $Ax$ as a linear combination of the columns of $A$, with coefficients coming from the vector $x$.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing the Matrix-Vector Product $Ax$
 
-\[
-A = \begin{pmatrix} 2 & -1 \\ 1 & 3 \end{pmatrix},
-\quad
-x = \begin{pmatrix} 4 \\ 2 \end{pmatrix}
-\]
+To compute $Ax$, we take the dot product of each row of $A$ with the vector $x$:
 
-### 1. Calculate Ax
-
-We multiply each row of matrix A by the vector x.
-
-\[
-Ax =
-\begin{pmatrix}
-2\cdot4+(-1)\cdot2 \\
-1\cdot4+3\cdot2
+$$
+Ax = \begin{pmatrix}
+2 & -1 \\
+1 & 3
 \end{pmatrix}
-\]
-
-\[
-Ax =
 \begin{pmatrix}
-8-2 \\
-4+6
+4 \\
+2
 \end{pmatrix}
-=
-\begin{pmatrix}
+= \begin{pmatrix}
+(2)(4) + (-1)(2) \\
+(1)(4) + (3)(2)
+\end{pmatrix}
+= \begin{pmatrix}
+8 - 2 \\
+4 + 6
+\end{pmatrix}
+= \begin{pmatrix}
 6 \\
 10
 \end{pmatrix}
-\]
+$$
 
-### 2. Express Ax as a linear combination
+### 2. Expressing $Ax$ as a Linear Combination of Columns
 
-The columns of matrix A are:
+A fundamental property of matrix-vector multiplication is that the product $Ax$ can be viewed as a linear combination of the columns of matrix $A$, where the scalars (coefficients) are the entries of the vector $x$.
 
-\[
-a_1 = \begin{pmatrix} 2 \\ 1 \end{pmatrix},
-\quad
-a_2 = \begin{pmatrix} -1 \\ 3 \end{pmatrix}
-\]
+Letting $a_1$ and $a_2$ be the columns of $A$:
 
-The vector x contains the coefficients 4 and 2.
+$$
+a_1 = \begin{pmatrix}
+2 \\
+1
+\end{pmatrix}, \qquad a_2 = \begin{pmatrix}
+-1 \\
+3
+\end{pmatrix}
+$$
 
-Therefore:
+Using the entries of $x = \begin{pmatrix} 4 \\ 2 \end{pmatrix}$ as coefficients:
 
-\[
-Ax = 4a_1 + 2a_2
-\]
+$$
+Ax = 4 \cdot a_1 + 2 \cdot a_2 = 4 \begin{pmatrix}
+2 \\
+1
+\end{pmatrix} + 2 \begin{pmatrix}
+-1 \\
+3
+\end{pmatrix}
+$$
 
-Substituting the column vectors:
+Calculating this expression:
 
-\[
-Ax =
-4\begin{pmatrix} 2 \\ 1 \end{pmatrix}
-+
-2\begin{pmatrix} -1 \\ 3 \end{pmatrix}
-\]
+$$
+4 \begin{pmatrix}
+2 \\
+1
+\end{pmatrix} + 2 \begin{pmatrix}
+-1 \\
+3
+\end{pmatrix} = \begin{pmatrix}
+8 \\
+4
+\end{pmatrix} + \begin{pmatrix}
+-2 \\
+6
+\end{pmatrix} = \begin{pmatrix}
+8 - 2 \\
+4 + 6
+\end{pmatrix} = \begin{pmatrix}
+6 \\
+10
+\end{pmatrix}
+$$
 
-\[
-Ax =
-\begin{pmatrix} 8 \\ 4 \end{pmatrix}
-+
-\begin{pmatrix} -2 \\ 6 \end{pmatrix}
-\]
+Both methods yield the same result, confirming that matrix-vector multiplication is equivalent to a linear combination of the matrix columns.
 
-\[
-Ax = \begin{pmatrix} 6 \\ 10 \end{pmatrix}
-\]
-
-### Final Answer
-
-\[
-\boxed{Ax = \begin{pmatrix} 6 \\ 10 \end{pmatrix}}
-\]
-
-The matrix-vector product is a linear combination of the columns of A, using the entries of x as coefficients.
