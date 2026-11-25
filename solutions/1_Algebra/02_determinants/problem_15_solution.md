@@ -99,6 +99,7 @@ Both methods yield $\det A = 14$.
 ### 3. Comparison of Methods
 
 * **Computational Effort:** For a $3 \times 3$ matrix—especially one that already contains zeros like $a_{23} = 0$ and $a_{31} = 0$—Sarrus' rule requires very few multiplications ($6$ triple products, half of which vanish) and is extremely fast. Row operations require several matrix rewrites and careful tracking of scaling factors.
-* **When Row Operations Are More Advantageous:** Row reduction becomes significantly more advantageous for matrices of size $4 \times 4$ and larger (where Sarrus' rule does not apply at all, and cofactor expansion grows factorially at $O(n!)$ complexity). Row operations reduce the computational cost to polynomial time ($O(n^3)$), making them the standard method for large matrices, matrices with common row factors, or matrices containing symbolic parameters.
+* **When Row Operations Are More Advantageous:** Row reduction becomes significantly more advantageous for matrices of size $4 \times 4$ and larger, where Sarrus' rule does not apply at all and cofactor expansion grows factorially at $O(n!)$ complexity. Row operations reduce the computational cost to polynomial time of $O(n^3)$, making them the standard method for large matrices, matrices with common row factors, or matrices containing symbolic parameters.
+
 
  
