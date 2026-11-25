@@ -1,139 +1,92 @@
+### Exercise 11. Parameter and Invertibility
 
-# Exercise 11 – Parameter and Invertibility
+For
+
+$$
+A(t)=
+\begin{pmatrix}
+1 & t \\
+t & 1 \\
+\end{pmatrix}
+$$
+
+find all $t$ for which the matrix is invertible, and then give a formula for $A(t)^{-1}$. Explain what happens to this formula at the excluded values.
+
+---
 
 ## Solution
 
-Given:
+### 1. Finding All $t$ for Which $A(t)$ Is Invertible
 
-\[
-A(t)=
+A square matrix is invertible if and only if its determinant is nonzero. We compute the determinant of $A(t)$:
+
+$$
+\det A(t) = (1)(1) - (t)(t) = 1 - t^2
+$$
+
+To find the values of $t$ for which the matrix is not invertible, we set the determinant equal to zero:
+
+$$
+1 - t^2 = 0
+$$
+
+Factoring the difference of squares gives:
+
+$$
+(1 - t)(1 + t) = 0
+$$
+
+This yields two excluded values: $t = 1$ and $t = -1$. 
+
+Therefore, $A(t)$ is invertible for all real numbers $t \neq 1$ and $t \neq -1$ (i.e., $t \in \mathbb{R} \setminus \{-1, 1\}$).
+
+### 2. Formula for $A(t)^{-1}$
+
+For any $t \neq \pm 1$, we apply the $2 \times 2$ inverse formula using $\det A(t) = 1 - t^2$:
+
+$$
+A(t)^{-1} = \frac{1}{1 - t^2}
 \begin{pmatrix}
-1&t\\
-t&1
+1 & -t \\
+-t & 1 \\
 \end{pmatrix}
-\]
+$$
 
-### Step 1. Find the determinant
+Distributing the scalar factor into each entry gives:
 
-A matrix is invertible if and only if its determinant is not zero.
-
-\[
-\det A(t)=1\cdot1-t\cdot t
-\]
-
-\[
-\det A(t)=1-t^2
-\]
-
-For the matrix to be invertible:
-
-\[
-1-t^2\neq0
-\]
-
-\[
-t^2\neq1
-\]
-
-\[
-t\neq\pm1
-\]
-
-Therefore, the matrix is invertible for:
-
-\[
-\boxed{t\neq-1,\quad t\neq1}
-\]
-
-### Step 2. Find the inverse formula
-
-For a 2×2 matrix:
-
-\[
-A=
+$$
+A(t)^{-1} =
 \begin{pmatrix}
-a&b\\
-c&d
+\frac{1}{1 - t^2} & -\frac{t}{1 - t^2} \\
+-\frac{t}{1 - t^2} & \frac{1}{1 - t^2} \\
 \end{pmatrix}
-\]
+$$
 
-the inverse formula is:
+### 3. Behavior at the Excluded Values
 
-\[
-A^{-1}=\frac{1}{ad-bc}
+At the excluded values $t = 1$ and $t = -1$, the denominator $1 - t^2$ in the inverse formula becomes zero, resulting in division by zero, which is undefined.
+
+Geometrically and algebraically, at $t = 1$ the matrix becomes
+
+$$
+A(1) =
 \begin{pmatrix}
-d&-b\\
--c&a
+1 & 1 \\
+1 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-Applying this formula:
+and at $t = -1$ the matrix becomes
 
-\[
-A(t)^{-1}
-=
-\frac{1}{1-t^2}
+$$
+A(-1) =
 \begin{pmatrix}
-1&-t\\
--t&1
+1 & -1 \\
+-1 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-Thus:
+In both cases, the rows of the matrix are linearly dependent (either identical or scalar multiples of $-1$), meaning the transformation collapses the plane onto a line and cannot be reversed.
 
-\[
-\boxed{
-A(t)^{-1}
-=
-\frac{1}{1-t^2}
-\begin{pmatrix}
-1&-t\\
--t&1
-\end{pmatrix},
-\quad t\neq\pm1
-}
-\]
 
-### Step 3. Explain the excluded values
 
-When \(t=1\):
-
-\[
-A(1)=
-\begin{pmatrix}
-1&1\\
-1&1
-\end{pmatrix}
-\]
-
-The two rows are identical, so the determinant is zero.
-
-When \(t=-1\):
-
-\[
-A(-1)=
-\begin{pmatrix}
-1&-1\\
--1&1
-\end{pmatrix}
-\]
-
-The second row is the negative of the first row, so the determinant is zero.
-
-In both cases, the matrix is not invertible.
-
-The inverse formula is undefined because its denominator becomes zero:
-
-\[
-1-t^2=0
-\]
-
-### Conclusion
-
-The matrix is invertible for all real values of \(t\) except:
-
-\[
-\boxed{t=-1,\quad t=1}
-\]
-
-The inverse does not exist at these excluded values because the determinant is zero.
