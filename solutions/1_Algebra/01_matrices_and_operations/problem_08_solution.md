@@ -1,123 +1,90 @@
+### Exercise 8. Row Operations and Their Reversibility
 
-# Problem 08 – Row Operations and Their Reversibility
+**Problem:**
 
-## Solution
+For
 
-Given:
-
-\[
+$$
 A = \begin{pmatrix}
 1 & 2 & -1 \\
 2 & 4 & 1 \\
 -1 & 1 & 3
 \end{pmatrix}
-\]
+$$
 
-### 1. First operation: R₂ ← R₂ − 2R₁
+perform, in order:
 
-We subtract twice the first row from the second row.
+1. $R_2 \leftarrow R_2 - 2R_1$,
+2. $R_3 \leftarrow R_3 + R_1$,
+3. interchange $R_2$ and $R_3$.
 
-\[
-R_2 = (2,4,1)-2(1,2,-1)
-\]
+Write the matrix after each step. Then, for each of the three operations, state an operation that reverses it.
 
-\[
-R_2 = (2,4,1)-(2,4,-2)
-\]
+---
 
-\[
-R_2 = (0,0,3)
-\]
+## Solution
 
-The resulting matrix is:
+### 1. Initial Matrix
 
-\[
+The starting matrix is:
+
+$$
+A_0 = \begin{pmatrix}
+1 & 2 & -1 \\
+2 & 4 & 1 \\
+-1 & 1 & 3
+\end{pmatrix}
+$$
+
+### 2. Step 1: $R_2 \leftarrow R_2 - 2R_1$
+
+We subtract $2$ times the first row from the second row:
+
+$$
 A_1 = \begin{pmatrix}
+1 & 2 & -1 \\
+2 - 2(1) & 4 - 2(2) & 1 - 2(-1) \\
+-1 & 1 & 3
+\end{pmatrix}
+= \begin{pmatrix}
 1 & 2 & -1 \\
 0 & 0 & 3 \\
 -1 & 1 & 3
 \end{pmatrix}
-\]
+$$
 
-The reverse operation is:
+* **Reversing Operation:** To undo $R_2 \leftarrow R_2 - 2R_1$, we add $2$ times the first row to the second row ($R_2 \leftarrow R_2 + 2R_1$).
 
-\[
-R_2 \leftarrow R_2 + 2R_1
-\]
+### 3. Step 2: $R_3 \leftarrow R_3 + R_1$
 
-### 2. Second operation: R₃ ← R₃ + R₁
+We add the first row to the third row of the matrix obtained in Step 1:
 
-We add the first row to the third row.
-
-\[
-R_3 = (-1,1,3)+(1,2,-1)
-\]
-
-\[
-R_3 = (0,3,2)
-\]
-
-The resulting matrix is:
-
-\[
+$$
 A_2 = \begin{pmatrix}
+1 & 2 & -1 \\
+0 & 0 & 3 \\
+-1 + 1 & 1 + 2 & 3 + (-1)
+\end{pmatrix}
+= \begin{pmatrix}
 1 & 2 & -1 \\
 0 & 0 & 3 \\
 0 & 3 & 2
 \end{pmatrix}
-\]
+$$
 
-The reverse operation is:
+* **Reversing Operation:** To undo $R_3 \leftarrow R_3 + R_1$, we subtract the first row from the third row ($R_3 \leftarrow R_3 - R_1$).
 
-\[
-R_3 \leftarrow R_3 - R_1
-\]
+### 4. Step 3: Interchange $R_2$ and $R_3$
 
-### 3. Third operation: Interchange R₂ and R₃
+We swap the second and third rows of the matrix obtained in Step 2:
 
-We exchange the second and third rows.
-
-The resulting matrix is:
-
-\[
+$$
 A_3 = \begin{pmatrix}
 1 & 2 & -1 \\
 0 & 3 & 2 \\
 0 & 0 & 3
 \end{pmatrix}
-\]
+$$
 
-The reverse operation is also:
+* **Reversing Operation:** To undo the interchange of $R_2$ and $R_3$, we simply interchange $R_2$ and $R_3$ again.
 
-\[
-R_2 \leftrightarrow R_3
-\]
-
-### 4. Explanation
-
-Each elementary row operation is reversible.
-
-- Adding or subtracting a multiple of one row can be reversed by performing the opposite operation.
-- Interchanging two rows can be reversed by interchanging them again.
-
-Therefore, all three row operations have inverse operations.
-
-### Final Answer
-
-The final matrix is:
-
-\[
-\boxed{
-\begin{pmatrix}
-1 & 2 & -1 \\
-0 & 3 & 2 \\
-0 & 0 & 3
-\end{pmatrix}
-}
-\]
-
-The reverse operations are:
-
-1. \(R_2 \leftarrow R_2 + 2R_1\)
-2. \(R_3 \leftarrow R_3 - R_1\)
-3. \(R_2 \leftrightarrow R_3\)
