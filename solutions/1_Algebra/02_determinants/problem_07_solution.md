@@ -1,110 +1,62 @@
+### Exercise 7. Using Properties Instead of Recomputing
 
-# Problem 07 – Using Properties Instead of Recomputing
+Suppose that for a $3\times3$ matrix, $\det A=-4$. Compute
+
+$$
+\det(2A),\qquad \det(A^T),\qquad \det(A^2),\qquad \det(-A).
+$$
+
+Justify each answer using the appropriate property.
+
+---
 
 ## Solution
 
-Given:
+Given that $A$ is a $3 \times 3$ matrix (so its order is $n = 3$) and $\det A = -4$, we compute each determinant using fundamental determinant properties.
 
-\[
-\det(A)=-4
-\]
+### 1. Computing $\det(2A)$
 
-where A is a 3x3 matrix.
+**Property:** Multiplying an $n \times n$ matrix $A$ by a scalar $k$ multiplies its determinant by $k^n$:
 
-### 1. Calculate det(2A)
+$$
+\det(kA) = k^n \det A
+$$
 
-For an n x n matrix, the determinant property is:
+Applying this property with $k = 2$ and $n = 3$:
 
-\[
-\det(kA)=k^n\det(A)
-\]
+$$
+\det(2A) = 2^3 \det A = 8 \cdot (-4) = -32
+$$
 
-Since A is a 3x3 matrix:
+### 2. Computing $\det(A^T)$
 
-\[
-\det(2A)=2^3\det(A)
-\]
+**Property:** Transposing a square matrix does not change its determinant:
 
-Substituting:
+$$
+\det(A^T) = \det A
+$$
 
-\[
-\det(2A)=8\cdot(-4)
-\]
+Applying this property:
 
-\[
-\boxed{\det(2A)=-32}
-\]
+$$
+\det(A^T) = -4
+$$
 
-### 2. Calculate det(A^T)
+### 3. Computing $\det(A^2)$
 
-The determinant of a matrix is equal to the determinant of its transpose.
+**Property:** The determinant of a product of two square matrices of the same size is the product of their determinants ($\det(AB) = \det A \cdot \det B$). In particular, for a matrix power $A^m$, $\det(A^m) = (\det A)^m$.
 
-Therefore:
+Applying this property for $m = 2$:
 
-\[
-\det(A^T)=\det(A)
-\]
+$$
+\det(A^2) = (\det A)^2 = (-4)^2 = 16
+$$
 
-\[
-\boxed{\det(A^T)=-4}
-\]
+### 4. Computing $\det(-A)$
 
-### 3. Calculate det(A^2)
+**Property:** Since $-A = (-1)A$, we apply the scalar multiplication property $\det(kA) = k^n \det A$ with $k = -1$ and $n = 3$:
 
-Using the determinant property:
+$$
+\det(-A) = (-1)^3 \det A = (-1) \cdot (-4) = 4
+$$
 
-\[
-\det(AB)=\det(A)\det(B)
-\]
-
-We obtain:
-
-\[
-\det(A^2)=\det(A)\cdot\det(A)
-\]
-
-\[
-\det(A^2)=(-4)(-4)
-\]
-
-\[
-\boxed{\det(A^2)=16}
-\]
-
-### 4. Calculate det(-A)
-
-For a 3x3 matrix:
-
-\[
-\det(-A)=(-1)^3\det(A)
-\]
-
-Substituting:
-
-\[
-\det(-A)=-1\cdot(-4)
-\]
-
-\[
-\boxed{\det(-A)=4}
-\]
-
-### Final Answer
-
-\[
-\boxed{\det(2A)=-32}
-\]
-
-\[
-\boxed{\det(A^T)=-4}
-\]
-
-\[
-\boxed{\det(A^2)=16}
-\]
-
-\[
-\boxed{\det(-A)=4}
-\]
-
-All results were obtained using determinant properties instead of recalculating the determinants from the matrix entries.
