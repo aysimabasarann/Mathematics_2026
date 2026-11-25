@@ -1,86 +1,99 @@
+### Exercise 4. Matrix Multiplication and Noncommutativity
 
-# Problem 04 – Matrix Multiplication and Noncommutativity
+**Problem:**
+
+For
+
+$$
+A = \begin{pmatrix}
+1 & 2 \\
+0 & 1
+\end{pmatrix}
+$$
+
+and
+
+$$
+B = \begin{pmatrix}
+2 & 0 \\
+3 & 1
+\end{pmatrix}
+$$
+
+compute $AB$ and $BA$. Is $AB=BA$? Use this example to explain what noncommutativity of matrix multiplication means.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing the Product $AB$
 
-\[
-A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix},
-\quad
-B = \begin{pmatrix} 2 & 0 \\ 3 & 1 \end{pmatrix}
-\]
+To find $AB$, we compute the dot products of the rows of $A$ with the columns of $B$:
 
-### 1. Calculate AB
-
-We multiply each row of A by each column of B.
-
-\[
-AB =
-\begin{pmatrix}
-1\cdot2+2\cdot3 & 1\cdot0+2\cdot1 \\
-0\cdot2+1\cdot3 & 0\cdot0+1\cdot1
+$$
+AB = \begin{pmatrix}
+1 & 2 \\
+0 & 1
 \end{pmatrix}
-\]
-
-\[
-AB =
 \begin{pmatrix}
+2 & 0 \\
+3 & 1
+\end{pmatrix}
+= \begin{pmatrix}
+(1)(2) + (2)(3) & (1)(0) + (2)(1) \\
+(0)(2) + (1)(3) & (0)(0) + (1)(1)
+\end{pmatrix}
+= \begin{pmatrix}
 8 & 2 \\
 3 & 1
 \end{pmatrix}
-\]
+$$
 
-### 2. Calculate BA
+### 2. Computing the Product $BA$
 
-Now we multiply B by A.
+To find $BA$, we multiply the rows of $B$ by the columns of $A$:
 
-\[
-BA =
-\begin{pmatrix}
-2\cdot1+0\cdot0 & 2\cdot2+0\cdot1 \\
-3\cdot1+1\cdot0 & 3\cdot2+1\cdot1
+$$
+BA = \begin{pmatrix}
+2 & 0 \\
+3 & 1
 \end{pmatrix}
-\]
+\begin{pmatrix}
+1 & 2 \\
+0 & 1
+\end{pmatrix}
+= \begin{pmatrix}
+(2)(1) + (0)(0) & (2)(2) + (0)(1) \\
+(3)(1) + (1)(0) & (3)(2) + (1)(1)
+\end{pmatrix}
+= \begin{pmatrix}
+2 & 4 \\
+3 & 7
+\end{pmatrix}
+$$
 
-\[
-BA =
+### 3. Comparison and Noncommutativity
+
+Comparing the results, we find that:
+
+$$
+AB = \begin{pmatrix}
+8 & 2 \\
+3 & 1
+\end{pmatrix}
+\neq
 \begin{pmatrix}
 2 & 4 \\
 3 & 7
 \end{pmatrix}
-\]
+= BA
+$$
 
-### 3. Compare AB and BA
+Therefore, $AB \neq BA$. 
 
-\[
-AB =
-\begin{pmatrix} 8 & 2 \\ 3 & 1 \end{pmatrix}
-\]
+**Explanation of Noncommutativity:** 
+In ordinary arithmetic, multiplication is commutative, meaning that the order of factors does not change the product ($ab = ba$). In matrix algebra, matrix multiplication is generally **noncommutative**. This means that changing the order in which matrices are multiplied typically yields completely different results, and in many cases, even if both products $AB$ and $BA$ are defined, they are not equal.
 
-\[
-BA =
-\begin{pmatrix} 2 & 4 \\ 3 & 7 \end{pmatrix}
-\]
 
-Therefore,
 
-\[
-AB \neq BA
-\]
 
-### 4. Explanation
-
-Matrix multiplication is not commutative because changing the order of the matrices can produce different results.
-
-In this example, AB and BA have different entries.
-
-This property is called noncommutativity.
-
-### Final Answer
-
-\[
-\boxed{AB \neq BA}
-\]
-
-Matrix multiplication does not generally satisfy the commutative property.
