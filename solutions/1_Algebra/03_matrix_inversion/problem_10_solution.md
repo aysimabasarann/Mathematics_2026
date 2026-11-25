@@ -34,7 +34,7 @@ $$
 
 Thus, matrix $D$ is invertible.
 
-For matrix $E$, the second diagonal entry is $0$ (entire second row is zero), which makes its determinant zero:
+For matrix $E$, the second diagonal entry is $0$ (the entire second row is zero), which makes its determinant zero:
 
 $$
 \det E = (2)(0)(5) = 0
@@ -96,12 +96,5 @@ DD^{-1} =
 = I
 $$
 
-Since $DD^{-1} = I$, the inverse matrix $D^{-1}$ is verified[span_0](start_span)[span_0](end_span).
+Since $DD^{-1} = I$, the inverse matrix $D^{-1}$ is verified.
 
-
- 
-
-
-
-
- 
