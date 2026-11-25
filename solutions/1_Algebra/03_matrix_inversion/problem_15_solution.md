@@ -1,223 +1,167 @@
+### Exercise 15. Two Methods for Solving the Same System
 
-# Exercise 15 – Two Methods for Solving the Same System
+For
 
-## Given
-
-\[
+$$
 A=
 \begin{pmatrix}
-2&1\\
-1&3
-\end{pmatrix},
-\qquad
-b=
+2 & 1 \\
+1 & 3 \\
+\end{pmatrix},\qquad b=
 \begin{pmatrix}
-7\\
-8
+7 \\
+8 \\
 \end{pmatrix}
-\]
+$$
 
-We need to solve:
+solve $Ax=b$ in two ways:
 
-\[
-Ax=b
-\]
+1. using $A^{-1}b$,
+2. using Gaussian elimination.
 
-using two different methods.
+Compare both solutions, the number of essential steps, and state which method was simpler in this example.
 
-## Method 1: Using the Inverse Matrix
+---
 
-The formula is:
+## Solution
 
-\[
-x=A^{-1}b
-\]
+### 1. Solving Using $x = A^{-1}b$
 
-### Step 1: Calculate the determinant
+First, we compute the determinant of the coefficient matrix $A$:
 
-\[
-\det(A)=2(3)-1(1)
-\]
+$$
+\det A = (2)(3) - (1)(1) = 6 - 1 = 5
+$$
 
-\[
-\det(A)=6-1=5
-\]
+Since $\det A = 5 \neq 0$, the matrix $A$ is invertible. Applying the $2 \times 2$ inverse formula gives:
 
-Since the determinant is not zero, the inverse exists.
-
-### Step 2: Find the inverse
-
-For a 2 × 2 matrix:
-
-\[
-A^{-1}=\frac{1}{ad-bc}
+$$
+A^{-1} = \frac{1}{5}
 \begin{pmatrix}
-d&-b\\
--c&a
+3 & -1 \\
+-1 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-Therefore:
+Next, we compute $x = A^{-1}b$:
 
-\[
-A^{-1}=\frac{1}{5}
+$$
+x = \frac{1}{5}
 \begin{pmatrix}
-3&-1\\
--1&2
-\end{pmatrix}
-\]
-
-### Step 3: Calculate x
-
-\[
-x=A^{-1}b
-\]
-
-\[
-x=\frac{1}{5}
-\begin{pmatrix}
-3&-1\\
--1&2
+3 & -1 \\
+-1 & 2 \\
 \end{pmatrix}
 \begin{pmatrix}
-7\\
-8
+7 \\
+8 \\
 \end{pmatrix}
-\]
+$$
 
-Multiplying:
+Writing out the matrix multiplication:
 
-\[
-x=\frac{1}{5}
+$$
+x = \frac{1}{5}
 \begin{pmatrix}
-21-8\\
--7+16
+(3)(7) + (-1)(8) \\
+(-1)(7) + (2)(8) \\
 \end{pmatrix}
-\]
+$$
 
-\[
-\boxed{
-x=
+Simplifying the entries:
+
+$$
+x = \frac{1}{5}
 \begin{pmatrix}
-13/5\\
-9/5
+21 - 8 \\
+-7 + 16 \\
 \end{pmatrix}
-}
-\]
+$$
 
-## Method 2: Using Gaussian Elimination
+Evaluating the sums:
 
-Start with the augmented matrix:
-
-\[
-\left[
-\begin{array}{cc|c}
-2&1&7\\
-1&3&8
-\end{array}
-\right]
-\]
-
-### Step 1: Swap the rows
-
-\[
-R_1\leftrightarrow R_2
-\]
-
-\[
-\left[
-\begin{array}{cc|c}
-1&3&8\\
-2&1&7
-\end{array}
-\right]
-\]
-
-### Step 2: Eliminate the first entry in the second row
-
-\[
-R_2\leftarrow R_2-2R_1
-\]
-
-\[
-\left[
-\begin{array}{cc|c}
-1&3&8\\
-0&-5&-9
-\end{array}
-\right]
-\]
-
-### Step 3: Make the second pivot equal to 1
-
-\[
-R_2\leftarrow-\frac{1}{5}R_2
-\]
-
-\[
-\left[
-\begin{array}{cc|c}
-1&3&8\\
-0&1&9/5
-\end{array}
-\right]
-\]
-
-### Step 4: Eliminate the second entry in the first row
-
-\[
-R_1\leftarrow R_1-3R_2
-\]
-
-\[
-\left[
-\begin{array}{cc|c}
-1&0&13/5\\
-0&1&9/5
-\end{array}
-\right]
-\]
-
-Therefore:
-
-\[
-\boxed{
-x=
+$$
+x = \frac{1}{5}
 \begin{pmatrix}
-13/5\\
-9/5
+13 \\
+9 \\
 \end{pmatrix}
-}
-\]
+$$
 
-## Comparison of Both Methods
+Distributing the scalar $\frac{1}{5}$:
 
-Both methods give the same solution.
-
-\[
-x=
+$$
+x =
 \begin{pmatrix}
-13/5\\
-9/5
+\frac{13}{5} \\
+\frac{9}{5} \\
 \end{pmatrix}
-\]
+$$
 
-**Method 1: Inverse Matrix**
-- Calculate the determinant.
-- Find the inverse matrix.
-- Multiply the inverse by b.
-- Requires three main calculation stages.
+### 2. Solving Using Gaussian Elimination
 
-**Method 2: Gaussian Elimination**
-- Construct the augmented matrix.
-- Perform row operations.
-- Obtain the solution directly.
-- Requires four row operations in this example.
+We set up the augmented matrix $[A \mid b]$:
 
-## Conclusion
+$$
+\begin{pmatrix}
+2 & 1 & \mid & 7 \\
+1 & 3 & \mid & 8 \\
+\end{pmatrix}
+$$
 
-Both methods produce the same answer.
+**Step 1:** Swap rows $R_1$ and $R_2$ ($R_1 \leftrightarrow R_2$) to place a leading $1$ in the top-left pivot position:
 
-In this example, the inverse matrix method is simpler because the matrix is only 2 × 2 and its inverse is easy to calculate.
+$$
+\begin{pmatrix}
+1 & 3 & \mid & 8 \\
+2 & 1 & \mid & 7 \\
+\end{pmatrix}
+$$
 
-Gaussian elimination is also effective, especially for larger systems where calculating the inverse matrix may be more complicated.
+**Step 2:** Eliminate the entry below the pivot in the first column by applying $R_2 \leftarrow R_2 - 2R_1$:
+
+$$
+\begin{pmatrix}
+1 & 3 & \mid & 8 \\
+0 & -5 & \mid & -9 \\
+\end{pmatrix}
+$$
+
+From the second row, we obtain the equation for $x_2$:
+
+$$
+-5x_2 = -9 \implies x_2 = \frac{9}{5}
+$$
+
+Substituting $x_2 = \frac{9}{5}$ back into the first row equation $x_1 + 3x_2 = 8$:
+
+$$
+x_1 + 3\left(\frac{9}{5}\right) = 8
+$$
+
+Solving for $x_1$:
+
+$$
+x_1 = 8 - \frac{27}{5} = \frac{40 - 27}{5} = \frac{13}{5}
+$$
+
+Thus, the solution vector is:
+
+$$
+x =
+\begin{pmatrix}
+\frac{13}{5} \\
+\frac{9}{5} \\
+\end{pmatrix}
+$$
+
+### 3. Comparison of the Two Methods
+
+Both methods yield the exact same unique solution: $x_1 = \frac{13}{5}$ and $x_2 = \frac{9}{5}$.
+
+- **Number of essential steps:** 
+  - The inverse method required computing the determinant, forming the adjugate matrix, multiplying by the scalar $\frac{1}{5}$, and performing a matrix-vector multiplication (4 main steps).
+  - Gaussian elimination required a single row swap, one row elimination step, and back-substitution (3 main steps).
+
+- **Which method was simpler:** In this example, **Gaussian elimination** was slightly simpler and more direct for solving a single system because it avoided computing the full inverse matrix $A^{-1}$ upfront. However, if we needed to solve $Ax = b$ repeatedly for many different right-hand side vectors $b$, finding $A^{-1}$ once would become the more efficient approach.
+
+
