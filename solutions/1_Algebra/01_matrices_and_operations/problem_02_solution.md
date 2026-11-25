@@ -1,81 +1,114 @@
+### Exercise 2. Addition and Scalar Multiplication
 
-# Problem 02 – Addition and Scalar Multiplication
+**Problem:**
+
+For
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 \\
+-1 & 3 \\
+\end{pmatrix},\qquad B=
+\begin{pmatrix}
+4 & -2 \\
+0 & 5 \\
+\end{pmatrix}
+$$
+
+compute
+
+$$
+A+B,\qquad A-B,\qquad 3A-2B.
+$$
+
+Explain why matrix addition is possible only for matrices of the same size.
+
+---
 
 ## Solution
 
-Given:
+### 1. Matrix Addition ($A+B$)
 
-\[
-A = \begin{pmatrix} 1 & 2 \\ -1 & 3 \end{pmatrix},
-\quad
-B = \begin{pmatrix} 4 & -2 \\ 0 & 5 \end{pmatrix}
-\]
+Matrix addition is performed entry by entry:
 
-### 1. A + B
-
-We add the corresponding elements.
-
-\[
+$$
 A+B =
 \begin{pmatrix}
 1+4 & 2+(-2) \\
--1+0 & 3+5
+-1+0 & 3+5 \\
 \end{pmatrix}
-\]
+=
+\begin{pmatrix}
+5 & 0 \\
+-1 & 8 \\
+\end{pmatrix}
+$$
 
-\[
-A+B = \begin{pmatrix} 5 & 0 \\ -1 & 8 \end{pmatrix}
-\]
+### 2. Matrix Subtraction ($A-B$)
 
-### 2. A - B
+Matrix subtraction is similarly performed entry by entry:
 
-We subtract the corresponding elements.
-
-\[
+$$
 A-B =
 \begin{pmatrix}
 1-4 & 2-(-2) \\
--1-0 & 3-5
+-1-0 & 3-5 \\
 \end{pmatrix}
-\]
+=
+\begin{pmatrix}
+-3 & 4 \\
+-1 & -2 \\
+\end{pmatrix}
+$$
 
-\[
-A-B = \begin{pmatrix} -3 & 4 \\ -1 & -2 \end{pmatrix}
-\]
+### 3. Scalar Multiplication and Combination ($3A-2B$)
 
-### 3. 3A - 2B
+First, multiply each entry of $A$ by $3$ and each entry of $B$ by $2$:
 
-First, multiply each matrix by its number.
+$$
+3A =
+\begin{pmatrix}
+3(1) & 3(2) \\
+3(-1) & 3(3) \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 & 6 \\
+-3 & 9 \\
+\end{pmatrix}
+$$
 
-\[
-3A = \begin{pmatrix} 3 & 6 \\ -3 & 9 \end{pmatrix}
-\]
+$$
+2B =
+\begin{pmatrix}
+2(4) & 2(-2) \\
+2(0) & 2(5) \\
+\end{pmatrix}
+=
+\begin{pmatrix}
+8 & -4 \\
+0 & 10 \\
+\end{pmatrix}
+$$
 
-\[
-2B = \begin{pmatrix} 8 & -4 \\ 0 & 10 \end{pmatrix}
-\]
+Then, subtract the resulting matrices:
 
-Now subtract:
-
-\[
+$$
 3A-2B =
 \begin{pmatrix}
 3-8 & 6-(-4) \\
--3-0 & 9-10
+-3-0 & 9-10 \\
 \end{pmatrix}
-\]
+=
+\begin{pmatrix}
+-5 & 10 \\
+-3 & -1 \\
+\end{pmatrix}
+$$
 
-\[
-3A-2B = \begin{pmatrix} -5 & 10 \\ -3 & -1 \end{pmatrix}
-\]
+### 4. Dimensional Compatibility for Addition
 
-### 4. Explanation
+Matrix addition and subtraction are defined only for matrices of the same size (dimensions) because the operations are carried out entry by entry. If the dimensions differed, there would be no corresponding entry in the second matrix for some elements in the first matrix, making the sum or difference undefined.
 
-Matrix addition is only possible when both
-matrices have the same number of rows and
-columns, because we add the elements in
-the same positions.
-
-Here, both A and B are 2x2 matrices,
-so addition and subtraction are possible.
   
