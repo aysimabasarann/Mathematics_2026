@@ -1,144 +1,78 @@
+### Exercise 12. Formula for a Matrix Power
 
-# Problem 12 – Formula for a Matrix Power
+**Problem:**
+
+Let
+
+$$
+A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}.
+$$
+
+Compute $A^2$, $A^3$, and $A^4$, and use them to formulate a conjecture for $A^n$. Then do not stop after checking one more case: assume the formula is true for $n$, multiply by $A$, and explain why you obtain exactly the formula for $n+1$.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing $A^2$, $A^3$, and $A^4$
 
-\[
-A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
-\]
+First, we compute $A^2$:
 
-### 1. Calculate A²
+$$
+A^2 = A \cdot A = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} (1)(1) + (1)(0) & (1)(1) + (1)(1) \\ (0)(1) + (1)(0) & (0)(1) + (1)(1) \end{pmatrix} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}
+$$
 
-\[
-A^2 = A \cdot A
-\]
+Next, we compute $A^3$:
 
-\[
-A^2 =
-\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
-\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
-\]
+$$
+A^3 = A^2 \cdot A = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} (1)(1) + (2)(0) & (1)(1) + (2)(1) \\ (0)(1) + (1)(0) & (0)(1) + (1)(1) \end{pmatrix} = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}
+$$
 
-\[
-A^2 =
-\begin{pmatrix}
-1\cdot1+1\cdot0 & 1\cdot1+1\cdot1 \\
-0\cdot1+1\cdot0 & 0\cdot1+1\cdot1
-\end{pmatrix}
-\]
+Then, we compute $A^4$:
 
-\[
-A^2 = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}
-\]
+$$
+A^4 = A^3 \cdot A = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} (1)(1) + (3)(0) & (1)(1) + (3)(1) \\ (0)(1) + (1)(0) & (0)(1) + (1)(1) \end{pmatrix} = \begin{pmatrix} 1 & 4 \\ 0 & 1 \end{pmatrix}
+$$
 
-### 2. Calculate A³
+### 2. Conjecture for $A^n$
 
-\[
-A^3 = A^2 \cdot A
-\]
+Observing the computed powers:
+* For $n = 1$, the top-right entry is $1$.
+* For $n = 2$, the top-right entry is $2$.
+* For $n = 3$, the top-right entry is $3$.
+* For $n = 4$, the top-right entry is $4$.
 
-\[
-A^3 =
-\begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}
-\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
-\]
+Meanwhile, the diagonal entries remain $1$ and the bottom-left entry remains $0$. Based on this pattern, we conjecture that for any positive integer $n \ge 1$:
 
-\[
-A^3 =
-\begin{pmatrix}
-1\cdot1+2\cdot0 & 1\cdot1+2\cdot1 \\
-0\cdot1+1\cdot0 & 0\cdot1+1\cdot1
-\end{pmatrix}
-\]
-
-\[
-A^3 = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}
-\]
-
-### 3. Calculate A⁴
-
-\[
-A^4 = A^3 \cdot A
-\]
-
-\[
-A^4 =
-\begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}
-\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
-\]
-
-\[
-A^4 =
-\begin{pmatrix}
-1\cdot1+3\cdot0 & 1\cdot1+3\cdot1 \\
-0\cdot1+1\cdot0 & 0\cdot1+1\cdot1
-\end{pmatrix}
-\]
-
-\[
-A^4 = \begin{pmatrix} 1 & 4 \\ 0 & 1 \end{pmatrix}
-\]
-
-### 4. Find a formula for Aⁿ
-
-From the calculations, we observe the following pattern:
-
-\[
-A^2 = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}
-\]
-
-\[
-A^3 = \begin{pmatrix} 1 & 3 \\ 0 & 1 \end{pmatrix}
-\]
-
-\[
-A^4 = \begin{pmatrix} 1 & 4 \\ 0 & 1 \end{pmatrix}
-\]
-
-Therefore, the general formula is:
-
-\[
+$$
 A^n = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}
-\]
+$$
 
-### 5. Verify the formula for n + 1
+### 3. Proof by Mathematical Induction (From $n$ to $n+1$)
 
-Assume that the formula is true for n:
+**Base Case ($n = 1$):**
 
-\[
+$$
+A^1 = \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
+$$
+
+The formula holds for $n = 1$.
+
+**Inductive Step:**
+Assume the conjecture holds for an arbitrary positive integer $n$, meaning that:
+
+$$
 A^n = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}
-\]
+$$
 
-Multiplying both sides by A:
+To find $A^{n+1}$, we multiply our assumed expression for $A^n$ by $A$:
 
-\[
-A^{n+1} = A^n \cdot A
-\]
+$$
+A^{n+1} = A^n \cdot A = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix} \begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} (1)(1) + (n)(0) & (1)(1) + (n)(1) \\ (0)(1) + (1)(0) & (0)(1) + (1)(1) \end{pmatrix} = \begin{pmatrix} 1 & n + 1 \\ 0 & 1 \end{pmatrix}
+$$
 
-\[
-A^{n+1} =
-\begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}
-\begin{pmatrix} 1 & 1 \\ 0 & 1 \end{pmatrix}
-\]
+**Explanation:**
+When multiplying $A^n$ by $A$, the top-left entry remains $1 \cdot 1 + n \cdot 0 = 1$, the bottom-left entry remains $0 \cdot 1 + 1 \cdot 0 = 0$, and the bottom-right entry remains $0 \cdot 1 + 1 \cdot 1 = 1$. In the top-right entry, taking the dot product of the first row of $A^n$ ($\begin{pmatrix} 1 & n \end{pmatrix}$) with the second column of $A$ ($\begin{pmatrix} 1 \\ 1 \end{pmatrix}$) adds $1$ to $n$, yielding $n + 1$.
 
-\[
-A^{n+1} =
-\begin{pmatrix}
-1 & n+1 \\
-0 & 1
-\end{pmatrix}
-\]
+This is precisely the conjectured formula evaluated at $n + 1$. By the principle of mathematical induction, the formula $A^n = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}$ holds for all integers $n \ge 1$.
 
-This is exactly the same formula with n replaced by n + 1.
-
-Therefore, the formula holds for all positive integers n.
-
-### Final Answer
-
-\[
-\boxed{
-A^n = \begin{pmatrix} 1 & n \\ 0 & 1 \end{pmatrix}
-}
-\]
