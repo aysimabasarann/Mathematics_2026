@@ -1,92 +1,110 @@
- ### Exercise 14. Cofactor Expansion
+# Exercise 14. A System of Equations and the Determinant
 
-Compute the determinant
+Consider the system $Ax = b$, where
 
 $$
-A=
+A =
 \begin{pmatrix}
-2 & 0 & 1 \\
-3 & 5 & 0 \\
-1 & 4 & -2 \\
+1 & 2 \\
+k & 4 \\
 \end{pmatrix}
 $$
 
-by expanding along the first row. Then verify your result by expanding along the second column.
+For which values of $k$ does the system have exactly one solution for every $b$? For the remaining value, give an example of a right-hand side $b$ for which the system has infinitely many solutions, and an example for which it has no solution.
 
 ---
 
 ## Solution
 
-### 1. Expansion Along the First Row
+**1. Condition for a Unique Solution**
 
-The cofactor expansion of a $3 \times 3$ matrix along its first row is given by:
+A square linear system $Ax = b$ has a unique solution for every right-hand side vector $b$ if and only if the coefficient matrix $A$ is invertible, which is equivalent to $\det A \neq 0$.
 
-$$
-\det A = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13}
-$$
-
-where the cofactors are $C_{ij} = (-1)^{i+j} M_{ij}$, and $M_{ij}$ is the determinant of the $2 \times 2$ submatrix obtained by removing the $i$-th row and $j$-th column.
-
-For our matrix, the first row entries are $a_{11} = 2$, $a_{12} = 0$, and $a_{13} = 1$. We evaluate each term separately:
-
-**First term ($a_{11} C_{11}$):**
+Computing the determinant of $A$:
 
 $$
-2 \cdot (-1)^{1+1} \det \begin{pmatrix} 5 & 0 \\ 4 & -2 \end{pmatrix} = 2 \cdot 1 \cdot ((5)(-2) - (0)(4)) = 2(-10) = -20
+\det A = 1(4) - 2(k) = 4 - 2k
 $$
 
-**Second term ($a_{12} C_{12}$):**
+Setting $\det A \neq 0$:
 
 $$
-0 \cdot (-1)^{1+2} \det \begin{pmatrix} 3 & 0 \\ 1 & -2 \end{pmatrix} = 0
+4 - 2k \neq 0 \implies 2k \neq 4 \implies k \neq 2
 $$
 
-**Third term ($a_{13} C_{13}$):**
+Therefore, the system has exactly one solution for every $b$ whenever $k \neq 2$.
+
+---
+
+**2. Analysis of the Exceptional Case ($k = 2$)**
+
+When $k = 2$, the coefficient matrix becomes
 
 $$
-1 \cdot (-1)^{1+3} \det \begin{pmatrix} 3 & 5 \\ 1 & 4 \end{pmatrix} = 1 \cdot 1 \cdot ((3)(4) - (5)(1)) = 1(12 - 5) = 7
+A =
+\begin{pmatrix}
+1 & 2 \\
+2 & 4 \\
+\end{pmatrix}
 $$
 
-Summing these terms yields the determinant:
+Let
 
 $$
-\det A = -20 + 0 + 7 = -13
+b =
+\begin{pmatrix}
+b_1 \\
+b_2 \\
+\end{pmatrix}
 $$
 
-### 2. Verification by Expanding Along the Second Column
-
-The entries of the second column are $a_{12} = 0$, $a_{22} = 5$, and $a_{32} = 4$, with signs given by $(-1)^{i+2}$ ($-$, $+$, $-$):
+The augmented matrix of the system is
 
 $$
-\det A = -a_{12} M_{12} + a_{22} M_{22} - a_{32} M_{32}
+\begin{pmatrix}
+1 & 2 & \mid & b_1 \\
+2 & 4 & \mid & b_2 \\
+\end{pmatrix}
 $$
 
-Evaluating each term:
-
-**First term ($a_{12} = 0$):**
+Applying the row operation $R_2 \leftarrow R_2 - 2R_1$:
 
 $$
--0 \cdot \det \begin{pmatrix} 3 & 0 \\ 1 & -2 \end{pmatrix} = 0
+\begin{pmatrix}
+1 & 2 & \mid & b_1 \\
+0 & 0 & \mid & b_2 - 2b_1 \\
+\end{pmatrix}
 $$
 
-**Second term ($a_{22} = 5$):**
+From the second row, the consistency of the system depends on the condition $b_2 - 2b_1 = 0$, or equivalently $b_2 = 2b_1$.
 
-$$
-5 \cdot \det \begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} = 5 \cdot ((2)(-2) - (1)(1)) = 5(-4 - 1) = 5(-5) = -25
-$$
+- **Example for Infinitely Many Solutions:**
 
-**Third term ($a_{32} = 4$):**
+  Choose $b_1 = 1$ and $b_2 = 2$ so that $b_2 = 2b_1$ holds:
 
-$$
--4 \cdot \det \begin{pmatrix} 2 & 1 \\ 3 & 0 \end{pmatrix} = -4 \cdot ((2)(0) - (1)(3)) = -4(0 - 3) = -4(-3) = 12
-$$
+  $$
+  b =
+  \begin{pmatrix}
+  1 \\
+  2 \\
+  \end{pmatrix}
+  $$
 
-Summing these terms gives:
+  With this choice, the second equation reduces to $0 = 0$, leaving one free variable and infinitely many solutions.
 
-$$
-\det A = 0 - 25 + 12 = -13
-$$
+- **Example for No Solution:**
 
-Both methods yield $-13$, confirming our result.
+  Choose $b_1 = 1$ and $b_2 = 3$ so that $b_2 \neq 2b_1$:
+
+  $$
+  b =
+  \begin{pmatrix}
+  1 \\
+  3 \\
+  \end{pmatrix}
+  $$
+
+  With this choice, the second equation becomes $0 = 1$, which is inconsistent and yields no solution.
+
 
 
