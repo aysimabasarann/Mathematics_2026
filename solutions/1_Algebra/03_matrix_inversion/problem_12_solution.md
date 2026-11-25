@@ -1,148 +1,115 @@
+### Exercise 12. Finding Inverses Without Starting from Scratch
 
-# Exercise 12 – Finding Inverses Without Starting from Scratch
+It is known that
 
-## Given
-
-\[
+$$
 A^{-1}=
 \begin{pmatrix}
-2&-1\\
--3&2
+2 & -1 \\
+-3 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-We need to compute:
+Without finding $A$, compute $(3A)^{-1}$, $(A^T)^{-1}$, and $(A^2)^{-1}$. Justify each result using the appropriate property.
 
-\[
-(3A)^{-1},\quad (A^T)^{-1},\quad (A^2)^{-1}
-\]
+---
 
-### 1. Compute \((3A)^{-1}\)
+## Solution
 
-Using the scalar inverse property:
+### 1. Computing $(3A)^{-1}$
 
-\[
-(3A)^{-1}=\frac{1}{3}A^{-1}
-\]
+**Property:** For any invertible matrix $A$ and nonzero scalar $c$, the inverse of a scalar multiple is given by:
 
-\[
-=\frac13
+$$
+(cA)^{-1} = \frac{1}{c}A^{-1}
+$$
+
+Using this property with $c = 3$:
+
+$$
+(3A)^{-1} = \frac{1}{3}
 \begin{pmatrix}
-2&-1\\
--3&2
+2 & -1 \\
+-3 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-Therefore:
+Multiplying by the scalar $\frac{1}{3}$:
 
-\[
-\boxed{
-(3A)^{-1}=
+$$
+(3A)^{-1} =
 \begin{pmatrix}
-\frac23&-\frac13\\
--1&\frac23
+\frac{2}{3} & -\frac{1}{3} \\
+-1 & \frac{2}{3} \\
 \end{pmatrix}
-}
-\]
+$$
 
-### 2. Compute \((A^T)^{-1}\)
+### 2. Computing $(A^T)^{-1}$
 
-Using the transpose property:
+**Property:** The inverse of a transposed matrix is equal to the transpose of its inverse:
 
-\[
-(A^T)^{-1}=(A^{-1})^T
-\]
+$$
+(A^T)^{-1} = (A^{-1})^T
+$$
 
-\[
-=
+Using this property, we transpose the given matrix $A^{-1}$ by swapping its rows and columns:
+
+$$
+(A^T)^{-1} =
 \begin{pmatrix}
-2&-1\\
--3&2
-\end{pmatrix}^T
-\]
-
-Therefore:
-
-\[
-\boxed{
-(A^T)^{-1}=
-\begin{pmatrix}
-2&-3\\
--1&2
+2 & -3 \\
+-1 & 2 \\
 \end{pmatrix}
-}
-\]
+$$
 
-### 3. Compute \((A^2)^{-1}\)
+### 3. Computing $(A^2)^{-1}$
 
-Using the inverse of a product property:
+**Property:** The inverse of a matrix raised to a power is equal to the inverse matrix raised to that same power:
 
-\[
-(AB)^{-1}=B^{-1}A^{-1}
-\]
+$$
+(A^2)^{-1} = (A^{-1})^2
+$$
 
-\[
-(A^2)^{-1}=A^{-1}A^{-1}
-\]
+Using this property, we compute the product $A^{-1}A^{-1}$:
 
-\[
-=
+$$
+(A^2)^{-1} =
 \begin{pmatrix}
-2&-1\\
--3&2
+2 & -1 \\
+-3 & 2 \\
 \end{pmatrix}
 \begin{pmatrix}
-2&-1\\
--3&2
+2 & -1 \\
+-3 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-\[
-=
+Writing out the multiplication of entries:
+
+$$
+(A^2)^{-1} =
 \begin{pmatrix}
-7&-4\\
--12&7
+(2)(2) + (-1)(-3) & (2)(-1) + (-1)(2) \\
+(-3)(2) + (2)(-3) & (-3)(-1) + (2)(2) \\
 \end{pmatrix}
-\]
+$$
 
-Therefore:
+Simplifying the entries:
 
-\[
-\boxed{
-(A^2)^{-1}=
+$$
+(A^2)^{-1} =
 \begin{pmatrix}
-7&-4\\
--12&7
+4 + 3 & -2 - 2 \\
+-6 - 6 & 3 + 4 \\
 \end{pmatrix}
-}
-\]
+$$
 
-### Conclusion
+Evaluating the sums:
 
-The final answers are:
-
-\[
-(3A)^{-1}=
+$$
+(A^2)^{-1} =
 \begin{pmatrix}
-\frac23&-\frac13\\
--1&\frac23
+7 & -4 \\
+-12 & 7 \\
 \end{pmatrix}
-\]
-
-\[
-(A^T)^{-1}=
-\begin{pmatrix}
-2&-3\\
--1&2
-\end{pmatrix}
-\]
-
-\[
-(A^2)^{-1}=
-\begin{pmatrix}
-7&-4\\
--12&7
-\end{pmatrix}
-\]
-
-All results are obtained using inverse properties without calculating the original matrix A.
+$$
