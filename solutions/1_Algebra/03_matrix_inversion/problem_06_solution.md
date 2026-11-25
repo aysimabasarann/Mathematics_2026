@@ -85,7 +85,7 @@ $$
 
 ### 3. Verification by Substitution
 
-To check the solution, we substitute $x = \begin{pmatrix} \frac{8}{5} \\ \frac{9}{5} \end{pmatrix}$ back into the original equation $Ax = b$:
+To check the solution, we substitute the resulting vector back into the original equation $Ax = b$:
 
 $$
 \begin{aligned}
@@ -122,5 +122,6 @@ Ax &=
 \end{aligned}
 $$
 
-Since $Ax = b$ holds, the solution $x = \begin{pmatrix} \frac{8}{5} \\ \frac{9}{5} \end{pmatrix}$ is verified.
+Since $Ax = b$ holds, the solution $x = (8/5, 9/5)^T$ is verified.
+
 
