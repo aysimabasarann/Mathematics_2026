@@ -1,4 +1,4 @@
- ### Exercise 12. A Parameter Revealed by a Row Operation
+### Exercise 12. A Parameter Revealed by a Row Operation
 
 For
 
@@ -87,7 +87,7 @@ A(6) =
 \end{pmatrix}
 $$
 
-For this specific value of the parameter, the second row ($R_2 = \begin{pmatrix} 2 & 4 & 6 \end{pmatrix}$) becomes an exact scalar multiple of the first row ($R_1 = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}$), since $R_2 = 2R_1$. 
+For this specific value of the parameter, the second row $R_2 = (2, 4, 6)$ becomes an exact scalar multiple of the first row $R_1 = (1, 2, 3)$, since $R_2 = 2R_1$.
 
 This linear dependence between the rows means the rows do not span full 3-dimensional space, causing the determinant to collapse to zero and rendering the matrix non-invertible.
 
