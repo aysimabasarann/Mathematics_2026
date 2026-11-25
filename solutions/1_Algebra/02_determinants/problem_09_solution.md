@@ -1,126 +1,70 @@
+### Exercise 9. Area and the Determinant
 
-# Problem 09 – Area and the Determinant
+The vectors
+
+$$
+u=
+\begin{pmatrix}
+3 \\
+1 \\
+\end{pmatrix},\qquad v=
+\begin{pmatrix}
+1 \\
+4 \\
+\end{pmatrix}
+$$
+
+span a parallelogram. Compute its area using a determinant. Then reverse the order of the vectors and explain what changes in the determinant and what does not change in the area.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing the Area Using a Determinant
 
-\[
-u=\begin{pmatrix}3\\1\end{pmatrix},
-\qquad
-v=\begin{pmatrix}1\\4\end{pmatrix}
-\]
+In $\mathbb{R}^2$, the area of the parallelogram spanned by two vectors $u$ and $v$ is equal to the absolute value of the determinant of the $2 \times 2$ matrix formed by placing these vectors as columns (or rows):
 
-### 1. Calculate the determinant
-
-Place the vectors as columns of a matrix:
-
-\[
-A=\begin{pmatrix}
-3 & 1\\
-1 & 4
+$$
+A =
+\begin{pmatrix}
+3 & 1 \\
+1 & 4 \\
 \end{pmatrix}
-\]
+$$
 
-For a 2x2 matrix, the determinant is:
+Computing the determinant of $A$:
 
-\[
-\det(A)=ad-bc
-\]
+$$
+\det A = (3)(4) - (1)(1) = 12 - 1 = 11
+$$
 
-Substituting the values:
+Taking the absolute value gives the area of the parallelogram:
 
-\[
-\det(A)=3\cdot4-1\cdot1
-\]
+$$
+\mathrm{Area} = |\det A| = |11| = 11
+$$
 
-\[
-\det(A)=12-1
-\]
+### 2. Reversing the Order of the Vectors
 
-\[
-\boxed{\det(A)=11}
-\]
+If we reverse the order of the vectors so that $v$ is placed first and $u$ second, we form a new matrix $B$:
 
-### 2. Calculate the area of the parallelogram
-
-The area of a parallelogram formed by two vectors is the absolute value of the determinant.
-
-Therefore:
-
-\[
-\text{Area}=|\det(A)|
-\]
-
-\[
-\text{Area}=|11|
-\]
-
-\[
-\boxed{\text{Area}=11}
-\]
-
-### 3. Reverse the order of the vectors
-
-Now place the vectors in the opposite order:
-
-\[
-B=\begin{pmatrix}
-1 & 3\\
-4 & 1
+$$
+B =
+\begin{pmatrix}
+1 & 3 \\
+4 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-Calculate the new determinant:
+Computing the determinant of $B$:
 
-\[
-\det(B)=1\cdot1-3\cdot4
-\]
+$$
+\det B = (1)(1) - (3)(4) = 1 - 12 = -11
+$$
 
-\[
-\det(B)=1-12
-\]
+### 3. Explanation of What Changes and What Remains Unchanged
 
-\[
-\boxed{\det(B)=-11}
-\]
+* **What changes (the sign of the determinant):** Reversing the order of the vectors swaps the two columns of the matrix. Swapping two columns (or two rows) multiplies the determinant by $-1$, changing its value from $+11$ to $-11$. Geometrically, this reflects a reversal of orientation from counterclockwise to clockwise.
+* **What does not change (the area):** Area is a non-negative geometric measure defined as the absolute value of the determinant. Since $|-11| = |11| = 11$, the area of the parallelogram remains completely unchanged.
 
-### 4. Compare the results
-
-When two columns of a matrix are swapped, the determinant changes its sign.
-
-Therefore:
-
-\[
-\det(B)=-\det(A)
-\]
-
-However, the area is the absolute value of the determinant.
-
-\[
-\text{Area}=|-11|=11
-\]
-
-Thus, the area does not change.
-
-### Final Answer
-
-Original determinant:
-
-\[
-\boxed{\det(A)=11}
-\]
-
-Reversed determinant:
-
-\[
-\boxed{\det(B)=-11}
-\]
-
-Area of the parallelogram:
-
-\[
-\boxed{\text{Area}=11}
-\]
-
-Reversing the order of the vectors changes the sign of the determinant, but the area remains the same because area is always nonnegative.
+ 
