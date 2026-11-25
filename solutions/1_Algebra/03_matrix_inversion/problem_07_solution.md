@@ -1,156 +1,212 @@
+### Exercise 7. Inverse of a Product
 
-# Exercise 7 – Inverse of a Product
+For
+
+$$
+A=
+\begin{pmatrix}
+1 & 1 \\
+0 & 1 \\
+\end{pmatrix},\qquad B=
+\begin{pmatrix}
+2 & 0 \\
+0 & 3 \\
+\end{pmatrix}
+$$
+
+compute $(AB)^{-1}$ and $B^{-1}A^{-1}$. Check that the results are the same and explain the meaning of the reversed order.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing $(AB)^{-1}$
 
-\[
-A=
-\begin{pmatrix}
-1&1\\
-0&1
-\end{pmatrix},
-\qquad
-B=
-\begin{pmatrix}
-2&0\\
-0&3
-\end{pmatrix}
-\]
+First, we compute the product matrix $AB$:
 
-### Step 1. Calculate AB
-
-\[
-AB=
+$$
+AB =
 \begin{pmatrix}
-1&1\\
-0&1
+1 & 1 \\
+0 & 1 \\
 \end{pmatrix}
 \begin{pmatrix}
-2&0\\
-0&3
+2 & 0 \\
+0 & 3 \\
 \end{pmatrix}
-\]
+$$
 
-\[
-AB=
+Writing out the multiplication of entries:
+
+$$
+AB =
 \begin{pmatrix}
-2&3\\
-0&3
+(1)(2) + (1)(0) & (1)(0) + (1)(3) \\
+(0)(2) + (1)(0) & (0)(0) + (1)(3) \\
 \end{pmatrix}
-\]
+$$
 
-### Step 2. Find (AB)⁻¹
+Simplifying the entries:
 
-Using the inverse formula:
-
-\[
-(AB)^{-1}
-=
-\frac{1}{6}
+$$
+AB =
 \begin{pmatrix}
-3&-3\\
-0&2
+2 + 0 & 0 + 3 \\
+0 + 0 & 0 + 3 \\
 \end{pmatrix}
-\]
-
-Therefore:
-
-\[
-(AB)^{-1}
 =
 \begin{pmatrix}
-\frac12&-\frac12\\
-0&\frac13
+2 & 3 \\
+0 & 3 \\
 \end{pmatrix}
-\]
+$$
 
-### Step 3. Calculate A⁻¹ and B⁻¹
+Next, we compute the inverse of $AB$ using the $2 \times 2$ inverse formula. The determinant is:
 
-First:
+$$
+\det(AB) = (2)(3) - (3)(0) = 6
+$$
 
-\[
-A^{-1}=
+Applying the formula:
+
+$$
+(AB)^{-1} = \frac{1}{6}
 \begin{pmatrix}
-1&-1\\
-0&1
+3 & -3 \\
+0 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-And:
+Multiplying by the scalar $\frac{1}{6}$:
 
-\[
-B^{-1}=
+$$
+(AB)^{-1} =
 \begin{pmatrix}
-\frac12&0\\
-0&\frac13
+\frac{3}{6} & -\frac{3}{6} \\
+0 & \frac{2}{6} \\
 \end{pmatrix}
-\]
-
-### Step 4. Calculate B⁻¹A⁻¹
-
-\[
-B^{-1}A^{-1}
 =
 \begin{pmatrix}
-\frac12&0\\
-0&\frac13
+\frac{1}{2} & -\frac{1}{2} \\
+0 & \frac{1}{3} \\
 \end{pmatrix}
-\begin{pmatrix}
-1&-1\\
-0&1
-\end{pmatrix}
-\]
+$$
 
-\[
+### 2. Computing $B^{-1}A^{-1}$
+
+First, we find the individual inverses $A^{-1}$ and $B^{-1}$ using the $2 \times 2$ formula:
+
+For matrix $A$, since $\det A = (1)(1) - (1)(0) = 1$:
+
+$$
+A^{-1} =
+\begin{pmatrix}
+1 & -1 \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+For matrix $B$, since $\det B = (2)(3) - (0)(0) = 6$:
+
+$$
+B^{-1} = \frac{1}{6}
+\begin{pmatrix}
+3 & 0 \\
+0 & 2 \\
+\end{pmatrix}
 =
 \begin{pmatrix}
-\frac12&-\frac12\\
-0&\frac13
+\frac{3}{6} & 0 \\
+0 & \frac{2}{6} \\
 \end{pmatrix}
-\]
-
-### Step 5. Compare the Results
-
-We obtain:
-
-\[
-(AB)^{-1}
 =
 \begin{pmatrix}
-\frac12&-\frac12\\
-0&\frac13
+\frac{1}{2} & 0 \\
+0 & \frac{1}{3} \\
 \end{pmatrix}
-\]
+$$
 
-and
+Now, we compute the product $B^{-1}A^{-1}$:
 
-\[
-B^{-1}A^{-1}
+$$
+B^{-1}A^{-1} =
+\begin{pmatrix}
+\frac{1}{2} & 0 \\
+0 & \frac{1}{3} \\
+\end{pmatrix}
+\begin{pmatrix}
+1 & -1 \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+Writing out the multiplication:
+
+$$
+B^{-1}A^{-1} =
+\begin{pmatrix}
+\left(\frac{1}{2}\right)(1) + (0)(0) & \left(\frac{1}{2}\right)(-1) + (0)(1) \\
+(0)(1) + \left(\frac{1}{3}\right)(0) & (0)(-1) + \left(\frac{1}{3}\right)(1) \\
+\end{pmatrix}
+$$
+
+Simplifying the entries:
+
+$$
+B^{-1}A^{-1} =
+\begin{pmatrix}
+\frac{1}{2} + 0 & -\frac{1}{2} + 0 \\
+0 + 0 & 0 + \frac{1}{3} \\
+\end{pmatrix}
 =
 \begin{pmatrix}
-\frac12&-\frac12\\
-0&\frac13
+\frac{1}{2} & -\frac{1}{2} \\
+0 & \frac{1}{3} \\
 \end{pmatrix}
-\]
+$$
 
-Therefore:
+### 3. Comparison and Meaning of the Reversed Order
 
-\[
-\boxed{(AB)^{-1}=B^{-1}A^{-1}}
-\]
+Comparing our two computations, we find that:
 
-### Explanation of the Reversed Order
+$$
+(AB)^{-1} = B^{-1}A^{-1}
+$$
 
-The inverse of a product reverses the order of multiplication.
+**Meaning of the reversed order:** Matrix multiplication represents the composition of linear transformations. When matrix $A$ is applied followed by matrix $B$, the combined transformation is represented by $AB$. To undo this composite operation, we must reverse the steps in the exact opposite order: we must first undo $B$ (by applying $B^{-1}$), and then undo $A$ (by applying $A^{-1}$). Hence, the inverse of a product is the product of the inverses in reverse order.
 
-When applying AB to a vector, B acts first and then A. To undo these operations, we must first undo A and then undo B.
 
-This is why:
 
-\[
-\boxed{(AB)^{-1}=B^{-1}A^{-1}}
-\]
 
-The results are equal, confirming the inverse-of-a-product property.
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
