@@ -1,118 +1,147 @@
+### Exercise 9. Composing Transformations
 
-# Problem 09 – Composing Transformations
+**Problem:**
+
+Let
+
+$$
+S = \begin{pmatrix}
+2 & 0 \\
+0 & 1
+\end{pmatrix},\qquad R = \begin{pmatrix}
+0 & -1 \\
+1 & 0
+\end{pmatrix}
+$$
+
+The matrix $S$ describes nonuniform scaling, while $R$ describes a $90^\circ$ counterclockwise rotation.
+For
+
+$$
+x = \begin{pmatrix}
+1 \\
+2
+\end{pmatrix}
+$$
+
+compute $RSx$ and $SRx$. Compare the results and explain geometrically why the order of these transformations matters.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing $RSx$
 
-\[
-S = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix},
-\quad
-R = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
-\]
+First, we compute the scaling of vector $x$ by evaluating $Sx$:
 
-\[
-x = \begin{pmatrix} 1 \\ 2 \end{pmatrix}
-\]
+$$
+Sx = \begin{pmatrix}
+2 & 0 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+2
+\end{pmatrix}
+= \begin{pmatrix}
+(2)(1) + (0)(2) \\
+(0)(1) + (1)(2)
+\end{pmatrix}
+= \begin{pmatrix}
+2 \\
+2
+\end{pmatrix}
+$$
 
-### 1. Calculate RSx
+Next, we apply the rotation matrix $R$ to the resulting vector ($RSx$):
 
-First, we calculate Sx.
+$$
+RSx = \begin{pmatrix}
+0 & -1 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+2 \\
+2
+\end{pmatrix}
+= \begin{pmatrix}
+(0)(2) + (-1)(2) \\
+(1)(2) + (0)(2)
+\end{pmatrix}
+= \begin{pmatrix}
+-2 \\
+2
+\end{pmatrix}
+$$
 
-\[
-Sx =
-\begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}
-\begin{pmatrix} 1 \\ 2 \end{pmatrix}
-\]
+### 2. Computing $SRx$
 
-\[
-Sx = \begin{pmatrix} 2 \\ 2 \end{pmatrix}
-\]
+First, we compute the rotation of vector $x$ by evaluating $Rx$:
 
-Now, multiply the result by R.
+$$
+Rx = \begin{pmatrix}
+0 & -1 \\
+1 & 0
+\end{pmatrix}
+\begin{pmatrix}
+1 \\
+2
+\end{pmatrix}
+= \begin{pmatrix}
+(0)(1) + (-1)(2) \\
+(1)(1) + (0)(2)
+\end{pmatrix}
+= \begin{pmatrix}
+-2 \\
+1
+\end{pmatrix}
+$$
 
-\[
-RSx =
-\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
-\begin{pmatrix} 2 \\ 2 \end{pmatrix}
-\]
+Next, we apply the scaling matrix $S$ to the resulting vector ($SRx$):
 
-\[
-RSx =
-\begin{pmatrix} -2 \\ 2 \end{pmatrix}
-\]
+$$
+SRx = \begin{pmatrix}
+2 & 0 \\
+0 & 1
+\end{pmatrix}
+\begin{pmatrix}
+-2 \\
+1
+\end{pmatrix}
+= \begin{pmatrix}
+(2)(-2) + (0)(1) \\
+(0)(-2) + (1)(1)
+\end{pmatrix}
+= \begin{pmatrix}
+-4 \\
+1
+\end{pmatrix}
+$$
 
-### 2. Calculate SRx
+### 3. Comparison and Geometric Explanation
 
-First, we calculate Rx.
+Comparing the results:
 
-\[
-Rx =
-\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
-\begin{pmatrix} 1 \\ 2 \end{pmatrix}
-\]
+$$
+RSx = \begin{pmatrix}
+-2 \\
+2
+\end{pmatrix}
+\neq
+\begin{pmatrix}
+-4 \\
+1
+\end{pmatrix}
+= SRx
+$$
 
-\[
-Rx = \begin{pmatrix} -2 \\ 1 \end{pmatrix}
-\]
+**Geometric Explanation:**
+The order of transformations matters because matrix multiplication corresponds to the composition of linear transformations. 
+* In $RSx$, vector $x$ is first stretched horizontally by a factor of $2$ (scaling $S$) and then rotated counterclockwise by $90^\circ$ ($R$).
+* In $SRx$, vector $x$ is first rotated counterclockwise by $90^\circ$ ($R$) and then stretched horizontally by a factor of $2$ relative to the original coordinate axes ($S$). 
 
-Now, multiply the result by S.
+Because geometric transformations are generally not commutative, performing them in a different sequence alters the final position of the vector.
 
-\[
-SRx =
-\begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}
-\begin{pmatrix} -2 \\ 1 \end{pmatrix}
-\]
+ 
 
-\[
-SRx =
-\begin{pmatrix} -4 \\ 1 \end{pmatrix}
-\]
-
-### 3. Compare the results
-
-\[
-RSx = \begin{pmatrix} -2 \\ 2 \end{pmatrix}
-\]
-
-\[
-SRx = \begin{pmatrix} -4 \\ 1 \end{pmatrix}
-\]
-
-Therefore,
-
-\[
-RSx \neq SRx
-\]
-
-### 4. Geometrical explanation
-
-The matrix S doubles the x-coordinate while keeping the y-coordinate unchanged.
-
-The matrix R rotates a vector 90 degrees counterclockwise.
-
-When we apply S first and then R, we get:
-
-\[
-RSx = \begin{pmatrix} -2 \\ 2 \end{pmatrix}
-\]
-
-When we apply R first and then S, we get:
-
-\[
-SRx = \begin{pmatrix} -4 \\ 1 \end{pmatrix}
-\]
-
-The results are different because the order of transformations changes the final position of the vector.
-
-### Final Answer
-
-\[
-\boxed{RSx = \begin{pmatrix} -2 \\ 2 \end{pmatrix}}
-\]
-
-\[
-\boxed{SRx = \begin{pmatrix} -4 \\ 1 \end{pmatrix}}
-\]
-
-Matrix transformations are not generally commutative because changing their order can produce different results.
+ 
