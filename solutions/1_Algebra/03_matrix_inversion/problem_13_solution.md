@@ -1,207 +1,234 @@
+### Exercise 13. Undoing a Composite Transformation
 
-# Exercise 13 – Undoing a Composite Transformation
+The matrices
 
-## Given
-
-\[
+$$
 S=
 \begin{pmatrix}
-2&0\\
-0&1
-\end{pmatrix},
-\qquad
-H=
+2 & 0 \\
+0 & 1 \\
+\end{pmatrix},\qquad H=
 \begin{pmatrix}
-1&1\\
-0&1
+1 & 1 \\
+0 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-Given:
+describe nonuniform scaling and shear. For $T=HS$, find $T^{-1}$ in two ways:
 
-\[
-T=HS
-\]
+1. first compute $T$, then its inverse,
+2. use $(HS)^{-1}=S^{-1}H^{-1}$.
 
-### 1. Describe the transformations
+Compare the results. Additionally compute $H^{-1}S^{-1}$ and verify that the incorrect order gives a different matrix. Explain the rule: “when undoing a composition of operations, we undo them from the end.”
 
-The matrix S represents nonuniform scaling. It stretches the x-coordinate by a factor of 2 while leaving the y-coordinate unchanged.
+---
 
-The matrix H represents a horizontal shear transformation. It adds the y-coordinate to the x-coordinate while keeping the y-coordinate unchanged.
+## Solution
 
-### 2. First method: Compute T and then its inverse
+### 1. Finding $T^{-1}$ by First Computing $T$
 
-Since:
+First, we compute the composite transformation matrix $T = HS$:
 
-\[
-T=HS
-\]
-
-we calculate:
-
-\[
-T=
+$$
+T =
 \begin{pmatrix}
-1&1\\
-0&1
+1 & 1 \\
+0 & 1 \\
 \end{pmatrix}
 \begin{pmatrix}
-2&0\\
-0&1
+2 & 0 \\
+0 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-\[
-T=
+Writing out the multiplication of entries in separate display blocks:
+
+$$
+T =
 \begin{pmatrix}
-2&1\\
-0&1
+(1)(2) + (1)(0) & (1)(0) + (1)(1) \\
+(0)(2) + (1)(0) & (0)(0) + (1)(1) \\
 \end{pmatrix}
-\]
+$$
 
-Now calculate its determinant:
+Simplifying the entries:
 
-\[
-\det(T)=2\cdot1-0\cdot1=2
-\]
-
-Using the inverse formula:
-
-\[
-T^{-1}=
-\frac{1}{2}
+$$
+T =
 \begin{pmatrix}
-1&-1\\
-0&2
+2 + 0 & 0 + 1 \\
+0 + 0 & 0 + 1 \\
 \end{pmatrix}
-\]
+$$
 
-Therefore:
+Evaluating the sums:
 
-\[
-\boxed{
-T^{-1}=
+$$
+T =
 \begin{pmatrix}
-\frac12&-\frac12\\
-0&1
+2 & 1 \\
+0 & 1 \\
 \end{pmatrix}
-}
-\]
+$$
 
-### 3. Second method: Use the inverse of a product
+Next, we find the inverse of $T$ using the $2 \times 2$ inverse formula. The determinant is:
 
-Using the property:
+$$
+\det T = (2)(1) - (1)(0) = 2
+$$
 
-\[
-(HS)^{-1}=S^{-1}H^{-1}
-\]
+Applying the inverse formula:
 
-First, calculate the individual inverses:
-
-\[
-S^{-1}=
+$$
+T^{-1} = \frac{1}{2}
 \begin{pmatrix}
-\frac12&0\\
-0&1
+1 & -1 \\
+0 & 2 \\
 \end{pmatrix}
-\]
+$$
 
-\[
-H^{-1}=
+Distributing the scalar $\frac{1}{2}$:
+
+$$
+T^{-1} =
 \begin{pmatrix}
-1&-1\\
-0&1
+\frac{1}{2} & -\frac{1}{2} \\
+0 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-Now multiply:
+### 2. Finding $T^{-1}$ Using $(HS)^{-1} = S^{-1}H^{-1}$
 
-\[
-T^{-1}=S^{-1}H^{-1}
-\]
+First, we find the individual inverses $S^{-1}$ and $H^{-1}$:
 
-\[
-=
+For matrix $S$, since it is diagonal, we invert its diagonal entries:
+
+$$
+S^{-1} =
 \begin{pmatrix}
-\frac12&0\\
-0&1
+\frac{1}{2} & 0 \\
+0 & 1 \\
 \end{pmatrix}
+$$
+
+For matrix $H$, using the $2 \times 2$ inverse formula (determinant $\det H = (1)(1) - (1)(0) = 1$):
+
+$$
+H^{-1} =
 \begin{pmatrix}
-1&-1\\
-0&1
+1 & -1 \\
+0 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-\[
-\boxed{
-T^{-1}=
+Now, we compute the product $S^{-1}H^{-1}$:
+
+$$
+S^{-1}H^{-1} =
 \begin{pmatrix}
-\frac12&-\frac12\\
-0&1
-\end{pmatrix}
-}
-\]
-
-Both methods give the same result.
-
-### 4. Check the incorrect order
-
-Now calculate:
-
-\[
-H^{-1}S^{-1}
-\]
-
-\[
-=
-\begin{pmatrix}
-1&-1\\
-0&1
+\frac{1}{2} & 0 \\
+0 & 1 \\
 \end{pmatrix}
 \begin{pmatrix}
-\frac12&0\\
-0&1
+1 & -1 \\
+0 & 1 \\
 \end{pmatrix}
-\]
+$$
 
-\[
-\boxed{
-H^{-1}S^{-1}=
+Writing out the matrix multiplication:
+
+$$
+S^{-1}H^{-1} =
 \begin{pmatrix}
-\frac12&-1\\
-0&1
+\left(\frac{1}{2}\right)(1) + (0)(0) & \left(\frac{1}{2}\right)(-1) + (0)(1) \\
+(0)(1) + (1)(0) & (0)(-1) + (1)(1) \\
 \end{pmatrix}
-}
-\]
+$$
 
-This is different from the correct inverse:
+Simplifying the entries:
 
-\[
-S^{-1}H^{-1}\neq H^{-1}S^{-1}
-\]
-
-Therefore, the order of matrix multiplication matters.
-
-### 5. Conclusion
-
-The correct inverse is:
-
-\[
-\boxed{
-T^{-1}=
+$$
+S^{-1}H^{-1} =
 \begin{pmatrix}
-\frac12&-\frac12\\
-0&1
+\frac{1}{2} + 0 & -\frac{1}{2} + 0 \\
+0 + 0 & 0 + 1 \\
 \end{pmatrix}
-}
-\]
+$$
 
-When undoing a composition of operations, we must reverse the order of the operations.
+Evaluating the sums:
 
-Since T = HS, we first undo H and then undo S.
+$$
+S^{-1}H^{-1} =
+\begin{pmatrix}
+\frac{1}{2} & -\frac{1}{2} \\
+0 & 1 \\
+\end{pmatrix}
+$$
 
-This is why:
+Both methods yield the exact same result: $T^{-1} = \begin{pmatrix} \frac{1}{2} & -\frac{1}{2} \\ 0 & 1 \end{pmatrix}$.
 
-\[
-(HS)^{-1}=S^{-1}H^{-1}
-\]
+### 3. Computing $H^{-1}S^{-1}$ (Incorrect Order)
+
+To verify what happens in the wrong order, we compute $H^{-1}S^{-1}$:
+
+$$
+H^{-1}S^{-1} =
+\begin{pmatrix}
+1 & -1 \\
+0 & 1 \\
+\end{pmatrix}
+\begin{pmatrix}
+\frac{1}{2} & 0 \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+Writing out the multiplication:
+
+$$
+H^{-1}S^{-1} =
+\begin{pmatrix}
+(1)\left(\frac{1}{2}\right) + (-1)(0) & (1)(0) + (-1)(1) \\
+(0)\left(\frac{1}{2}\right) + (1)(0) & (0)(0) + (1)(1) \\
+\end{pmatrix}
+$$
+
+Simplifying the entries:
+
+$$
+H^{-1}S^{-1} =
+\begin{pmatrix}
+\frac{1}{2} + 0 & 0 - 1 \\
+0 + 0 & 0 + 1 \\
+\end{pmatrix}
+$$
+
+Evaluating the sums:
+
+$$
+H^{-1}S^{-1} =
+\begin{pmatrix}
+\frac{1}{2} & -1 \\
+0 & 1 \\
+\end{pmatrix}
+$$
+
+Comparing this with $T^{-1}$, we see that $H^{-1}S^{-1} \neq S^{-1}H^{-1}$. The incorrect order gives a completely different matrix.
+
+### 4. Explanation of the Rule
+
+**Rule explanation:** Matrix multiplication represents the sequential application of linear transformations. When we apply transformation $S$ first and then transformation $H$, the combined operation is written from right to left as $T = HS$. To undo this composite operation, we must reverse the steps in the exact opposite order: we must first undo the last applied operation ($H$, via $H^{-1}$), and then undo the first applied operation ($S$, via $S^{-1}$). Hence, the inverse of a product is always given by $(HS)^{-1} = S^{-1}H^{-1}$.
+
+
+
+
+
+
+ 
+ 
+
+ 
+
+
+
+
