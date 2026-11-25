@@ -1,66 +1,66 @@
-# Problem 01 – Matrix Size and Entries
+ ### Exercise 1. Matrix Size and Entries
 
-## Solution
+**Problem:**
 
-Given matrices:
+Given
 
-\[
+$$
 A = \begin{pmatrix}
 2 & -1 & 3 \\
 0 & 4 & 5
 \end{pmatrix}
-\]
+$$
 
-\[
+and
+
+$$
 B = \begin{pmatrix}
 1 & 0 \\
 -2 & 3 \\
 4 & 1
 \end{pmatrix}
-\]
+$$
 
-### 1. Sizes of matrices A and B
+1. State the sizes of matrices $A$ and $B$.
+2. Read off the entries $a_{12}$, $a_{23}$, $b_{21}$, and $b_{32}$.
+3. Write the second row of $A$ and the first column of $B$ as vectors.
 
-Matrix A has 2 rows and 3 columns.
+---
 
-Therefore, its size is **2 × 3**.
+## Solution
 
-Matrix B has 3 rows and 2 columns.
+### 1. Sizes of Matrices
 
-Therefore, its size is **3 × 2**.
+The size of a matrix is given as rows $\times$ columns.
 
-### 2. Matrix entries
+* Matrix $A$ has $2$ rows and $3$ columns, so its size is $2 \times 3$.
+* Matrix $B$ has $3$ rows and $2$ columns, so its size is $3 \times 2$.
 
-The required entries are:
+### 2. Reading Specific Entries
 
-- \(a_{12} = -1\)
-- \(a_{23} = 3\)
-- \(b_{21} = -2\)
-- \(b_{32} = 1\)
+Matrix entries are denoted by $a_{ij}$, where $i$ represents the row index and $j$ represents the column index:
 
-### 3. Rows and columns as vectors
+* $a_{12} = -1$ (element in the 1st row and 2nd column of $A$)
+* $a_{23} = 5$ (element in the 2nd row and 3rd column of $A$)
+* $b_{21} = -2$ (element in the 2nd row and 1st column of $B$)
+* $b_{32} = 1$ (element in the 3rd row and 2nd column of $B$)
 
-The second row of matrix A is:
+### 3. Rows and Columns as Vectors
 
-\[
-\begin{pmatrix} 0 & 4 & 5 \end{pmatrix}
-\]
+The second row of $A$ as a vector:
 
-The first column of matrix B is:
+$$
+\begin{pmatrix}
+0 & 4 & 5
+\end{pmatrix}
+$$
 
-\[
+The first column of $B$ as a vector:
+
+$$
 \begin{pmatrix}
 1 \\
 -2 \\
 4
 \end{pmatrix}
-\]
-
-### Final Answer
-
-- Size of A: 2 × 3
-- Size of B: 3 × 2
-- \(a_{12} = -1\)
-- \(a_{23} = 3\)
-- \(b_{21} = -2\)
-- \(b_{32} = 1\)
+$$
