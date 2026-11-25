@@ -1,68 +1,67 @@
+### Exercise 10. Detecting Dependence
 
-# Problem 10 – Detecting Dependence
+Without carrying out a full determinant calculation, explain why
+
+$$
+\det
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 4 & 6 \\
+0 & 1 & 5 \\
+\end{pmatrix}
+= 0.
+$$
+
+Identify a specific dependence between the rows and connect it with noninvertibility of the matrix.
+
+---
 
 ## Solution
 
-Given:
+### 1. Identifying the Row Dependence
 
-\[
-A = \begin{pmatrix}
+Let $R_1$, $R_2$, and $R_3$ denote the first, second, and third rows of the matrix, respectively:
+
+$$
+R_1 =
+\begin{pmatrix}
 1 & 2 & 3 \\
+\end{pmatrix},\qquad
+R_2 =
+\begin{pmatrix}
 2 & 4 & 6 \\
-0 & 1 & 5
+\end{pmatrix},\qquad
+R_3 =
+\begin{pmatrix}
+0 & 1 & 5 \\
 \end{pmatrix}
-\]
+$$
 
-### 1. Identify the dependence between the rows
+Comparing $R_1$ and $R_2$, every entry in the second row is exactly twice the corresponding entry in the first row:
 
-The second row is exactly twice the first row.
+$$
+R_2 = 2R_1
+$$
 
-\[
-R_2=2R_1
-\]
+Thus, the rows of the matrix are linearly dependent (specifically, one row is a scalar multiple of another).
 
-Therefore, the rows of the matrix are linearly dependent.
+### 2. Why the Determinant Is Zero
 
-### 2. Explain why the determinant is zero
+A fundamental property of determinants states that if one row of a square matrix is a scalar multiple of another row, the determinant of the matrix is zero. 
 
-A determinant is zero if the rows of a square matrix are linearly dependent.
+Alternatively, applying the determinant-preserving row operation $R_2 \leftarrow R_2 - 2R_1$ produces a matrix with an entire row of zeros:
 
-Since the second row is a multiple of the first row:
+$$
+\begin{pmatrix}
+1 & 2 & 3 \\
+0 & 0 & 0 \\
+0 & 1 & 5 \\
+\end{pmatrix}
+$$
 
-\[
-\boxed{\det(A)=0}
-\]
+Since any matrix containing a zero row has a determinant of $0$, it follows immediately that $\det A = 0$ without needing any expansion.
 
-This means the matrix does not have three linearly independent rows.
+### 3. Connection with Noninvertibility
 
-### 3. Connect the result with invertibility
+A square matrix is invertible if and only if its rows (and columns) are linearly independent, which is equivalent to having a non-zero determinant. Because the linear dependence $R_2 = 2R_1$ causes the rows to span a subspace of dimension strictly less than $3$ (collapsing the $3$-dimensional volume to zero), the matrix cannot be reversed by any inverse transformation and is therefore **not invertible**.
 
-A square matrix is invertible if and only if its determinant is nonzero.
-
-In this case:
-
-\[
-\det(A)=0
-\]
-
-Therefore, the matrix is not invertible.
-
-\[
-\boxed{A^{-1}\text{ does not exist}}
-\]
-
-### Final Answer
-
-The second row is twice the first row:
-
-\[
-R_2=2R_1
-\]
-
-Thus, the rows are linearly dependent, which means:
-
-\[
-\boxed{\det(A)=0}
-\]
-
-Since the determinant is zero, the matrix is not invertible.
