@@ -1,88 +1,69 @@
+### Exercise 1. Determinant of a 2×2 Matrix
 
-# Problem 01 – Determinant of a 2x2 Matrix
+Compute
+
+$$
+\det
+\begin{pmatrix}
+3 & -2 \\
+5 & 4 \\
+\end{pmatrix},\qquad \det
+\begin{pmatrix}
+1 & 7 \\
+2 & 14 \\
+\end{pmatrix}.
+$$
+
+Which matrix is invertible? Justify your answer.
+
+---
 
 ## Solution
 
-### 1. Calculate the determinant of the first matrix
+### 1. Computing the Determinants
 
-Given:
+For any $2 \times 2$ matrix of the form
 
-\[
-A = \begin{pmatrix} 3 & -2 \\ 5 & 4 \end{pmatrix}
-\]
+$$
+A = \begin{pmatrix}
+a & b \\
+c & d
+\end{pmatrix}
+$$
 
-For a 2x2 matrix, the determinant is calculated using:
+the determinant is computed using the formula:
 
-\[
+$$
 \det(A) = ad - bc
-\]
+$$
 
-Substituting the values:
+Applying this formula to the first matrix:
 
-\[
-\det(A) = 3\cdot4-(-2)\cdot5
-\]
+$$
+\det
+\begin{pmatrix}
+3 & -2 \\
+5 & 4 \\
+\end{pmatrix}
+= (3)(4) - (-2)(5) = 12 - (-10) = 12 + 10 = 22
+$$
 
-\[
-\det(A) = 12+10
-\]
+Applying the formula to the second matrix:
 
-\[
-\boxed{\det(A)=22}
-\]
+$$
+\det
+\begin{pmatrix}
+1 & 7 \\
+2 & 14 \\
+\end{pmatrix}
+= (1)(14) - (7)(2) = 14 - 14 = 0
+$$
 
-### 2. Calculate the determinant of the second matrix
+### 2. Invertibility Justification
 
-Given:
+A square matrix is invertible if and only if its determinant is non-zero ($\det(A) \neq 0$).
 
-\[
-B = \begin{pmatrix} 1 & 7 \\ 2 & 14 \end{pmatrix}
-\]
+* The first matrix has a determinant of $22$, which is non-zero. Therefore, **the first matrix is invertible**.
+* The second matrix has a determinant of $0$. Therefore, **the second matrix is not invertible**.
 
-Using the same formula:
-
-\[
-\det(B) = 1\cdot14-7\cdot2
-\]
-
-\[
-\det(B) = 14-14
-\]
-
-\[
-\boxed{\det(B)=0}
-\]
-
-### 3. Determine which matrix is invertible
-
-A square matrix is invertible if and only if its determinant is not zero.
-
-For matrix A:
-
-\[
-\det(A)=22\neq0
-\]
-
-Therefore, A is invertible.
-
-For matrix B:
-
-\[
-\det(B)=0
-\]
-
-Therefore, B is not invertible.
-
-### Final Answer
-
-\[
-\boxed{\det(A)=22}
-\]
-
-\[
-\boxed{\det(B)=0}
-\]
-
-Matrix A is invertible because its determinant is nonzero.
-
-Matrix B is not invertible because its determinant is zero.
+ 
