@@ -1,4 +1,4 @@
-### Exercise 12. A Parameter Revealed by a Row Operation
+ ### Exercise 12. A Parameter Revealed by a Row Operation
 
 For
 
@@ -36,7 +36,12 @@ A_1 =
 2 - 2(1) & 4 - 2(2) & t - 2(3) \\
 0 & 1 & 1 \\
 \end{pmatrix}
-=
+$$
+
+Simplifying the entries of the second row:
+
+$$
+A_1 =
 \begin{pmatrix}
 1 & 2 & 3 \\
 0 & 0 & t - 6 \\
@@ -46,7 +51,7 @@ $$
 
 ### 2. Computing the Determinant and Finding $t$
 
-Next, we can swap rows $R_2$ and $R_3$ to put the matrix into an upper-triangular form, noting that swapping two rows multiplies the determinant by $-1$:
+Next, we swap rows $R_2$ and $R_3$ to put the matrix into upper-triangular form. Swapping two rows multiplies the determinant by $-1$:
 
 $$
 \det A(t) = - \det
@@ -57,7 +62,7 @@ $$
 \end{pmatrix}
 $$
 
-Since the resulting matrix is upper-triangular, its determinant is the product of its diagonal entries:
+Since the resulting matrix is upper-triangular, its determinant is the product of its main diagonal entries:
 
 $$
 \det A(t) = - (1 \cdot 1 \cdot (t - 6)) = -(t - 6) = 6 - t
@@ -85,4 +90,6 @@ $$
 For this specific value of the parameter, the second row ($R_2 = \begin{pmatrix} 2 & 4 & 6 \end{pmatrix}$) becomes an exact scalar multiple of the first row ($R_1 = \begin{pmatrix} 1 & 2 & 3 \end{pmatrix}$), since $R_2 = 2R_1$. 
 
 This linear dependence between the rows means the rows do not span full 3-dimensional space, causing the determinant to collapse to zero and rendering the matrix non-invertible.
+
+
 
