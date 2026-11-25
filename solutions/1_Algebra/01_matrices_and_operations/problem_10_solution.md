@@ -1,122 +1,152 @@
-### Exercise 10. Inverse of a $2 \times 2$ Matrix
+# Exercise 10. Matrix Multiplication and Column Vectors
 
-**Problem:**
-
-For
+Let
 
 $$
-A = \begin{pmatrix}
-2 & 1 \\
-5 & 3
+A =
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
 \end{pmatrix}
 $$
 
-compute its determinant, find its inverse matrix $A^{-1}$, and verify that $A A^{-1} = I$ and $A^{-1} A = I$.
+and
+
+$$
+B =
+\begin{pmatrix}
+5 & 6 \\
+7 & 8 \\
+\end{pmatrix}
+$$
+
+Let $b_1$ and $b_2$ denote the first and second columns of $B$, respectively.
+
+1. Compute $Ab_1$ and $Ab_2$.
+2. Compute the matrix product $AB$.
+3. Explain why the resulting vectors from part (1) are precisely the columns of $AB$.
 
 ---
 
 ## Solution
 
-### 1. Computing the Determinant
+**1. Computing $Ab_1$ and $Ab_2$**
 
-For a $2 \times 2$ matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the determinant is given by $\det(A) = ad - bc$.
-
-$$
-\det(A) = (2)(3) - (1)(5) = 6 - 5 = 1
-$$
-
-Since $\det(A) \neq 0$, the matrix $A$ is invertible.
-
-### 2. Finding the Inverse Matrix $A^{-1}$
-
-The inverse of a $2 \times 2$ matrix is given by:
+The columns of $B$ are
 
 $$
-A^{-1} = \frac{1}{\det(A)} \begin{pmatrix}
-d & -b \\
--c & a
+b_1 =
+\begin{pmatrix}
+5 \\
+7 \\
 \end{pmatrix}
 $$
 
-Substituting the values:
+and
 
 $$
-A^{-1} = \frac{1}{1} \begin{pmatrix}
-3 & -1 \\
--5 & 2
-\end{pmatrix}
-= \begin{pmatrix}
-3 & -1 \\
--5 & 2
+b_2 =
+\begin{pmatrix}
+6 \\
+8 \\
 \end{pmatrix}
 $$
 
-### 3. Verification ($A A^{-1} = I$ and $A^{-1} A = I$)
-
-To verify, we compute the product $A A^{-1}$:
+Multiplying $A$ by $b_1$:
 
 $$
-A A^{-1} = \begin{pmatrix}
-2 & 1 \\
-5 & 3
+\begin{aligned}
+Ab_1 &=
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
 \end{pmatrix}
 \begin{pmatrix}
-3 & -1 \\
--5 & 2
+5 \\
+7 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1(5) + 2(7) \\
+3(5) + 4(7) \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+19 \\
+43 \\
 \end{pmatrix}
-= \begin{pmatrix}
-(2)(3) + (1)(-5) & (2)(-1) + (1)(2) \\
-(5)(3) + (3)(-5) & (5)(-1) + (3)(2)
-\end{pmatrix}
+\end{aligned}
 $$
 
-Simplifying each entry:
+Multiplying $A$ by $b_2$:
 
 $$
-A A^{-1} = \begin{pmatrix}
-6 - 5 & -2 + 2 \\
-15 - 15 & -5 + 6
-\end{pmatrix}
-= \begin{pmatrix}
-1 & 0 \\
-0 & 1
-\end{pmatrix} = I
-$$
-
-Next, we compute the product $A^{-1} A$:
-
-$$
-A^{-1} A = \begin{pmatrix}
-3 & -1 \\
--5 & 2
+\begin{aligned}
+Ab_2 &=
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
 \end{pmatrix}
 \begin{pmatrix}
-2 & 1 \\
-5 & 3
+6 \\
+8 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1(6) + 2(8) \\
+3(6) + 4(8) \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+22 \\
+50 \\
 \end{pmatrix}
-= \begin{pmatrix}
-(3)(2) + (-1)(5) & (3)(1) + (-1)(3) \\
-(-5)(2) + (2)(5) & (-5)(1) + (2)(3)
-\end{pmatrix}
+\end{aligned}
 $$
 
-Simplifying each entry:
+**2. Computing the Product $AB$**
+
+Using standard matrix multiplication:
 
 $$
-A^{-1} A = \begin{pmatrix}
-6 - 5 & 3 - 3 \\
--10 + 10 & -5 + 6
+\begin{aligned}
+AB &=
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 \\
 \end{pmatrix}
-= \begin{pmatrix}
-1 & 0 \\
-0 & 1
-\end{pmatrix} = I
+\begin{pmatrix}
+5 & 6 \\
+7 & 8 \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+1(5) + 2(7) & 1(6) + 2(8) \\
+3(5) + 4(7) & 3(6) + 4(8) \\
+\end{pmatrix} \\
+&=
+\begin{pmatrix}
+19 & 22 \\
+43 & 50 \\
+\end{pmatrix}
+\end{aligned}
 $$
 
-Both products yield the identity matrix $I$, confirming that the computed inverse is correct.
+**3. Explanation**
+
+By definition of matrix multiplication, if $B$ has columns $b_1$ and $b_2$, the product $AB$ is formed by multiplying $A$ with each column of $B$ individually:
+
+$$
+AB = A \begin{pmatrix} b_1 & b_2 \end{pmatrix} = \begin{pmatrix} Ab_1 & Ab_2 \end{pmatrix}
+$$
+
+Therefore, the columns of $AB$ are precisely the vectors $Ab_1$ and $Ab_2$ computed in the first part.
+
+
+
+
+
+
+
 
  
-
-
-
-  
