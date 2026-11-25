@@ -1,114 +1,58 @@
+### Exercise 5. Row Operations
 
-# Problem 05 – Row Operations
+For
+
+$$
+A=
+\begin{pmatrix}
+1 & 2 & 3 \\
+2 & 1 & 0 \\
+-1 & 4 & 2 \\
+\end{pmatrix}
+$$
+
+find $\det A$ by simplifying the matrix with row operations. At each step, indicate whether and how the determinant changes.
+
+---
 
 ## Solution
 
-Given:
+### 1. Applying Row Operations to Simplify the Matrix
 
-\[
-A = \begin{pmatrix}
-1 & 2 & 3 \\
-2 & 1 & 0 \\
--1 & 4 & 2
-\end{pmatrix}
-\]
+We use elementary row operations to transform matrix $A$ into an upper-triangular form while tracking how each operation affects the determinant.
 
-### 1. Simplify the matrix using row operations
+**Step 1:** Eliminate the entry below the leading entry in the first column by applying $R_2 \leftarrow R_2 - 2R_1$ and $R_3 \leftarrow R_3 + R_1$.
+* Adding a multiple of one row to another row **does not change the value of the determinant**.
 
-First, we eliminate the first entry of the second row.
-
-Apply:
-
-\[
-R_2 \leftarrow R_2-2R_1
-\]
-
-The new matrix is:
-
-\[
+$$
+A_1 =
 \begin{pmatrix}
 1 & 2 & 3 \\
 0 & -3 & -6 \\
--1 & 4 & 2
+0 & 6 & 5 \\
 \end{pmatrix}
-\]
+$$
 
-This operation does not change the determinant because adding a multiple of one row to another row leaves the determinant unchanged.
+**Step 2:** Eliminate the entry below the leading entry in the second column by applying $R_3 \leftarrow R_3 + 2R_2$.
+* Adding a multiple of one row to another row **still does not change the determinant**.
 
-### 2. Eliminate the first entry of the third row
-
-Apply:
-
-\[
-R_3 \leftarrow R_3+R_1
-\]
-
-The matrix becomes:
-
-\[
+$$
+A_2 =
 \begin{pmatrix}
 1 & 2 & 3 \\
 0 & -3 & -6 \\
-0 & 6 & 5
+0 & 0 & -7 \\
 \end{pmatrix}
-\]
+$$
 
-This operation also does not change the determinant.
+### 2. Computing the Determinant
 
-### 3. Eliminate the second entry of the third row
+Now that the matrix is in upper-triangular form, its determinant is simply the product of its main diagonal entries:
 
-Apply:
+$$
+\det A = (1)(-3)(-7) = 21
+$$
 
-\[
-R_3 \leftarrow R_3+2R_2
-\]
+Since all applied operations were row additions/replacements (which preserve the determinant), the determinant of the original matrix $A$ is $21$.
 
-The resulting matrix is:
-
-\[
-\begin{pmatrix}
-1 & 2 & 3 \\
-0 & -3 & -6 \\
-0 & 0 & -7
-\end{pmatrix}
-\]
-
-Again, the determinant remains unchanged.
-
-### 4. Calculate the determinant
-
-The resulting matrix is an upper triangular matrix.
-
-The determinant of a triangular matrix is the product of its diagonal entries.
-
-Therefore:
-
-\[
-\det(A)=1\cdot(-3)\cdot(-7)
-\]
-
-\[
-\det(A)=21
-\]
-
-\[
-\boxed{\det(A)=21}
-\]
-
-### 5. Explanation of determinant properties
-
-During the solution, we used three row operations.
-
-Each operation involved adding a multiple of one row to another row.
-
-This type of row operation does not change the determinant.
-
-Therefore, the determinant of the original matrix is equal to the determinant of the final triangular matrix.
-
-### Final Answer
-
-\[
-\boxed{\det(A)=21}
-\]
-
-The determinant remains unchanged throughout all three row operations.
+ 
