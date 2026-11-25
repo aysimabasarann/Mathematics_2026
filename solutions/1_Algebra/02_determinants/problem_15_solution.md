@@ -1,105 +1,61 @@
- ### Exercise 15. Comparing Methods
 
-For
+
+# Exercise 15. Combining Determinant Properties
+
+Let $A$ and $B$ be invertible $2 \times 2$ matrices with
 
 $$
-A=
-\begin{pmatrix}
-2 & 4 & 2 \\
-1 & 3 & 0 \\
-0 & 2 & 5 \\
-\end{pmatrix}
+\det A = -2, \qquad \det B = 3.
 $$
 
-compute $\det A$ by two methods:
-1. by Sarrus' rule,
-2. by simplifying the matrix first with row operations.
+Without finding the entries of the matrices, compute
 
-Compare the amount of computation and explain when row operations are more advantageous.
+$$
+\det\left(B^{-1} A^T B\right).
+$$
+
+State the determinant properties you use in order and explain why the factors involving $B$ eventually cancel.
 
 ---
 
 ## Solution
 
-### 1. Method 1: Computing $\det A$ Using Sarrus' Rule
+**1. Determinant Properties Used in Order**
 
-To apply Sarrus' rule, we repeat the first two columns of $A$ to the right of the matrix:
+To evaluate $\det\left(B^{-1} A^T B\right)$, we apply the following properties of determinants for invertible $n \times n$ matrices:
 
-$$
-\begin{pmatrix}
-2 & 4 & 2 & \mid & 2 & 4 \\
-1 & 3 & 0 & \mid & 1 & 3 \\
-0 & 2 & 5 & \mid & 0 & 2 \\
-\end{pmatrix}
-$$
+1. **Multiplicative property:** $\det(XYZ) = (\det X)(\det Y)(\det Z)$
+2. **Determinant of an inverse:** $\det\left(B^{-1}\right) = \frac{1}{\det B}$
+3. **Determinant of a transpose:** $\det\left(A^T\right) = \det A$
 
-First, we compute the sum of the products along the three main diagonals (top-left to bottom-right):
+---
 
-$$
-D_1 = (2)(3)(5) + (4)(0)(0) + (2)(1)(2) = 30 + 0 + 4 = 34
-$$
+**2. Step-by-Step Computation**
 
-Next, we compute the sum of the products along the three anti-diagonals (bottom-left to top-right):
+Applying these properties sequentially:
 
 $$
-D_2 = (0)(3)(2) + (2)(0)(2) + (5)(1)(4) = 0 + 0 + 20 = 20
+\begin{aligned}
+\det\left(B^{-1} A^T B\right) &= \det\left(B^{-1}\right) \det\left(A^T\right) \det B \\
+&= \left(\frac{1}{\det B}\right) (\det A) (\det B) \\
+&= \left(\frac{1}{3}\right) (-2) (3) \\
+&= -2
+\end{aligned}
 $$
 
-Subtracting $D_2$ from $D_1$ gives:
+---
+
+**3. Why the Factors Involving $B$ Cancel**
+
+Because the determinant maps matrices to nonzero real numbers (scalars), multiplication of the individual determinants is commutative:
 
 $$
-\det A = D_1 - D_2 = 34 - 20 = 14
+\left(\frac{1}{\det B}\right) (\det A) (\det B) = \left(\frac{1}{\det B} \cdot \det B\right) \det A = 1 \cdot \det A = \det A
 $$
 
-### 2. Method 2: Simplifying First with Row Operations
+Since $B$ is invertible, $\det B \neq 0$, which guarantees that $\det\left(B^{-1}\right) = \frac{1}{\det B}$ is well-defined and acts as the multiplicative inverse of $\det B$ in $\mathbb{R}$. Consequently, their product equals $1$, leaving only $\det A = -2$.
 
-We reduce $A$ to upper-triangular form while tracking the effect of each operation on the determinant.
-
-**Step 1:** Factor out $2$ from the first row ($R_1 \leftarrow \frac{1}{2}R_1$). Factoring a scalar $k = 2$ out of a single row multiplies the determinant by $2$:
-
-$$
-\det A = 2 \det
-\begin{pmatrix}
-1 & 2 & 1 \\
-1 & 3 & 0 \\
-0 & 2 & 5 \\
-\end{pmatrix}
-$$
-
-**Step 2:** Eliminate the entry below the pivot in the first column by applying $R_2 \leftarrow R_2 - R_1$. Adding a multiple of one row to another does not change the determinant:
-
-$$
-\det A = 2 \det
-\begin{pmatrix}
-1 & 2 & 1 \\
-0 & 1 & -1 \\
-0 & 2 & 5 \\
-\end{pmatrix}
-$$
-
-**Step 3:** Eliminate the entry below the pivot in the second column by applying $R_3 \leftarrow R_3 - 2R_2$. This also leaves the determinant unchanged:
-
-$$
-\det A = 2 \det
-\begin{pmatrix}
-1 & 2 & 1 \\
-0 & 1 & -1 \\
-0 & 0 & 7 \\
-\end{pmatrix}
-$$
-
-Now, multiplying the main diagonal entries of the upper-triangular matrix gives:
-
-$$
-\det A = 2 \cdot (1)(1)(7) = 14
-$$
-
-Both methods yield $\det A = 14$.
-
-### 3. Comparison of Methods
-
-* **Computational Effort:** For a $3 \times 3$ matrix—especially one that already contains zeros like $a_{23} = 0$ and $a_{31} = 0$—Sarrus' rule requires very few multiplications ($6$ triple products, half of which vanish) and is extremely fast. Row operations require several matrix rewrites and careful tracking of scaling factors.
-* **When Row Operations Are More Advantageous:** Row reduction becomes significantly more advantageous for matrices of size $4 \times 4$ and larger, where Sarrus' rule does not apply at all and cofactor expansion grows factorially at $O(n!)$ complexity. Row operations reduce the computational cost to polynomial time of $O(n^3)$, making them the standard method for large matrices, matrices with common row factors, or matrices containing symbolic parameters.
+  
 
 
  
