@@ -153,20 +153,51 @@ $$
 
 * **The Identity Matrix ($I$):** Acts as the multiplicative neutral element. Multiplying any compatible matrix by $I$ leaves the matrix unchanged ($AI = IA = A$).
 * **The Zero Matrix ($0$):** Acts as the additive neutral element. Adding the zero matrix to another matrix leaves the matrix unchanged ($A + 0 = A$).
-* **Pattern in Successive Powers of $A$:**
-  Observing the computed powers:
-  - $A^1 = \begin{pmatrix} 2^1 & 1 \cdot 2^0 \cdot 1 ? \text{ let's check entries: } 2 & 1 \\ 0 & 2^1 \end{pmatrix}$
-  - $A^2 = \begin{pmatrix} 4 & 4 \\ 0 & 4 \end{pmatrix} = \begin{pmatrix} 2^2 & 2 \cdot 2^1 \\ 0 & 2^2 \end{pmatrix}$
-  - $A^3 = \begin{pmatrix} 8 & 12 \\ 0 & 8 \end{pmatrix} = \begin{pmatrix} 2^3 & 3 \cdot 2^2 \\ 0 & 2^3 \end{pmatrix}$
+* **Pattern in Successive Powers of $A$:** Observing the computed powers:
 
-  In general, for $n \ge 1$, the matrix power $A^n$ follows the pattern:
-  
-  $$
-  A^n = \begin{pmatrix}
-  2^n & n \cdot 2^{n-1} \\
-  0 & 2^n
-  \end{pmatrix}
-  $$
+$$
+A^1 = \begin{pmatrix}
+2 & 1 \\
+0 & 2
+\end{pmatrix}
+= \begin{pmatrix}
+2^1 & 1 \cdot 2^0 \\
+0 & 2^1
+\end{pmatrix}
+$$
+
+$$
+A^2 = \begin{pmatrix}
+4 & 4 \\
+0 & 4
+\end{pmatrix}
+= \begin{pmatrix}
+2^2 & 2 \cdot 2^1 \\
+0 & 2^2
+\end{pmatrix}
+$$
+
+$$
+A^3 = \begin{pmatrix}
+8 & 12 \\
+0 & 8
+\end{pmatrix}
+= \begin{pmatrix}
+2^3 & 3 \cdot 2^2 \\
+0 & 2^3
+\end{pmatrix}
+$$
+
+In general, for $n \ge 1$, the matrix power $A^n$ follows the pattern:
+
+$$
+A^n = \begin{pmatrix}
+2^n & n \cdot 2^{n-1} \\
+0 & 2^n
+\end{pmatrix}
+$$
+
+ 
 
 
  
