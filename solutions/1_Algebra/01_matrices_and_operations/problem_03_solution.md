@@ -1,82 +1,67 @@
+### Exercise 3. When Can Matrices Be Multiplied?
 
-# Problem 03 – When Can Matrices Be Multiplied?
+**Problem:**
+
+The matrix sizes are
+
+$$
+A_{2\times3},\qquad B_{3\times4},\qquad C_{4\times2},\qquad D_{2\times2}.
+$$
+
+For the products
+
+$$
+AB,\ BA,\ BC,\ CB,\ AC,\ CA,\ AD,\ DA
+$$
+
+determine whether they are defined. If so, state the size of the result. Justify each decision using the dimension compatibility condition.
+
+---
 
 ## Solution
 
-The matrix sizes are:
+### Dimension Compatibility Rule for Multiplication
 
-- A: 2 × 3
-- B: 3 × 4
-- C: 4 × 2
-- D: 2 × 2
+Two matrices $X$ and $Y$ can be multiplied in the order $XY$ if and only if the number of columns in $X$ equals the number of rows in $Y$. If $X$ is of size $m \times n$ and $Y$ is of size $n \times p$, then the product $XY$ is defined and has the size $m \times p$.
 
-Matrix multiplication is possible when the number of columns of the first matrix equals the number of rows of the second matrix.
+### Analysis of Each Product
 
-### 1. AB
+* **$AB$ ($A_{2\times3}$ and $B_{3\times4}$):**
+  * The number of columns of $A$ ($3$) matches the number of rows of $B$ ($3$).
+  * **Status:** Defined.
+  * **Size of result:** $2 \times 4$.
 
-A is 2 × 3 and B is 3 × 4.
+* **$BA$ ($B_{3\times4}$ and $A_{2\times3}$):**
+  * The number of columns of $B$ ($4$) does not match the number of rows of $A$ ($2$).
+  * **Status:** Undefined.
 
-Since 3 = 3, the multiplication is defined.
+* **$BC$ ($B_{3\times4}$ and $C_{4\times2}$):**
+  * The number of columns of $B$ ($4$) matches the number of rows of $C$ ($4$).
+  * **Status:** Defined.
+  * **Size of result:** $3 \times 2$.
 
-The result has size **2 × 4**.
+* **$CB$ ($C_{4\times2}$ and $B_{3\times4}$):**
+  * The number of columns of $C$ ($2$) does not match the number of rows of $B$ ($3$).
+  * **Status:** Undefined.
 
-### 2. BA
+* **$AC$ ($A_{2\times3}$ and $C_{4\times2}$):**
+  * The number of columns of $A$ ($3$) does not match the number of rows of $C$ ($4$).
+  * **Status:** Undefined.
 
-B is 3 × 4 and A is 2 × 3.
+* **$CA$ ($C_{4\times2}$ and $A_{2\times3}$):**
+  * The number of columns of $C$ ($2$) matches the number of rows of $A$ ($2$).
+  * **Status:** Defined.
+  * **Size of result:** $4 \times 3$.
 
-Since 4 ≠ 2, the multiplication is not defined.
+* **$AD$ ($A_{2\times3}$ and $D_{2\times2}$):**
+  * The number of columns of $A$ ($3$) does not match the number of rows of $D$ ($2$).
+  * **Status:** Undefined.
 
-### 3. BC
+* **$DA$ ($D_{2\times2}$ and $A_{2\times3}$):**
+  * The number of columns of $D$ ($2$) matches the number of rows of $A$ ($2$).
+  * **Status:** Defined.
+  * **Size of result:** $2 \times 3$.
 
-B is 3 × 4 and C is 4 × 2.
 
-Since 4 = 4, the multiplication is defined.
 
-The result has size **3 × 2**.
 
-### 4. CB
-
-C is 4 × 2 and B is 3 × 4.
-
-Since 2 ≠ 3, the multiplication is not defined.
-
-### 5. AC
-
-A is 2 × 3 and C is 4 × 2.
-
-Since 3 ≠ 4, the multiplication is not defined.
-
-### 6. CA
-
-C is 4 × 2 and A is 2 × 3.
-
-Since 2 = 2, the multiplication is defined.
-
-The result has size **4 × 3**.
-
-### 7. AD
-
-A is 2 × 3 and D is 2 × 2.
-
-Since 3 ≠ 2, the multiplication is not defined.
-
-### 8. DA
-
-D is 2 × 2 and A is 2 × 3.
-
-Since 2 = 2, the multiplication is defined.
-
-The result has size **2 × 3**.
-
-### Final Answer
-
-| Product | Defined? | Result Size |
-|---------|----------|-------------|
-| AB | Yes | 2 × 4 |
-| BA | No | — |
-| BC | Yes | 3 × 2 |
-| CB | No | — |
-| AC | No | — |
-| CA | Yes | 4 × 3 |
-| AD | No | — |
-| DA | Yes | 2 × 3 |
