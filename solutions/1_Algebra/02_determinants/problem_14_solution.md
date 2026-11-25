@@ -1,141 +1,92 @@
+ ### Exercise 14. Cofactor Expansion
 
-# Exercise 14 – A System of Equations and the Determinant
+Compute the determinant
+
+$$
+A=
+\begin{pmatrix}
+2 & 0 & 1 \\
+3 & 5 & 0 \\
+1 & 4 & -2 \\
+\end{pmatrix}
+$$
+
+by expanding along the first row. Then verify your result by expanding along the second column.
+
+---
 
 ## Solution
 
-Given:
+### 1. Expansion Along the First Row
 
-\[
-A=
-\begin{pmatrix}
-1&2\\
-k&4
-\end{pmatrix}
-\]
+The cofactor expansion of a $3 \times 3$ matrix along its first row is given by:
 
-### Step 1. Calculate the determinant
+$$
+\det A = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13}
+$$
 
-\[
-\det(A)=1\cdot4-2\cdot k
-\]
+where the cofactors are $C_{ij} = (-1)^{i+j} M_{ij}$, and $M_{ij}$ is the determinant of the $2 \times 2$ submatrix obtained by removing the $i$-th row and $j$-th column.
 
-\[
-\det(A)=4-2k
-\]
+For our matrix, the first row entries are $a_{11} = 2$, $a_{12} = 0$, and $a_{13} = 1$. We evaluate each term separately:
 
-### Step 2. Find the condition for a unique solution
+**First term ($a_{11} C_{11}$):**
 
-A system has exactly one solution for every \(b\) if and only if its coefficient matrix is invertible.
+$$
+2 \cdot (-1)^{1+1} \det \begin{pmatrix} 5 & 0 \\ 4 & -2 \end{pmatrix} = 2 \cdot 1 \cdot ((5)(-2) - (0)(4)) = 2(-10) = -20
+$$
 
-Therefore:
+**Second term ($a_{12} C_{12}$):**
 
-\[
-\det(A)\neq0
-\]
+$$
+0 \cdot (-1)^{1+2} \det \begin{pmatrix} 3 & 0 \\ 1 & -2 \end{pmatrix} = 0
+$$
 
-\[
-4-2k\neq0
-\]
+**Third term ($a_{13} C_{13}$):**
 
-\[
-2k\neq4
-\]
+$$
+1 \cdot (-1)^{1+3} \det \begin{pmatrix} 3 & 5 \\ 1 & 4 \end{pmatrix} = 1 \cdot 1 \cdot ((3)(4) - (5)(1)) = 1(12 - 5) = 7
+$$
 
-\[
-\boxed{k\neq2}
-\]
+Summing these terms yields the determinant:
 
-### Step 3. Consider the remaining value
+$$
+\det A = -20 + 0 + 7 = -13
+$$
 
-When \(k=2\), the matrix becomes:
+### 2. Verification by Expanding Along the Second Column
 
-\[
-A=
-\begin{pmatrix}
-1&2\\
-2&4
-\end{pmatrix}
-\]
+The entries of the second column are $a_{12} = 0$, $a_{22} = 5$, and $a_{32} = 4$, with signs given by $(-1)^{i+2}$ ($-$, $+$, $-$):
 
-The system is:
+$$
+\det A = -a_{12} M_{12} + a_{22} M_{22} - a_{32} M_{32}
+$$
 
-\[
-\begin{cases}
-x_1+2x_2=b_1\\
-2x_1+4x_2=b_2
-\end{cases}
-\]
+Evaluating each term:
 
-The second equation is twice the first equation.
+**First term ($a_{12} = 0$):**
 
-### Step 4. Example with infinitely many solutions
+$$
+-0 \cdot \det \begin{pmatrix} 3 & 0 \\ 1 & -2 \end{pmatrix} = 0
+$$
 
-Choose:
+**Second term ($a_{22} = 5$):**
 
-\[
-b=
-\begin{pmatrix}
-1\\
-2
-\end{pmatrix}
-\]
+$$
+5 \cdot \det \begin{pmatrix} 2 & 1 \\ 1 & -2 \end{pmatrix} = 5 \cdot ((2)(-2) - (1)(1)) = 5(-4 - 1) = 5(-5) = -25
+$$
 
-The system becomes:
+**Third term ($a_{32} = 4$):**
 
-\[
-\begin{cases}
-x_1+2x_2=1\\
-2x_1+4x_2=2
-\end{cases}
-\]
+$$
+-4 \cdot \det \begin{pmatrix} 2 & 1 \\ 3 & 0 \end{pmatrix} = -4 \cdot ((2)(0) - (1)(3)) = -4(0 - 3) = -4(-3) = 12
+$$
 
-Both equations represent the same line.
+Summing these terms gives:
 
-Therefore, there are infinitely many solutions.
+$$
+\det A = 0 - 25 + 12 = -13
+$$
 
-### Step 5. Example with no solution
+Both methods yield $-13$, confirming our result.
 
-Choose:
 
-\[
-b=
-\begin{pmatrix}
-1\\
-0
-\end{pmatrix}
-\]
-
-The system becomes:
-
-\[
-\begin{cases}
-x_1+2x_2=1\\
-2x_1+4x_2=0
-\end{cases}
-\]
-
-The second equation contradicts the first equation.
-
-Therefore, there is no solution.
-
-### Final Answer
-
-- Exactly one solution for every \(b\): 
-
-\[
-\boxed{k\neq2}
-\]
-
-- Infinitely many solutions when \(k=2\) and:
-
-\[
-b=\begin{pmatrix}1\\2\end{pmatrix}
-\]
-
-- No solution when \(k=2\) and:
-
-\[
-b=\begin{pmatrix}1\\0\end{pmatrix}
-\]
-
-The determinant determines whether the matrix is invertible and therefore whether the system has a unique solution for every right-hand side.
