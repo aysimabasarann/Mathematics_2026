@@ -54,7 +54,12 @@ AB =
 2 + 0 & 0 + 3 \\
 0 + 0 & 0 + 3 \\
 \end{pmatrix}
-=
+$$
+
+Evaluating the sums:
+
+$$
+AB =
 \begin{pmatrix}
 2 & 3 \\
 0 & 3 \\
@@ -85,7 +90,12 @@ $$
 \frac{3}{6} & -\frac{3}{6} \\
 0 & \frac{2}{6} \\
 \end{pmatrix}
-=
+$$
+
+Simplifying the fractions:
+
+$$
+(AB)^{-1} =
 \begin{pmatrix}
 \frac{1}{2} & -\frac{1}{2} \\
 0 & \frac{1}{3} \\
@@ -114,7 +124,12 @@ B^{-1} = \frac{1}{6}
 3 & 0 \\
 0 & 2 \\
 \end{pmatrix}
-=
+$$
+
+Simplifying $B^{-1}$:
+
+$$
+B^{-1} =
 \begin{pmatrix}
 \frac{3}{6} & 0 \\
 0 & \frac{2}{6} \\
@@ -158,7 +173,12 @@ B^{-1}A^{-1} =
 \frac{1}{2} + 0 & -\frac{1}{2} + 0 \\
 0 + 0 & 0 + \frac{1}{3} \\
 \end{pmatrix}
-=
+$$
+
+Evaluating the sums:
+
+$$
+B^{-1}A^{-1} =
 \begin{pmatrix}
 \frac{1}{2} & -\frac{1}{2} \\
 0 & \frac{1}{3} \\
@@ -174,39 +194,3 @@ $$
 $$
 
 **Meaning of the reversed order:** Matrix multiplication represents the composition of linear transformations. When matrix $A$ is applied followed by matrix $B$, the combined transformation is represented by $AB$. To undo this composite operation, we must reverse the steps in the exact opposite order: we must first undo $B$ (by applying $B^{-1}$), and then undo $A$ (by applying $A^{-1}$). Hence, the inverse of a product is the product of the inverses in reverse order.
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
