@@ -1,153 +1,122 @@
+### Exercise 10. Inverse of a $2 \times 2$ Matrix
 
-# Problem 10 – Columns of a Matrix Product
+**Problem:**
+
+For
+
+$$
+A = \begin{pmatrix}
+2 & 1 \\
+5 & 3
+\end{pmatrix}
+$$
+
+compute its determinant, find its inverse matrix $A^{-1}$, and verify that $A A^{-1} = I$ and $A^{-1} A = I$.
+
+---
 
 ## Solution
 
-Given:
+### 1. Computing the Determinant
 
-\[
-A = \begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1
-\end{pmatrix},
-\quad
-B = \begin{pmatrix}
-1 & 2 \\
--1 & 0 \\
-3 & 1
+For a $2 \times 2$ matrix $A = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$, the determinant is given by $\det(A) = ad - bc$.
+
+$$
+\det(A) = (2)(3) - (1)(5) = 6 - 5 = 1
+$$
+
+Since $\det(A) \neq 0$, the matrix $A$ is invertible.
+
+### 2. Finding the Inverse Matrix $A^{-1}$
+
+The inverse of a $2 \times 2$ matrix is given by:
+
+$$
+A^{-1} = \frac{1}{\det(A)} \begin{pmatrix}
+d & -b \\
+-c & a
 \end{pmatrix}
-\]
+$$
 
-The columns of B are:
+Substituting the values:
 
-\[
-b_1 = \begin{pmatrix} 1 \\ -1 \\ 3 \end{pmatrix},
-\quad
-b_2 = \begin{pmatrix} 2 \\ 0 \\ 1 \end{pmatrix}
-\]
-
-### 1. Compute Ab₁ and Ab₂
-
-First, calculate Ab₁.
-
-\[
-Ab_1 =
-\begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1
+$$
+A^{-1} = \frac{1}{1} \begin{pmatrix}
+3 & -1 \\
+-5 & 2
 \end{pmatrix}
-\begin{pmatrix}
-1 \\ -1 \\ 3
+= \begin{pmatrix}
+3 & -1 \\
+-5 & 2
 \end{pmatrix}
-\]
+$$
 
-\[
-Ab_1 =
-\begin{pmatrix}
-1-2+0 \\
-0-1+3
-\end{pmatrix}
-=
-\begin{pmatrix}
--1 \\ 2
-\end{pmatrix}
-\]
+### 3. Verification ($A A^{-1} = I$ and $A^{-1} A = I$)
 
-Now, calculate Ab₂.
+To verify, we compute the product $A A^{-1}$:
 
-\[
-Ab_2 =
-\begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1
+$$
+A A^{-1} = \begin{pmatrix}
+2 & 1 \\
+5 & 3
 \end{pmatrix}
 \begin{pmatrix}
-2 \\ 0 \\ 1
+3 & -1 \\
+-5 & 2
 \end{pmatrix}
-\]
+= \begin{pmatrix}
+(2)(3) + (1)(-5) & (2)(-1) + (1)(2) \\
+(5)(3) + (3)(-5) & (5)(-1) + (3)(2)
+\end{pmatrix}
+$$
 
-\[
-Ab_2 =
+Simplifying each entry:
+
+$$
+A A^{-1} = \begin{pmatrix}
+6 - 5 & -2 + 2 \\
+15 - 15 & -5 + 6
+\end{pmatrix}
+= \begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} = I
+$$
+
+Next, we compute the product $A^{-1} A$:
+
+$$
+A^{-1} A = \begin{pmatrix}
+3 & -1 \\
+-5 & 2
+\end{pmatrix}
 \begin{pmatrix}
-2+0+0 \\
-0+0+1
+2 & 1 \\
+5 & 3
 \end{pmatrix}
-=
-\begin{pmatrix}
-2 \\ 1
+= \begin{pmatrix}
+(3)(2) + (-1)(5) & (3)(1) + (-1)(3) \\
+(-5)(2) + (2)(5) & (-5)(1) + (2)(3)
 \end{pmatrix}
-\]
+$$
 
-### 2. Compute the matrix AB
+Simplifying each entry:
 
-We multiply A by B.
-
-\[
-AB =
-\begin{pmatrix}
-1 & 2 & 0 \\
-0 & 1 & 1
+$$
+A^{-1} A = \begin{pmatrix}
+6 - 5 & 3 - 3 \\
+-10 + 10 & -5 + 6
 \end{pmatrix}
-\begin{pmatrix}
-1 & 2 \\
--1 & 0 \\
-3 & 1
-\end{pmatrix}
-\]
+= \begin{pmatrix}
+1 & 0 \\
+0 & 1
+\end{pmatrix} = I
+$$
 
-\[
-AB =
-\begin{pmatrix}
-1-2+0 & 2+0+0 \\
-0-1+3 & 0+0+1
-\end{pmatrix}
-\]
+Both products yield the identity matrix $I$, confirming that the computed inverse is correct.
 
-\[
-AB =
-\begin{pmatrix}
--1 & 2 \\
-2 & 1
-\end{pmatrix}
-\]
+ 
 
-### 3. Compare the results
 
-The columns of AB are:
 
-\[
-\begin{pmatrix} -1 \\ 2 \end{pmatrix},
-\quad
-\begin{pmatrix} 2 \\ 1 \end{pmatrix}
-\]
-
-These are exactly the vectors Ab₁ and Ab₂.
-
-Therefore, the first column of AB is Ab₁, and the second column is Ab₂.
-
-### 4. Explanation
-
-When two matrices are multiplied, each column of the resulting matrix is obtained by multiplying the first matrix by the corresponding column of the second matrix.
-
-This is because matrix multiplication applies A to each column of B separately.
-
-### Final Answer
-
-\[
-Ab_1 = \begin{pmatrix} -1 \\ 2 \end{pmatrix}
-\]
-
-\[
-Ab_2 = \begin{pmatrix} 2 \\ 1 \end{pmatrix}
-\]
-
-\[
-\boxed{
-AB = \begin{pmatrix}
--1 & 2 \\
-2 & 1
-\end{pmatrix}
-}
-\]
-
-The columns of AB are exactly Ab₁ and Ab₂.
+  
