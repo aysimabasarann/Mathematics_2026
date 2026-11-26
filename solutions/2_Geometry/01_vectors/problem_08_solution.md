@@ -1,92 +1,76 @@
-
 ### Exercise 8. Linear Combination and Checking the Result
 
-Given the vectors
+#### Question
+Check whether $w=(5,1)$ can be written as
 
 $$
-w=(5,1),\qquad u=(1,1),\qquad v=(2,-1)
+w=au+bv,
 $$
 
-**1. Setting up the linear combination**
+where $u=(1,1)$ and $v=(2,-1)$. If so, find $a,b$, reconstruct $w$ from them, and explain the geometric meaning of the existence of such coefficients.
 
-We want to determine whether $w$ can be expressed as
+#### Solution
+Given vectors are
 
 $$
-w=au+bv
+w = (5, 1), \qquad u = (1, 1), \qquad v = (2, -1).
 $$
 
-Substituting the given vectors:
+**1. Setting Up the Linear System**
+Writing $w = au + bv$ in coordinate form gives
 
 $$
 \begin{aligned}
-(5,1) &= a(1,1)+b(2,-1) \\
-&= (a,a)+(2b,-b) \\
-&= (a+2b,a-b)
+a(1, 1) + b(2, -1) &= (5, 1) \\
+(a + 2b, a - b) &= (5, 1)
 \end{aligned}
 $$
 
-Comparing the corresponding components gives the system
+Equating components yields the system of linear equations
 
 $$
 \begin{cases}
-a+2b=5, \\
-a-b=1.
+a + 2b = 5, \\
+a - b = 1.
 \end{cases}
 $$
 
-**2. Finding the coefficients**
-
-From the second equation:
-
-$$
-a=1+b
-$$
-
-Substitute this expression into the first equation.
+**2. Solving for $a$ and $b$**
+Subtracting the second equation from the first eliminates $a$:
 
 $$
 \begin{aligned}
-1+b+2b &= 5 \\
+(a + 2b) - (a - b) &= 5 - 1 \\
 3b &= 4 \\
 b &= \frac{4}{3}
 \end{aligned}
 $$
 
-Now calculate $a$.
+Substituting $b = \frac{4}{3}$ into $a - b = 1$:
 
 $$
 \begin{aligned}
-a &= 1+\frac{4}{3} \\
-&= \frac{7}{3}
+a - \frac{4}{3} &= 1 \\
+a &= 1 + \frac{4}{3} \\
+a &= \frac{7}{3}
 \end{aligned}
 $$
 
-Therefore,
+Thus, $w$ can be written as a linear combination of $u$ and $v$ with $a = \frac{7}{3}$ and $b = \frac{4}{3}$.
 
-$$
-a=\frac{7}{3},\qquad b=\frac{4}{3}
-$$
-
-**3. Reconstructing and checking the vector**
-
-Substitute the calculated coefficients into the linear combination.
+**3. Reconstruction of $w$**
 
 $$
 \begin{aligned}
-au+bv &= \frac{7}{3}(1,1)+\frac{4}{3}(2,-1) \\
-&= \left(\frac{7}{3},\frac{7}{3}\right)
-+\left(\frac{8}{3},-\frac{4}{3}\right) \\
-&= \left(\frac{15}{3},\frac{3}{3}\right) \\
-&= (5,1) \\
-&= w
+au + bv &= \frac{7}{3}(1, 1) + \frac{4}{3}(2, -1) \\
+        &= \left(\frac{7}{3}, \frac{7}{3}\right) + \left(\frac{8}{3}, -\frac{4}{3}\right) \\
+        &= \left(\frac{7 + 8}{3}, \frac{7 - 4}{3}\right) \\
+        &= \left(\frac{15}{3}, \frac{3}{3}\right) \\
+        &= (5, 1) \\
+        &= w
 \end{aligned}
 $$
 
-Thus, $w$ can be expressed as a linear combination of $u$ and $v$.
-
-**4. Geometric interpretation**
-
-A linear combination represents the addition of scalar multiples of vectors. The coefficients determine how much each vector is scaled and whether its orientation is preserved or reversed.
-
-Since $w$ is obtained from $au+bv$, it lies in the span of $u$ and $v$. In this case, the two vectors span the entire plane.
+**4. Geometric Meaning**
+Geometrically, the vectors $u$ and $v$ are not collinear, so they span the entire two-dimensional plane $\mathbb{R}^2$. The existence of unique scalars $a$ and $b$ means that the point $(5, 1)$ can be reached from the origin by moving $\frac{7}{3}$ units along the direction of $u$ and then $\frac{4}{3}$ units along the direction of $v$.
 
