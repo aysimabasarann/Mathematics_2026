@@ -1,74 +1,59 @@
-
 ### Exercise 1. Vector Operations and Their Meaning
 
-Given
+#### Question
+For $u=(2,-1,3)$ and $v=(-1,4,2)$ compute
 
 $$
-u=(2,-1,3),\qquad v=(-1,4,2)
+u+v,\qquad u-v,\qquad 3u-2v.
 $$
 
-**1. Vector addition**
+Then verify that $(u+v)-v=u$, and explain geometrically what adding two vectors means.
 
-Vector addition is performed by adding the corresponding components.
+#### Solution
+Given vectors are
 
 $$
-\begin{aligned}
-u+v &= (2+(-1),-1+4,3+2) \\
-&= (1,3,5)
-\end{aligned}
+u = (2, -1, 3), \qquad v = (-1, 4, 2).
 $$
 
-**2. Vector subtraction**
-
-Vector subtraction is performed by subtracting the corresponding components.
+**1. Computations**
 
 $$
 \begin{aligned}
-u-v &= (2-(-1),-1-4,3-2) \\
-&= (3,-5,1)
+u + v &= (2 + (-1), -1 + 4, 3 + 2) \\
+      &= (1, 3, 5)
 \end{aligned}
 $$
-
-**3. Scalar multiplication and subtraction**
-
-First, multiply each vector by its scalar.
-
-$$
-3u=(6,-3,9)
-$$
-
-$$
-2v=(-2,8,4)
-$$
-
-Subtract the resulting vectors component by component.
 
 $$
 \begin{aligned}
-3u-2v &= (6-(-2),-3-8,9-4) \\
-&= (8,-11,5)
+u - v &= (2 - (-1), -1 - 4, 3 - 2) \\
+      &= (3, -5, 1)
 \end{aligned}
 $$
-
-**4. Verification of the identity**
-
-Using the calculated value of $u+v$:
 
 $$
 \begin{aligned}
-(u+v)-v &= (1,3,5)-(-1,4,2) \\
-&= (1+1,3-4,5-2) \\
-&= (2,-1,3) \\
-&= u
+3u - 2v &= 3(2, -1, 3) - 2(-1, 4, 2) \\
+        &= (6, -3, 9) - (-2, 8, 4) \\
+        &= (6 - (-2), -3 - 8, 9 - 4) \\
+        &= (8, -11, 5)
 \end{aligned}
 $$
 
-Therefore, the identity is verified.
+**2. Verification**
 
-**5. Geometric interpretation**
+$$
+\begin{aligned}
+(u + v) - v &= (1, 3, 5) - (-1, 4, 2) \\
+            &= (1 - (-1), 3 - 4, 5 - 2) \\
+            &= (2, -1, 3) \\
+            &= u
+\end{aligned}
+$$
 
-Geometrically, vector addition represents combining two displacements. The second vector is placed at the endpoint of the first vector. The resulting vector starts at the initial point of the first vector and ends at the endpoint of the second vector. This is known as the head-to-tail rule.
+**3. Geometric Interpretation**
+Adding two vectors $u$ and $v$ corresponds to placing the initial point of $v$ at the terminal point of $u$ (head-to-tail method). The resulting sum $u + v$ represents the net displacement vector starting from the initial point of $u$ and ending at the terminal point of $v$.
 
-
-
+ 
 
