@@ -1,66 +1,50 @@
- 
-### Exercise 4. Dot Product and Perpendicularity
+ ### Exercise 4. Dot Product and Perpendicularity
 
-Given the vectors
+#### Question
+For $u=(1,2,-1)$ and $v=(2,-1,3)$ compute $u\cdot v$ and determine whether the vectors are perpendicular. Then find $a$ so that $w=(2,-1,a)$ is perpendicular to $u$, and check the result.
+
+#### Solution
+Given vectors are
 
 $$
-u=(1,2,-1),\qquad v=(2,-1,3)
+u = (1, 2, -1), \qquad v = (2, -1, 3).
 $$
 
-**1. Computing the dot product**
-
-The dot product is calculated by multiplying the corresponding components and adding the products.
+**1. Dot Product $u \cdot v$ and Perpendicularity**
 
 $$
 \begin{aligned}
-u\cdot v &= 1\cdot 2+2\cdot(-1)+(-1)\cdot 3 \\
-&= 2-2-3 \\
-&= -3
+u \cdot v &= (1)(2) + (2)(-1) + (-1)(3) \\
+          &= 2 - 2 - 3 \\
+          &= -3
 \end{aligned}
 $$
 
-**2. Determining perpendicularity**
+Two nonzero vectors are perpendicular if and only if their dot product equals zero. Since $u \cdot v = -3 \neq 0$, the vectors $u$ and $v$ are **not** perpendicular.
 
-Two nonzero vectors are perpendicular if and only if their dot product is equal to zero.
-
-Since
-
-$$
-u\cdot v=-3\neq 0
-$$
-
-the vectors $u$ and $v$ are not perpendicular.
-
-**3. Finding the value of $a$**
-
-For the vector $w=(2,-1,a)$ to be perpendicular to $u=(1,2,-1)$, their dot product must be zero.
+**2. Finding $a$ so that $w$ is Perpendicular to $u$**
+For $w = (2, -1, a)$ to be perpendicular to $u = (1, 2, -1)$, we require $u \cdot w = 0$:
 
 $$
 \begin{aligned}
-u\cdot w &= 0 \\
-1\cdot 2+2\cdot(-1)+(-1)\cdot a &= 0 \\
-2-2-a &= 0 \\
+u \cdot w &= 0 \\
+(1)(2) + (2)(-1) + (-1)(a) &= 0 \\
+2 - 2 - a &= 0 \\
 -a &= 0 \\
 a &= 0
 \end{aligned}
 $$
 
-**4. Verification**
-
-Substituting $a=0$ into the vector $w$ gives
-
-$$
-w=(2,-1,0)
-$$
-
-Now calculate the dot product again.
+**3. Verification**
+Substituting $a = 0$ gives $w = (2, -1, 0)$. Computing the dot product with $u$:
 
 $$
 \begin{aligned}
-u\cdot w &= 1\cdot 2+2\cdot(-1)+(-1)\cdot 0 \\
-&= 2-2+0 \\
-&= 0
+u \cdot w &= (1)(2) + (2)(-1) + (-1)(0) \\
+          &= 2 - 2 + 0 \\
+          &= 0
 \end{aligned}
 $$
 
-Therefore, the condition for perpendicularity is satisfied.
+Since $u \cdot w = 0$, the vector $w = (2, -1, 0)$ is indeed perpendicular to $u$.
+
