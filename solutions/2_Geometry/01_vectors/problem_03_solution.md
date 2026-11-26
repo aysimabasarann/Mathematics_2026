@@ -1,19 +1,64 @@
-## Question
 
-Normalize $v=(3,4)$, check the unit length, reconstruct $v$, and explain what normalization changes.
+### Exercise 3. Vector Normalization
 
-## Solution
+Given the vector
 
-First, $\|v\|=\sqrt{3^2+4^2}=5$. Dividing by this positive length gives the unit vector
+$$
+v=(3,4)
+$$
 
-$$e=\frac{v}{\|v\|}=\left(\frac35,\frac45\right).$$
+**1. Finding the unit vector**
 
-Indeed,
+First, calculate the length of the vector.
 
-$$\|e\|=\sqrt{\frac9{25}+\frac{16}{25}}=1,$$
+$$
+\begin{aligned}
+\|v\| &= \sqrt{3^2+4^2} \\
+&= \sqrt{9+16} \\
+&= \sqrt{25} \\
+&= 5
+\end{aligned}
+$$
 
-and reconstruction yields
+A unit vector with the same direction and orientation is obtained by dividing the original vector by its length.
 
-$$\|v\|e=5\left(\frac35,\frac45\right)=(3,4)=v.$$
+$$
+\begin{aligned}
+e &= \frac{v}{\|v\|} \\
+&= \frac{(3,4)}{5} \\
+&= \left(\frac{3}{5},\frac{4}{5}\right)
+\end{aligned}
+$$
 
-Normalization changes the length to one while preserving the direction and orientation because division is by the positive scalar $5$.
+**2. Verification of the unit vector**
+
+The length of a unit vector must be equal to 1.
+
+$$
+\begin{aligned}
+\|e\| &= \sqrt{\left(\frac{3}{5}\right)^2+\left(\frac{4}{5}\right)^2} \\
+&= \sqrt{\frac{9}{25}+\frac{16}{25}} \\
+&= \sqrt{\frac{25}{25}} \\
+&= 1
+\end{aligned}
+$$
+
+Therefore, $e$ is a unit vector.
+
+**3. Reconstructing the original vector**
+
+Using the relation $v=\|v\|e$:
+
+$$
+\begin{aligned}
+v &= 5\left(\frac{3}{5},\frac{4}{5}\right) \\
+&= (3,4)
+\end{aligned}
+$$
+
+The original vector is reconstructed correctly.
+
+**4. Geometric interpretation**
+
+Normalization changes the length of a nonzero vector to 1 while preserving its direction and orientation. The original vector and the unit vector point in the same direction, but they have different lengths.
+
