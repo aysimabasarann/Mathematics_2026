@@ -1,19 +1,78 @@
-## Question
+ 
+### Exercise 6. Projection and Perpendicular Component
 
-Project $u=(4,2)$ onto $v=(1,1)$, compute the residual $r$, verify $r\cdot v=0$, and explain the result geometrically.
+Given the vectors
 
-## Solution
+$$
+u=(4,2),\qquad v=(1,1)
+$$
 
-Using the projection formula,
+**1. Computing the projection of $u$ onto $v$**
 
-$$\operatorname{proj}_v u=\frac{u\cdot v}{v\cdot v}v=\frac{6}{2}(1,1)=(3,3).$$
+The projection of a vector $u$ onto a nonzero vector $v$ is calculated using the formula
 
-Thus
+$$
+\mathrm{proj}_v\,u=\frac{u\cdot v}{v\cdot v}v
+$$
 
-$$r=u-\operatorname{proj}_v u=(4,2)-(3,3)=(1,-1),$$
+First, calculate the dot product.
 
-and the requested calculation is
+$$
+\begin{aligned}
+u\cdot v &= 4\cdot 1+2\cdot 1 \\
+&= 6
+\end{aligned}
+$$
 
-$$r\cdot v=(1,-1)\cdot(1,1)=1-1=0.$$
+Calculate the squared length of $v$.
 
-The projection $(3,3)$ is parallel to $v$, so it is the component of $u$ in the projection direction. Subtracting this parallel component leaves the perpendicular component $r$. The zero dot product verifies geometrically that $r$ is perpendicular to the direction $v$.
+$$
+\begin{aligned}
+v\cdot v &= 1^2+1^2 \\
+&= 2
+\end{aligned}
+$$
+
+Substitute these values into the projection formula.
+
+$$
+\begin{aligned}
+\mathrm{proj}_v\,u &= \frac{6}{2}(1,1) \\
+&= 3(1,1) \\
+&= (3,3)
+\end{aligned}
+$$
+
+**2. Computing the perpendicular component**
+
+The perpendicular component is obtained by subtracting the projection from the original vector.
+
+$$
+\begin{aligned}
+r &= u-\mathrm{proj}_v\,u \\
+&= (4,2)-(3,3) \\
+&= (1,-1)
+\end{aligned}
+$$
+
+**3. Verification of perpendicularity**
+
+Two vectors are perpendicular if their dot product is zero.
+
+$$
+\begin{aligned}
+r\cdot v &= (1,-1)\cdot(1,1) \\
+&= 1\cdot 1+(-1)\cdot 1 \\
+&= 1-1 \\
+&= 0
+\end{aligned}
+$$
+
+Therefore, $r$ is perpendicular to $v$.
+
+**4. Geometric interpretation**
+
+The projection $(3,3)$ represents the component of $u$ parallel to the direction of $v$. The vector $r=(1,-1)$ represents the remaining component, which is perpendicular to $v$.
+
+Thus, the original vector is decomposed into two perpendicular components: one parallel to $v$ and one perpendicular to $v$.
+
