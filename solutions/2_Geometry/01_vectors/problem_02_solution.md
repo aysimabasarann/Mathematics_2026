@@ -1,19 +1,56 @@
-## Question
+ 
+### Exercise 2. Distance as the Length of a Vector
 
-For $A=(1,2,3)$ and $B=(4,-2,6)$, construct $\overrightarrow{AB}$, compute its length and the point distance, and explain why the results agree.
+Given the points
 
-## Solution
+$$
+A=(1,2,3),\qquad B=(4,-2,6)
+$$
 
-The displacement from $A$ to $B$ is
+**1. Constructing the vector $\overrightarrow{AB}$**
 
-$$\overrightarrow{AB}=B-A=(3,-4,3).$$
+The vector from point $A$ to point $B$ is obtained by subtracting the coordinates of $A$ from the corresponding coordinates of $B$.
 
-Its length is
+$$
+\begin{aligned}
+\overrightarrow{AB} &= B-A \\
+&= (4-1,-2-2,6-3) \\
+&= (3,-4,3)
+\end{aligned}
+$$
 
-$$\|\overrightarrow{AB}\|=\sqrt{3^2+(-4)^2+3^2}=\sqrt{34}.$$
+**2. Computing the length of the vector**
 
-The coordinate distance formula independently gives
+The length of a vector in $\mathbb R^3$ is calculated using the Euclidean norm formula.
 
-$$d(A,B)=\sqrt{(4-1)^2+(-2-2)^2+(6-3)^2}=\sqrt{34}.$$
+$$
+\begin{aligned}
+\|\overrightarrow{AB}\| &= \sqrt{3^2+(-4)^2+3^2} \\
+&= \sqrt{9+16+9} \\
+&= \sqrt{34}
+\end{aligned}
+$$
 
-These agree because Euclidean distance is defined as the length of the displacement vector joining the two points.
+**3. Computing the distance between the points**
+
+The distance between two points in $\mathbb R^3$ is calculated using the coordinate distance formula.
+
+$$
+\begin{aligned}
+d(A,B) &= \sqrt{(4-1)^2+(-2-2)^2+(6-3)^2} \\
+&= \sqrt{3^2+(-4)^2+3^2} \\
+&= \sqrt{9+16+9} \\
+&= \sqrt{34}
+\end{aligned}
+$$
+
+**4. Explanation**
+
+The distance between two points is equal to the length of the vector connecting them. Both calculations use the same coordinate differences, so they give the same result.
+
+Therefore,
+
+$$
+d(A,B)=\|\overrightarrow{AB}\|=\sqrt{34}
+$$
+
