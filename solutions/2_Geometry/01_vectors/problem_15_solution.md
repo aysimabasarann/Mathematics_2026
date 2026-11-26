@@ -1,164 +1,120 @@
-
 ### Exercise 15. Comparing Directions Using the Cosine of the Angle
 
-Given the vectors
+#### Question
+Given
 
 $$
-a=(1,2,1),\quad b=(2,4,2),\quad c=(2,0,3)
+a=(1,2,1),\qquad b=(2,4,2),\qquad c=(2,0,3).
 $$
 
-The cosine of the angle between two nonzero vectors is calculated using
+For each pair, compute
 
 $$
-\cos\theta=\frac{u\cdot v}{\|u\|\|v\|}
+\frac{u\cdot v}{\|u\|\,\|v\|}.
 $$
 
-**1. Calculating the cosine for each pair**
+Order the pairs by increasing angle between the vectors. Explain why for $a$ and $b$ the value is $1$ even though the vectors have different lengths.
 
-First, calculate the lengths of the three vectors.
+#### Solution
+Given vectors are
+
+$$
+a = (1, 2, 1), \qquad b = (2, 4, 2), \qquad c = (2, 0, 3).
+$$
+
+**1. Lengths of the Vectors**
 
 $$
 \begin{aligned}
-\|a\| &= \sqrt{1^2+2^2+1^2} \\
-&= \sqrt{6}
+\|a\| &= \sqrt{1^2 + 2^2 + 1^2} \\
+      &= \sqrt{1 + 4 + 1} \\
+      &= \sqrt{6}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\|b\| &= \sqrt{2^2+4^2+2^2} \\
-&= \sqrt{24}=2\sqrt{6}
+\|b\| &= \sqrt{2^2 + 4^2 + 2^2} \\
+      &= \sqrt{4 + 16 + 4} \\
+      &= \sqrt{24} \\
+      &= 2\sqrt{6}
 \end{aligned}
 $$
 
 $$
 \begin{aligned}
-\|c\| &= \sqrt{2^2+0^2+3^2} \\
-&= \sqrt{13}
+\|c\| &= \sqrt{2^2 + 0^2 + 3^2} \\
+      &= \sqrt{4 + 0 + 9} \\
+      &= \sqrt{13}
 \end{aligned}
 $$
 
-**Pair 1: Vectors $a$ and $b$**
+**2. Cosine Computation for Each Pair**
 
-Calculate their dot product.
+* **Pair $(a, b)$:**
 
 $$
 \begin{aligned}
-a\cdot b &= 1\cdot 2+2\cdot 4+1\cdot 2 \\
-&= 2+8+2 \\
-&= 12
+a \cdot b &= (1)(2) + (2)(4) + (1)(2) \\
+          &= 2 + 8 + 2 \\
+          &= 12
 \end{aligned}
 $$
-
-Now calculate the cosine.
 
 $$
 \begin{aligned}
-\cos\theta_{ab}
-&= \frac{a\cdot b}{\|a\|\|b\|} \\
-&= \frac{12}{\sqrt{6}\cdot 2\sqrt{6}} \\
-&= \frac{12}{12} \\
-&= 1
+\cos\theta_{ab} &= \frac{a \cdot b}{\|a\|\,\|b\|} \\
+                &= \frac{12}{\sqrt{6} \cdot 2\sqrt{6}} \\
+                &= \frac{12}{12} \\
+                &= 1
 \end{aligned}
 $$
 
-**Pair 2: Vectors $a$ and $c$**
-
-Calculate their dot product.
+* **Pair $(a, c)$:**
 
 $$
 \begin{aligned}
-a\cdot c &= 1\cdot 2+2\cdot 0+1\cdot 3 \\
-&= 2+0+3 \\
-&= 5
+a \cdot c &= (1)(2) + (2)(0) + (1)(3) \\
+          &= 2 + 0 + 3 \\
+          &= 5
 \end{aligned}
 $$
-
-Now calculate the cosine.
 
 $$
 \begin{aligned}
-\cos\theta_{ac}
-&= \frac{a\cdot c}{\|a\|\|c\|} \\
-&= \frac{5}{\sqrt{6}\sqrt{13}} \\
-&= \frac{5}{\sqrt{78}}
+\cos\theta_{ac} &= \frac{a \cdot c}{\|a\|\,\|c\|} \\
+                &= \frac{5}{\sqrt{6} \cdot \sqrt{13}} \\
+                &= \frac{5}{\sqrt{78}}
 \end{aligned}
 $$
 
-**Pair 3: Vectors $b$ and $c$**
-
-Calculate their dot product.
+* **Pair $(b, c)$:**
 
 $$
 \begin{aligned}
-b\cdot c &= 2\cdot 2+4\cdot 0+2\cdot 3 \\
-&= 4+0+6 \\
-&= 10
+b \cdot c &= (2)(2) + (4)(0) + (2)(3) \\
+          &= 4 + 0 + 6 \\
+          &= 10
 \end{aligned}
 $$
-
-Now calculate the cosine.
 
 $$
 \begin{aligned}
-\cos\theta_{bc}
-&= \frac{b\cdot c}{\|b\|\|c\|} \\
-&= \frac{10}{2\sqrt{6}\sqrt{13}} \\
-&= \frac{10}{2\sqrt{78}} \\
-&= \frac{5}{\sqrt{78}}
+\cos\theta_{bc} &= \frac{b \cdot c}{\|b\|\,\|c\|} \\
+                &= \frac{10}{2\sqrt{6} \cdot \sqrt{13}} \\
+                &= \frac{10}{2\sqrt{78}} \\
+                &= \frac{5}{\sqrt{78}}
 \end{aligned}
 $$
 
-**2. Ordering the pairs by increasing angle**
+**3. Ordering the Pairs by Increasing Angle**
+Because the cosine function decreases on $[0^\circ, 180^\circ]$, a larger cosine corresponds to a smaller angle. Since $1 > \frac{5}{\sqrt{78}}$, the order from smallest to largest angle is:
 
-The cosine function decreases as the angle increases from $0^\circ$ to $180^\circ$.
+1. **Pair $(a, b)$:** $\theta_{ab} = \arccos(1) = 0^\circ$
+2. **Pairs $(a, c)$ and $(b, c)$ (tied):** $\theta_{ac} = \theta_{bc} = \arccos\left(\frac{5}{\sqrt{78}}\right) \approx 55.5^\circ$
 
-For the three pairs, the cosine values are
+**4. Explanation for $a$ and $b$**
+Notice that $b = (2, 4, 2) = 2(1, 2, 1) = 2a$. Because $b$ is a positive scalar multiple of $a$, both vectors point in the exact same direction and orientation, making the angle between them $0^\circ$ ($\cos 0^\circ = 1$). The expression $\frac{u \cdot v}{\|u\|\,\|v\|}$ normalizes both vectors by dividing by their lengths, so it depends solely on their directions and is completely unaffected by differences in magnitude.
 
-$$
-\cos\theta_{ab}=1
-$$
-
-$$
-\cos\theta_{ac}=\frac{5}{\sqrt{78}}
-$$
-
-$$
-\cos\theta_{bc}=\frac{5}{\sqrt{78}}
-$$
-
-Since $1$ is greater than $\frac{5}{\sqrt{78}}$, the angle between $a$ and $b$ is smaller than the other two angles.
-
-Therefore, the pairs are ordered by increasing angle as follows:
-
-$$
-(a,b)<(a,c)=(b,c)
-$$
-
-The corresponding angles are
-
-$$
-\theta_{ab}=0^\circ
-$$
-
-$$
-\theta_{ac}=\theta_{bc}
-=\cos^{-1}\left(\frac{5}{\sqrt{78}}\right)
-\approx 55.5^\circ
-$$
-
-**3. Explanation of the cosine value for $a$ and $b$**
-
-The vectors $a$ and $b$ have different lengths, but their directions are identical.
-
-This is because
-
-$$
-b=(2,4,2)=2(1,2,1)=2a
-$$
-
-Thus, $b$ is a positive scalar multiple of $a$.
-
-The cosine of the angle between two vectors depends on their directions, not their lengths. Since both vectors point in the same direction, the angle between them is $0^\circ$ and its cosine is equal to $1$.
-
-
+ 
+ 
