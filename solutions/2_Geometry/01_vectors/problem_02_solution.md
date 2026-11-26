@@ -1,56 +1,52 @@
- 
 ### Exercise 2. Distance as the Length of a Vector
 
-Given the points
+#### Question
+The points are $A=(1,2,3)$ and $B=(4,-2,6)$.
+
+1. Construct $\overrightarrow{AB}$.
+2. Compute its length.
+3. Compute the distance between the points using the coordinate formula.
+4. Explain why both calculations give the same result.
+
+#### Solution
+Given points are
 
 $$
-A=(1,2,3),\qquad B=(4,-2,6)
+A = (1, 2, 3), \qquad B = (4, -2, 6).
 $$
 
-**1. Constructing the vector $\overrightarrow{AB}$**
-
-The vector from point $A$ to point $B$ is obtained by subtracting the coordinates of $A$ from the corresponding coordinates of $B$.
+**1. Construction of $\overrightarrow{AB}$**
 
 $$
 \begin{aligned}
-\overrightarrow{AB} &= B-A \\
-&= (4-1,-2-2,6-3) \\
-&= (3,-4,3)
+\overrightarrow{AB} &= B - A \\
+                    &= (4 - 1, -2 - 2, 6 - 3) \\
+                    &= (3, -4, 3)
 \end{aligned}
 $$
 
-**2. Computing the length of the vector**
-
-The length of a vector in $\mathbb R^3$ is calculated using the Euclidean norm formula.
+**2. Length of $\overrightarrow{AB}$**
 
 $$
 \begin{aligned}
-\|\overrightarrow{AB}\| &= \sqrt{3^2+(-4)^2+3^2} \\
-&= \sqrt{9+16+9} \\
-&= \sqrt{34}
+\|\overrightarrow{AB}\| &= \sqrt{3^2 + (-4)^2 + 3^2} \\
+                        &= \sqrt{9 + 16 + 9} \\
+                        &= \sqrt{34}
 \end{aligned}
 $$
 
-**3. Computing the distance between the points**
-
-The distance between two points in $\mathbb R^3$ is calculated using the coordinate distance formula.
+**3. Distance Using the Coordinate Formula**
 
 $$
 \begin{aligned}
-d(A,B) &= \sqrt{(4-1)^2+(-2-2)^2+(6-3)^2} \\
-&= \sqrt{3^2+(-4)^2+3^2} \\
-&= \sqrt{9+16+9} \\
-&= \sqrt{34}
+d(A, B) &= \sqrt{(4 - 1)^2 + (-2 - 2)^2 + (6 - 3)^2} \\
+        &= \sqrt{3^2 + (-4)^2 + 3^2} \\
+        &= \sqrt{9 + 16 + 9} \\
+        &= \sqrt{34}
 \end{aligned}
 $$
 
 **4. Explanation**
-
-The distance between two points is equal to the length of the vector connecting them. Both calculations use the same coordinate differences, so they give the same result.
-
-Therefore,
-
-$$
-d(A,B)=\|\overrightarrow{AB}\|=\sqrt{34}
-$$
+Both calculations give the exact same result because the Euclidean distance between two points $A$ and $B$ is geometrically defined as the length (magnitude) of the displacement vector $\overrightarrow{AB} = B - A$ connecting them.
+ 
 
