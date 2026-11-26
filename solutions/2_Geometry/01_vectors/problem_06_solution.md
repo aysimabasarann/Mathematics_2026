@@ -1,78 +1,78 @@
- 
-### Exercise 6. Projection and Perpendicular Component
+ ### Exercise 6. Projection and Perpendicular Component
 
-Given the vectors
-
-$$
-u=(4,2),\qquad v=(1,1)
-$$
-
-**1. Computing the projection of $u$ onto $v$**
-
-The projection of a vector $u$ onto a nonzero vector $v$ is calculated using the formula
+#### Question
+Find the projection of $u=(4,2)$ onto the direction $v=(1,1)$. Then compute
 
 $$
-\mathrm{proj}_v\,u=\frac{u\cdot v}{v\cdot v}v
+r=u-\mathrm{proj}_v\,u
 $$
 
-First, calculate the dot product.
+and verify that $r\cdot v=0$. Explain this result geometrically.
+
+#### Solution
+Given vectors are
 
 $$
-\begin{aligned}
-u\cdot v &= 4\cdot 1+2\cdot 1 \\
-&= 6
-\end{aligned}
+u = (4, 2), \qquad v = (1, 1).
 $$
 
-Calculate the squared length of $v$.
+**1. Projection of $u$ onto $v$**
+The orthogonal projection formula is
 
 $$
-\begin{aligned}
-v\cdot v &= 1^2+1^2 \\
-&= 2
-\end{aligned}
+\mathrm{proj}_v\,u = \frac{u \cdot v}{v \cdot v} v.
 $$
 
-Substitute these values into the projection formula.
+Computing the dot products:
 
 $$
 \begin{aligned}
-\mathrm{proj}_v\,u &= \frac{6}{2}(1,1) \\
-&= 3(1,1) \\
-&= (3,3)
+u \cdot v &= (4)(1) + (2)(1) \\
+          &= 4 + 2 \\
+          &= 6
 \end{aligned}
 $$
-
-**2. Computing the perpendicular component**
-
-The perpendicular component is obtained by subtracting the projection from the original vector.
 
 $$
 \begin{aligned}
-r &= u-\mathrm{proj}_v\,u \\
-&= (4,2)-(3,3) \\
-&= (1,-1)
+v \cdot v &= (1)(1) + (1)(1) \\
+          &= 1 + 1 \\
+          &= 2
 \end{aligned}
 $$
 
-**3. Verification of perpendicularity**
-
-Two vectors are perpendicular if their dot product is zero.
+Substituting these values into the projection formula:
 
 $$
 \begin{aligned}
-r\cdot v &= (1,-1)\cdot(1,1) \\
-&= 1\cdot 1+(-1)\cdot 1 \\
-&= 1-1 \\
-&= 0
+\mathrm{proj}_v\,u &= \frac{6}{2}(1, 1) \\
+                   &= 3(1, 1) \\
+                   &= (3, 3)
 \end{aligned}
 $$
 
-Therefore, $r$ is perpendicular to $v$.
+**2. Computation of the Perpendicular Component $r$**
 
-**4. Geometric interpretation**
+$$
+\begin{aligned}
+r &= u - \mathrm{proj}_v\,u \\
+  &= (4, 2) - (3, 3) \\
+  &= (4 - 3, 2 - 3) \\
+  &= (1, -1)
+\end{aligned}
+$$
 
-The projection $(3,3)$ represents the component of $u$ parallel to the direction of $v$. The vector $r=(1,-1)$ represents the remaining component, which is perpendicular to $v$.
+**3. Verification that $r \cdot v = 0$**
 
-Thus, the original vector is decomposed into two perpendicular components: one parallel to $v$ and one perpendicular to $v$.
+$$
+\begin{aligned}
+r \cdot v &= (1)(1) + (-1)(1) \\
+          &= 1 - 1 \\
+          &= 0
+\end{aligned}
+$$
 
+Since $r \cdot v = 0$, the vector $r$ is orthogonal (perpendicular) to $v$.
+
+**4. Geometric Explanation**
+Geometrically, $\mathrm{proj}_v\,u$ is the shadow of $u$ cast orthogonally onto the line spanned by $v$. Subtracting this parallel component from $u$ leaves the residual vector $r$, which connects the tip of the projection to the tip of $u$ at a right angle. Thus, $u$ is decomposed into two orthogonal vectors: one parallel to $v$ and one perpendicular to $v$.
