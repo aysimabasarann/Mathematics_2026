@@ -1,64 +1,60 @@
-
 ### Exercise 3. Vector Normalization
 
-Given the vector
+#### Question
+For $v=(3,4)$ find a unit vector $e$ with the same direction and orientation. Check that $\|e\|=1$, reconstruct $v$ in the form $v=\|v\|e$, and explain what changes during normalization and what remains unchanged.
+
+#### Solution
+Given vector is
 
 $$
-v=(3,4)
+v = (3, 4).
 $$
 
-**1. Finding the unit vector**
-
-First, calculate the length of the vector.
+**1. Length of $v$**
 
 $$
 \begin{aligned}
-\|v\| &= \sqrt{3^2+4^2} \\
-&= \sqrt{9+16} \\
-&= \sqrt{25} \\
-&= 5
+\|v\| &= \sqrt{3^2 + 4^2} \\
+      &= \sqrt{9 + 16} \\
+      &= \sqrt{25} \\
+      &= 5
 \end{aligned}
 $$
 
-A unit vector with the same direction and orientation is obtained by dividing the original vector by its length.
+**2. Unit Vector $e$**
 
 $$
 \begin{aligned}
 e &= \frac{v}{\|v\|} \\
-&= \frac{(3,4)}{5} \\
-&= \left(\frac{3}{5},\frac{4}{5}\right)
+  &= \frac{1}{5}(3, 4) \\
+  &= \left(\frac{3}{5}, \frac{4}{5}\right)
 \end{aligned}
 $$
 
-**2. Verification of the unit vector**
-
-The length of a unit vector must be equal to 1.
+**3. Verification of $\|e\| = 1$**
 
 $$
 \begin{aligned}
-\|e\| &= \sqrt{\left(\frac{3}{5}\right)^2+\left(\frac{4}{5}\right)^2} \\
-&= \sqrt{\frac{9}{25}+\frac{16}{25}} \\
-&= \sqrt{\frac{25}{25}} \\
-&= 1
+\|e\| &= \sqrt{\left(\frac{3}{5}\right)^2 + \left(\frac{4}{5}\right)^2} \\
+      &= \sqrt{\frac{9}{25} + \frac{16}{25}} \\
+      &= \sqrt{\frac{25}{25}} \\
+      &= 1
 \end{aligned}
 $$
 
-Therefore, $e$ is a unit vector.
-
-**3. Reconstructing the original vector**
-
-Using the relation $v=\|v\|e$:
+**4. Reconstruction of $v$**
 
 $$
 \begin{aligned}
-v &= 5\left(\frac{3}{5},\frac{4}{5}\right) \\
-&= (3,4)
+\|v\|e &= 5\left(\frac{3}{5}, \frac{4}{5}\right) \\
+       &= (3, 4) \\
+       &= v
 \end{aligned}
 $$
 
-The original vector is reconstructed correctly.
+**5. Explanation**
+During normalization, the length (magnitude) of the vector is scaled to $1$. However, both the direction and the orientation of the vector remain completely unchanged.
 
-**4. Geometric interpretation**
 
-Normalization changes the length of a nonzero vector to 1 while preserving its direction and orientation. The original vector and the unit vector point in the same direction, but they have different lengths.
+
 
